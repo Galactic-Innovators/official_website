@@ -24,12 +24,6 @@ function CartScreen({ match, location, history }) {
     const GST_RATE = 0.05; // 5% GST for example purposes
     const HST_RATE = 0.13; // 13% HST for Ontario
     
-    // useEffect(() => {
-    //     if (productId) {
-    //         dispatch(addToCart(productId, qty))
-    //     }
-    // }, [dispatch, productId, qty])
-
 
     useEffect(() => {
         const fetchCustomerCartId = async () => {
@@ -74,31 +68,6 @@ function CartScreen({ match, location, history }) {
         history.push('/login?redirect=payments')
     }
 
-    // Action to update cart item quantity in the database
-    // const updateCartItemQuantity = (cartId, productId, qty) => async (dispatch, getState) => {
-    //     try {
-    //         const { userInfo } = getState().userLogin;
-    //         const config = {
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //                 Authorization: `Bearer ${userInfo.token}`,
-    //             },
-    //         };
-
-    //         await axios.put('/api/cart/update-item', { cartId, productId, qty }, config);
-
-    //         dispatch({
-    //             type: CART_UPDATE_ITEM,
-    //             payload: { productId, qty },
-    //         });
-
-    //         // Optionally, refresh the cart details after update
-    //         dispatch(fetchCartDetails(cartId));
-    //     } catch (error) {
-    //         console.error('Failed to update cart item quantity', error);
-    //         // Handle error (e.g., dispatch an error action)
-    //     }
-    // };
     const defaultImage = process.env.PUBLIC_URL + '/images/sample.jpg';
     return (
         <Row className="justify-content-center">

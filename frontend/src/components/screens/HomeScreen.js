@@ -30,9 +30,7 @@ function HomeScreen() {
     },[dispatch, dealspage])
     
     useEffect(()=>{
-      //console.log('User Info:', userInfo); // Check what userInfo contains
     if (userInfo && userInfo.accessToken) {
-      //console.log('Access Token:', userInfo.accessToken); // Check the accessToken
       dispatch(listProductsYouMayLike(maylikepage, userInfo));
     } else {
       console.log('No user info or access token available.');
@@ -80,17 +78,7 @@ function HomeScreen() {
           ) : dealserror ? (
             <Message variant="danger">{dealserror}</Message>
           ) : (
-            // dealsproducts.map((product) => (
-              
-              
-            //   <div key={product._id} className="product-card">
-            //     <Product product={product} />
-            //   </div>
-            // ))
             dealsproducts.map((product) => {
-              // Add console log here to log each product
-              // console.log(product);
-      
               return (
                 <div key={product.id} className="product-card">
                   <Product product={product} />
@@ -150,23 +138,6 @@ function HomeScreen() {
         </div>
       );
 
-    // returning all product not in scorllable window can be used in collection view
-    // return (
-    //     <div>
-    //         <h1 className="text-center">Latest Products</h1>
-    //         {loading ?(<Loader />):error ?(<Message variant='danger'>{error}</Message>):
-    //         <Row>
-    //            {products.map((product)=>(
-    //                <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
-
-    //                    <h3>{product.name}</h3>
-    //                    <Product  product={product}/>
-    //                </Col>
-    //            ))} 
-    //         </Row>
-    //         }
-    //     </div>
-    // )
 }
 
 export default HomeScreen

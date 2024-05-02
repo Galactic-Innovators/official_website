@@ -38,9 +38,6 @@ export const listProducts = (pageNumber = '', filters = {}) => async (dispatch) 
 
     const PRODUCTS_PER_PAGE = 8;
     const totalPages = Math.ceil(data.count / PRODUCTS_PER_PAGE);
-    // console.log(`Request URL: /store/products/?${queryParams}`); // Log the request URL
-    // console.log("API response:", data); // Log the full API response
-    // console.log("Dispatching data:", data.results, "Total pages:", totalPages); // Log specific parts of the response
 
     dispatch({
       type: PRODUCT_LIST_SUCCESS,
@@ -65,8 +62,6 @@ export const listDealsProducts = (pageNumber = '') => async (dispatch) => {
   try {
     dispatch({ type: DEALS_PRODUCT_LIST_REQUEST });
     const { data } = await axios.get(`/store/products/?ordering=-last_update&page=${pageNumber}`);
-    // console.log("API response:", data); // Should show the full paginated response
-    // console.log("Dispatching data:", data.results); // Should show just the array of products
     const PRODUCTS_PER_PAGE = 8;
     const totalPages = Math.ceil(data.count / PRODUCTS_PER_PAGE); 
     dispatch({
@@ -89,8 +84,6 @@ export const listDealsProducts = (pageNumber = '') => async (dispatch) => {
 
 
 export const listProductsYouMayLike = (pageNumber = '', userInfo) => async (dispatch) => {
-  // const userLogin = useSelector((state) => state.userLogin);
-  // const { userInfo } = userLogin;
   try {
     const config = {
       headers: {
@@ -98,11 +91,7 @@ export const listProductsYouMayLike = (pageNumber = '', userInfo) => async (disp
       },
     };
     dispatch({ type: MAYLIKE_PRODUCT_LIST_REQUEST });
-    // console.log('userInfo:', userInfo);
-    // console.log('config:', config);
     const { data } = await axios.get(`/store/recommendation/?page=${pageNumber}`, config);
-    // console.log("API response:", data); // Should show the full paginated response
-    // console.log("Dispatching data:", data.results); // Should show just the array of products
     const PRODUCTS_PER_PAGE = 8;
     const totalPages = Math.ceil(data.count / PRODUCTS_PER_PAGE); 
     dispatch({
@@ -128,8 +117,6 @@ export const listLatestProducts = (pageNumber = '') => async (dispatch) => {
   try {
     dispatch({ type: LATEST_PRODUCT_LIST_REQUEST });
     const { data } = await axios.get(`/store/products/?ordering=-last_update&page=${pageNumber}`);
-    // console.log("API response:", data); // Should show the full paginated response
-    // console.log("Dispatching data:", data.results); // Should show just the array of products
     const PRODUCTS_PER_PAGE = 8;
     const totalPages = Math.ceil(data.count / PRODUCTS_PER_PAGE); 
     dispatch({
@@ -174,32 +161,6 @@ export const listProductDetails =(id) => async (dispatch)=>{
   }
 }
 
-
-// export const filterProducts = (filters, pageNumber = 1) => async (dispatch) => {
-//   const PRODUCTS_PER_PAGE = 8;
-//   try {
-//     dispatch({ type: FILTER_PRODUCTS_REQUEST });
-//     const params = new URLSearchParams({ ...filters, page: pageNumber }).toString();
-//     const response = await axios.get(`http://127.0.0.1:8000/store/products/?${params}`);
-//     const requestUrl = `http://127.0.0.1:8000/store/products/?${params}`;
-//     console.log('Request URL:', requestUrl);
-
-//     const { data } = await axios.get(requestUrl);
-//     console.log('Response data:', data);
-//     dispatch({
-//       type: FILTER_PRODUCTS_SUCCESS,
-//       payload: {
-//         results: response.data.results,
-//         totalPages: Math.ceil(response.data.count / PRODUCTS_PER_PAGE), // Adjust according to your pagination logic
-//       },
-//     });
-//   } catch (error) {
-//     dispatch({
-//       type: FILTER_PRODUCTS_FAIL,
-//       payload: error.message,
-//     });
-//   }
-// };
 
 
 
