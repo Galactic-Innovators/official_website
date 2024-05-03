@@ -114,12 +114,6 @@ const FilterComponent = ({ onApplyFilter, currentFilters  }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // const selectedCollectionIds = Object.keys(selectedCollection).filter(id => selectedCollection[id]);
-    // onApplyFilter({
-    //   collection_id: selectedCollectionIds,
-    //   price_gte: priceRange.min,
-    //   price_lte: priceRange.max,
-    // });
     const selectedCollectionIds = Object.keys(selectedCollection).filter(key => selectedCollection[key]).join(',');
     const filters = {
       ...(searchQuery && { search: searchQuery }),

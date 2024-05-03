@@ -51,7 +51,7 @@ export const login = (username,password)=> async(dispatch)=>{
            payload:userInfo
        })
 
-       localStorage.setItem('userInfo',JSON.stringify(data))
+       localStorage.setItem('userInfo',JSON.stringify(userInfo));
 
 
 
