@@ -78,55 +78,8 @@ function CheckoutScreen() {
 
     const defaultImage = process.env.PUBLIC_URL + '/images/sample.jpg';
     const calculateSubtotal = () => cartItems.reduce((acc, item) => acc + item.qty * item.unit_price, 0).toFixed(2);
-    //const calculateShipping = () => {
-    //     // Assuming shippingAddress is part of your cart or user state and contains a 'country' field
-    //     const { shippingAddress } = cart;
     
-    //     // Check if country is Canada or US
-    //     if (shippingAddress && (shippingAddress.country === 'Canada' || shippingAddress.country === 'US')) {
-    //         return 'Free Shipping';
-    //     } else {
-    //         // Implement your shipping cost calculation for other countries
-    //         return 10.00; // Placeholder for shipping cost outside Canada and US
-    //     }
-    // };
-    // const calculateTaxes = (subtotal) => {
-    //     const shippingCost = calculateShipping(); 
-    //     // Assuming a tax rate, for simplicity
-    //     if (shippingAddress && (shippingAddress.country === 'Canada')){
-    //         const TAX_RATE = 0.13; // 13% tax rate as an example
-    //         const tax = (subtotal+'Free Shipping' ? 0 : parseFloat(shippingCost)) * TAX_RATE;
-    //         return tax.toFixed(2);
-    //     }
-    //     else{
-    //         const TAX_RATE = 0.13; // 13% tax rate as an example
-    //         return (subtotal * TAX_RATE).toFixed(2);
-    //     } 
-    // };
-    // const calculateTotal = () => {
-    //     const subtotal = calculateSubtotal();
-    //     const shippingCost = calculateShipping(); // Update this to ensure it returns a numeric value for shipping
-    //     const taxes = calculateTaxes(subtotal);
-    
-    //     // Ensure all values are numeric. Convert 'Free Shipping' to 0 for calculation.
-    //     const numericShippingCost = shippingCost === 'Free Shipping' ? 0 : parseFloat(shippingCost);
-    //     const numericSubtotal = parseFloat(subtotal);
-    //     const numericTaxes = parseFloat(taxes);
-    
-    //     // Ensure all components of total are numeric before summing
-    //     if (!isNaN(numericShippingCost) && !isNaN(numericSubtotal) && !isNaN(numericTaxes)) {
-    //         const total = numericSubtotal + numericShippingCost + numericTaxes;
-    //         return total.toFixed(2); // This should now always work, as total is guaranteed to be numeric
-    //     } else {
-    //         console.error("One or more components of the total are not numeric", {numericSubtotal, numericShippingCost, numericTaxes});
-    //         return 'Error calculating total'; // Or handle this scenario as appropriate for your app
-    //     }
-    // };
-
     const subtotal = calculateSubtotal();
-    // const shipping = calculateShipping();
-    // const taxes = calculateTaxes(subtotal);
-    // const total = calculateTotal(subtotal, shipping, taxes);
     
     const location = useLocation();
     const cartItemsPayload = cartItems.map(item => ({
@@ -134,66 +87,9 @@ function CheckoutScreen() {
                 amount: item.unit_price * 100, // Convert price to cents
                 currency: "cad",
                 quantity: item.qty,
+                image: item.images.length > 0 ? item.images[0].image : defaultImage, // Use a default image if no image is available
             }));
     console.log(cartItemsPayload);        
-    //strip checkout
-
-    // useEffect(() => {
-    //     // Check to see if this is a redirect back from Checkout
-    //     const query = new URLSearchParams(window.location.search);
-    //     //const values = QueryString.parse(location.search);
-    //     if (query.get("success")) { // query.get("success")
-    //       console.log("Order placed! You will receive an email confirmation.");
-    //     }
-    
-    //     if (query.get("success")) { //query.get("canceled")
-    //       console.log(
-    //         "Order canceled -- continue to shop around and checkout when you're ready."
-    //       );
-    //     }
-    //     }, []);
-
-    // const handleCheckout = async () => {
-    //     try {
-    //     // Prepare the data to send
-    //     // const subtotal = calculateSubtotal(); // Make sure this function returns the subtotal
-    //     const cartItemsPayload = cartItems.map(item => ({
-    //         name: item.name,
-    //         amount: item.unit_price * 100, // Convert price to cents
-    //         currency: "cad",
-    //         quantity: item.qty,
-    //     }));
-    //     console.log("Sending POST request to /create-checkout-session/ with payload:", { cartItems: cartItemsPayload });
-    //     // Send a POST request to your backend
-    //     const response = await fetch('/api/stripe/create-checkout-session', {
-    //         method: 'POST',
-    //         headers: {
-    //         'Content-Type': 'application/json',
-    //         'Authorization': `JWT ${userInfo.accessToken}`,
-    //         // Include any necessary headers, such as authentication tokens
-    //         },
-    //         body: JSON.stringify({
-    //             items: cartItemsPayload,
-    //         }),
-    //     });
-    
-    //     if (!response.ok) throw new Error('Network response was not ok.');
-    
-    //     const session = await response.json();
-    //     console.log("Received response from /create-checkout-session/:", session);
-    //     // Redirect to Stripe checkout using the session ID
-    //     const stripe = await stripePromise; // Assuming you've already loaded Stripe.js and created `stripePromise`
-    //     const { error } = await stripe.redirectToCheckout({
-    //         sessionId: session.id,
-    //     });
-    
-    //     if (error) {
-    //         console.log('Stripe checkout error:', error.message);
-    //     }
-    //     } catch (error) {
-    //     console.error('Error during checkout:', error.message);
-    //     }
-    // };
 
     return (
         <div className="d-flex justify-content-center align-items-start">
@@ -261,19 +157,6 @@ function CheckoutScreen() {
                                 <span style={{ fontSize: '1.5em' }}>Subtotal</span>
                                 <span style={{ fontSize: '1.5em' }}>${subtotal}</span>
                             </div>
-                            {/* <div className="d-flex justify-content-between">
-                                <strong>Shipping</strong>
-                                <strong>${shipping}</strong>
-                            </div>
-                            <div className="d-flex justify-content-between">
-                                <strong>Taxes</strong>
-                                <strong>${taxes}</strong>
-                            </div>
-                            <div className="d-flex justify-content-between">
-                                <span style={{ fontSize: '1.5em' }}>Total</span>
-                                <span style={{ fontSize: '1.5em' }}>${total}</span>
-                            </div> */}
-                            {/* Repeat for Shipping, Taxes, and Total */}
                         </ListGroup.Item>
                         {/* Discount Code Input */}
 
@@ -290,9 +173,6 @@ function CheckoutScreen() {
                 <Form.Control
                     type='text'
                     placeholder='Enter address'
-                    // value={address}
-                    // required
-                    // onChange={(e) => setAddress(e.target.value)}
                 ></Form.Control>
             </Form.Group>
 
@@ -301,9 +181,6 @@ function CheckoutScreen() {
                 <Form.Control
                     type='text'
                     placeholder='Enter city'
-                    // value={city}
-                    // required
-                    // onChange={(e) => setCity(e.target.value)}
                 ></Form.Control>
             </Form.Group>
 
@@ -312,9 +189,6 @@ function CheckoutScreen() {
                 <Form.Control
                     type='text'
                     placeholder='Enter postalCode'
-                    // value={postalCode}
-                    // required
-                    // onChange={(e) => setPostalCode(e.target.value)}
                 ></Form.Control>
             </Form.Group>
             <Form.Group controlId='country'>
@@ -322,9 +196,6 @@ function CheckoutScreen() {
                 <Form.Control
                     type='text'
                     placeholder='Enter country'
-                    // value={country}
-                    // required
-                    // onChange={(e) => setCountry(e.target.value)}
                 ></Form.Control>
             </Form.Group>
             {/* Add similar Form.Group components for city, postalCode, and country */}
@@ -399,6 +270,7 @@ function CheckoutScreen() {
                     <input type="hidden" name={`items[${index}][amount]`} value={item.amount} />
                     <input type="hidden" name={`items[${index}][currency]`} value={item.currency} />
                     <input type="hidden" name={`items[${index}][quantity]`} value={item.quantity} />
+                    <input type="hidden" name={`items[${index}][image]`} value={item.image} />
                 </React.Fragment>
                 ))}
                     <button className="checkout-button" type="submit">
