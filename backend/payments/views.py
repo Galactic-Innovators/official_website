@@ -45,23 +45,24 @@ class PaymentViewSet(APIView):
             print("name", item.get("name"))
             print("unit_amount", item.get("amount"))
             print("quantity", item.get("quantity"))
-            print("image:", item.get("images"))
+            print("stripe_id:", item.get("stripe_id"))
             input_items.append(
                 {
-                    "price_data": {
-                        "currency": str(
-                            item.get("currency", "cad")
-                        ),  # Default currency to 'cad' if not provided
-                        "product_data": {
-                            "name": str(
-                                item.get("name", "Unknown Product")
-                            ),  # Default name if not provided
-                            # 'images': [item.get('image', 'url_to_default_image')],
-                        },
-                        "unit_amount": int(
-                            round(float(item.get("amount")))
-                        ),  # Amount in cents
-                    },
+                    'price': item.get("stripe_id"),
+                    # "price_data": {
+                    #     "currency": str(
+                    #         item.get("currency", "cad")
+                    #     ),  # Default currency to 'cad' if not provided
+                    #     "product_data": {
+                    #         "name": str(
+                    #             item.get("name", "Unknown Product")
+                    #         ),  # Default name if not provided
+                    #         # 'images': [item.get('image', 'url_to_default_image')],
+                    #     },
+                    #     "unit_amount": int(
+                    #         round(float(item.get("amount")))
+                    #     ),  # Amount in cents
+                    # },
                     "quantity": int(round(float(item.get("quantity", 1)))),
                 }
             )

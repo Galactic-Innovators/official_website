@@ -31,6 +31,7 @@ class Collection(models.Model):
 class Product(models.Model):
     # sku = models.CharField(max_length = 10, primary_key=True)
     title = models.CharField(max_length=255)
+    stripe_id = models.CharField(max_length=255)
     slug = models.SlugField()
     description = models.TextField(null=True, blank=True)
     unit_price = models.DecimalField(

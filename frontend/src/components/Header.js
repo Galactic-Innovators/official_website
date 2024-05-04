@@ -9,6 +9,7 @@ function Header() {
 
   const userLogin = useSelector(state=>state.userLogin)
   const {userInfo} = userLogin
+  const logo = process.env.PUBLIC_URL + '/images/ESTR.jpg';
   const dispatch = useDispatch()
   const logoutHandler = () => {
     dispatch(logout())
@@ -20,7 +21,14 @@ function Header() {
           <Container>
 
           <LinkContainer to="/"LinkContainer>
-        <Navbar.Brand>A.R.K</Navbar.Brand>
+        {/* <Navbar.Brand>A.R.K</Navbar.Brand> */}
+        <Navbar.Brand>
+              <img
+                src={`${process.env.PUBLIC_URL}/images/ESTR.jpg`}  // Update the path to your image
+                alt="ESTR Logo"
+                style={{ width: 'auto', height: '30px' }} // You can adjust the size as needed
+              />
+            </Navbar.Brand>
         </LinkContainer>
 
         <Navbar.Toggle aria-controls="navbarScroll" />

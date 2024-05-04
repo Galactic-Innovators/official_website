@@ -116,18 +116,18 @@ function WishlistScreen({ match, location, history }) {
             };
             let currentCartId = cartUuid;
             if (!currentCartId){
-                console.log("NO CartId, reading customer info");
+                // console.log("NO CartId, reading customer info");
                 const customerResponse = await axios.get('/store/customers/', config);
                 const customerDetails = customerResponse.data.find(customer => customer.user_id === userInfo.id);
-                console.log(customerDetails);
+                // console.log(customerDetails);
                 currentCartId = customerDetails.cart_id;
-                console.log("CART ID:", currentCartId);
+                // console.log("CART ID:", currentCartId);
             }
             if (!currentCartId){
-                console.log("NO CartId, creating one");
+                // console.log("NO CartId, creating one");
                 const { data } = await axios.post('/store/carts/', {}, config);
                 currentCartId = data.id; 
-                console.log("Cart created:", currentCartId);
+                // console.log("Cart created:", currentCartId);
             }
             if(!currentCartId){
                 console.error("No Cart Id");
@@ -140,7 +140,7 @@ function WishlistScreen({ match, location, history }) {
     
             await axios.post(`/store/carts/${currentCartId}/items/`, postData, config);
     
-            console.log(`Product ${productId} added to cart ${currentCartId}`);
+            // console.log(`Product ${productId} added to cart ${currentCartId}`);
     
             // Remove the item from the wishlist after adding it to the cart
             dispatch(removeFromLikes(productId));

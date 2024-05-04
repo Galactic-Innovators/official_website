@@ -41,7 +41,7 @@ import { CART_CLEAR, CART_ADD_ITEM ,CART_REMOVE_ITEM, CART_DETAILS_REQUEST,
                       product: item.product.id,
                       name: item.product.title,
                       images: item.product.images, // Assuming you have an image URL or path here
-                      stripe_id: item.stripe_id,
+                      stripe_id: item.product.stripe_id,
                       total_price: item.total_price,
                       unit_price: item.product.unit_price,
                       qty: item.quantity,

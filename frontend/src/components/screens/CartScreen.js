@@ -15,22 +15,13 @@ function CartScreen({ match, location, history }) {
     // const [cartUuid, setCartUuid] = useState('');
     const userLogin = useSelector(state => state.userLogin);
     const { userInfo } = userLogin;
-    console.log("User Info",userInfo);
+    // console.log("User Info",userInfo);
     const cart = useSelector(state => state.cart)
-    const { cartItems } = cart
-    // const cartId = "yourCartIdHere"; 
-
-
-    const GST_RATE = 0.05; // 5% GST for example purposes
-    const HST_RATE = 0.13; // 13% HST for Ontario
+    //const { cartItems } = cart
+    const cartItems = useSelector(state => state.cart.cartItems);
+    console.log("cart", cart);
+    console.log("cartItem", cartItems);
     
-    // useEffect(() => {
-    //     if (productId) {
-    //         dispatch(addToCart(productId, qty))
-    //     }
-    // }, [dispatch, productId, qty])
-
-
     useEffect(() => {
         const fetchCustomerCartId = async () => {
             if (!userInfo) {
@@ -43,11 +34,11 @@ function CartScreen({ match, location, history }) {
                         'Authorization': `JWT ${userInfo.accessToken}`, 
                     },
                 };
-                console.log("Getting /store/customers/ with key", `JWT ${userInfo.accessToken}`);
+                // console.log("Getting /store/customers/ with key", `JWT ${userInfo.accessToken}`);
                 const { data } = await axios.get('/store/customers/', config);
                 // Assuming the response includes the cart_id directly
                 const customerCartId = data.find(customer => customer.user_id === userInfo.id).cart_id;
-                console.log("cartID:", customerCartId);
+                // console.log("cartID:", customerCartId);
                 if (customerCartId) {
                     dispatch(fetchCartDetails(customerCartId));
                 }
@@ -62,7 +53,7 @@ function CartScreen({ match, location, history }) {
 
     useEffect(() => {
         if (productId && cart.cartId) {
-            dispatch(addToCart(cart.cartId, productId, qty));
+            dispatch(addToCart(productId, qty));
         }
     }, [dispatch, productId, qty, cart.cartId]);
 
@@ -187,7 +178,7 @@ function CartScreen({ match, location, history }) {
                             ${cartItems.reduce((acc, item) => acc + item.qty * item.unit_price, 0).toFixed(2)}
                         </div>
                         {/* GST/HST Calculation */}
-                        <div>GST/HST (13%): 
+                        <div>GST/HST Estimated: 
                             ${(
                                 0.13 * cartItems.reduce((acc, item) => acc + item.qty * item.unit_price, 0)
                             ).toFixed(2)}
