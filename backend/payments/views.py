@@ -50,7 +50,7 @@ class PaymentViewSet(APIView):
             # print("stripe_id:", item.get("stripe_id"))
             input_items.append(
                 {
-                    'price': item.get("stripe_id"),
+                    "price": item.get("stripe_id"),
                     # "price_data": {
                     #     "currency": str(
                     #         item.get("currency", "cad")
@@ -79,18 +79,25 @@ class PaymentViewSet(APIView):
                 success_url="http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}",
                 # success_url='http://localhost:3000/?success&session_id={CHECKOUT_SESSION_ID}',
                 # cancel_url="http://localhost:3000/?canceled=true",
-                cancel_url='http://localhost:3000/cart/:id?',
-                automatic_tax={"enabled": True},  # Enable or disable automatic tax calculation
+                cancel_url="http://localhost:3000/cart/:id?",
+                automatic_tax={
+                    "enabled": True
+                },  # Enable or disable automatic tax calculation
                 billing_address_collection="required",  # Set to 'required' to collect billing address
-                shipping_options=[{"shipping_rate": "shr_1P1h9kLyCz9ytZLnNjnm4TMt"}], # Use 'shipping_options' to specify shipping rates
+                shipping_options=[
+                    {"shipping_rate": "shr_1P1h9kLyCz9ytZLnNjnm4TMt"}
+                ],  # Use 'shipping_options' to specify shipping rates
                 shipping_address_collection={
                     "allowed_countries": [
-                        "US","CA",
+                        "US",
+                        "CA",
                     ],  # Specify allowed countries for shipping
                 },
                 allow_promotion_codes=True,  # This enables promotion code input
                 # setup_future_usage='on_session',  # Save card for future off_session use
-                phone_number_collection={'enabled': True},  # Requires providing phone number
+                phone_number_collection={
+                    "enabled": True
+                },  # Requires providing phone number
             )
             return redirect(checkout_session.url)
             # return JsonResponse({'sessionId': checkout_session['id']})
