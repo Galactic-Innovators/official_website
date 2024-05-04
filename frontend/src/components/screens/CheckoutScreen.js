@@ -9,11 +9,6 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
-// import { saveShippingAddress } from '../../actions/cartActions'; // You need to implement this
-
-// import paypalLogo from '../../assets/paypal.png'; // Path to PayPal logo
-// import shopLogo from '../../assets/shop.png'; // Path to shop logo
-// import applePayLogo from '../../assets/applepay.png'; // Path to Apple Pay logo
 
 import paypalLogo from '../../images/paypl.png'; // Path to PayPal logo
 import shopLogo from '../../images/shop.jpg'; // Path to shop logo
@@ -33,10 +28,6 @@ function CheckoutScreen() {
     const { shippingAddress } = cart;
     console.log("Checkout Cart",cart);
 
-    // const [address, setAddress] = useState(shippingAddress.address || '');
-    // const [city, setCity] = useState(shippingAddress.city || '');
-    // const [postalCode, setPostalCode] = useState(shippingAddress.postalCode || '');
-    // const [country, setCountry] = useState(shippingAddress.country || '');
     const [showOrderSummary, setShowOrderSummary] = useState(false);
     
 
@@ -78,7 +69,7 @@ function CheckoutScreen() {
 
     const defaultImage = process.env.PUBLIC_URL + '/images/sample.jpg';
     const calculateSubtotal = () => cartItems.reduce((acc, item) => acc + item.qty * item.unit_price, 0).toFixed(2);
-    
+
     const subtotal = calculateSubtotal();
     
     const location = useLocation();
@@ -146,19 +137,12 @@ function CheckoutScreen() {
                             </div>
                         </ListGroup.Item>
                         ))}
-                        {/* <ListGroup.Item>
-                            <div className="d-flex">
-                                <input type="text" className="form-control" placeholder="Discount code or gift card" />
-                                <Button variant="outline-secondary" className="ml-2">Apply</Button>
-                            </div>
-                        </ListGroup.Item> */}
                         <ListGroup.Item>
                             <div className="d-flex justify-content-between">
                                 <span style={{ fontSize: '1.5em' }}>Subtotal</span>
                                 <span style={{ fontSize: '1.5em' }}>${subtotal}</span>
                             </div>
                         </ListGroup.Item>
-                        {/* Discount Code Input */}
 
                     </ListGroup>
                 )}
@@ -198,11 +182,8 @@ function CheckoutScreen() {
                     placeholder='Enter country'
                 ></Form.Control>
             </Form.Group>
-            {/* Add similar Form.Group components for city, postalCode, and country */}
 
-             {/* </Form> */}
-
-             <div style={{ height: '2rem' }}></div> {/* Adjust '2rem' to the amount of space you want */}                        
+             <div style={{ height: '2rem' }}></div>                 
 
 
             <Form.Group className="text-center mb-4">
@@ -238,30 +219,13 @@ function CheckoutScreen() {
                 <Card.Text className="text-muted" style={{ fontSize: '1rem' }}>
                     All transactions are secure and encrypted. Powered by Stripe.
                 </Card.Text>
-                {/* <div className="mt-4">
-                    <Elements stripe={stripePromise}>
-                    <CheckoutForm />
-                    </Elements>
-                </div> */}
+               
                 </Card.Body>
             </Card>
-            {/* {message ? (
-                    <p>{message}</p>
-                ) : (
-                    <Button onClick={handleCheckout}>Proceed to Payment</Button>
-                )} */}
+
 
                 <section>
-                {/* <div className="product">
-                    <img
-                    src="https://i.imgur.com/EHyR2nP.png"
-                    alt="The cover of Stubborn Attachments"
-                    />
-                    <div className="description">
-                    <h3>Stubborn Attachments</h3>
-                    <h5>$20.00</h5>
-                    </div>
-                </div> */}
+                
                 <form action="/api/stripe/create-checkout-session" method="POST"> 
                 {cartItemsPayload.map((item, index) => (
                 <React.Fragment key={item.id}>
@@ -276,9 +240,7 @@ function CheckoutScreen() {
                     <button className="checkout-button" type="submit">
                     Proceed to Payment
                     </button>
-                    {/* <button className="checkout-button" onClick={handleCheckout}>
-                    Proceed to Payment
-                    </button> */}
+                    
                 </form>
                 </section>
             

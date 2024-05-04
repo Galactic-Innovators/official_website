@@ -91,7 +91,7 @@ function ProductScreen({ match, history }) {
         };
         const { data } = await axios.post('/store/carts/', {}, config);
         currentCartId = data.id; // Assuming the response includes the cart ID
-        // console.log(currentCartId,"not id");
+       
         // Optionally, update the cartUuid state or redux store with the new cart ID
       }
 
@@ -102,9 +102,7 @@ function ProductScreen({ match, history }) {
             'Authorization': `JWT ${userInfo.accessToken}`,
           },
         };
-        // const response = await axios.get(`/store/products/${id}/`, config);
-        // const product_data = response.data; // This is the correct way to access the returned data
-        // console.log(`/store/products/${id}/`, product_data);
+        
         const postData = {
           product_id: id, // id from useParams()
           quantity: qty,
@@ -120,7 +118,7 @@ function ProductScreen({ match, history }) {
       console.error('Failed to add item to cart:', error);
       // Handle error, e.g., show error message
     }
-    // history.push(`/cart/`)
+
   }
 
 
@@ -143,7 +141,7 @@ function ProductScreen({ match, history }) {
         console.log("POSTING: /store/likes/ with ", config)
         const { data } = await axios.post('/store/likes/', {}, config);
         currentLikesId = data.id; // Assuming the response includes the likes ID
-        // console.log(currentLikesId,"not id");
+       
         // Optionally, update the likesUuid state or redux store with the new likes ID
       }
 
@@ -154,15 +152,12 @@ function ProductScreen({ match, history }) {
             'Authorization': `JWT ${userInfo.accessToken}`,
           },
         };
-        // const response = await axios.get(`/store/products/${id}/`, config);
-        // const product_data = response.data; // This is the correct way to access the returned data
-        // console.log(`/store/products/${id}/`, product_data);
         const postData = {
           product_id: id, // id from useParams()
           quantity: qty,
         };
 
-        // console.log(currentLikesId,"with id");
+       
         await axios.post(`/store/likes/${currentLikesId}/items/`, postData, config);
 
         // Redirect to cart page or show success message
@@ -172,7 +167,7 @@ function ProductScreen({ match, history }) {
       console.error('Failed to add item to wishlist:', error);
       // Handle error, e.g., show error message
     }
-    // history.push(`/wishlist/`)
+    
   }
 
 

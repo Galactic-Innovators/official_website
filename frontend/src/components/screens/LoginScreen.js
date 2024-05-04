@@ -22,26 +22,6 @@ function LoginScreen({location,history}) {
     const userLogin = useSelector(state=>state.userLogin)
     const {error,loading,userInfo}=userLogin
 
-    // useEffect(()=>{
-    //     if(userInfo){
-    //         history.push(redirect)
-    //     }
-    // },[history,userInfo,redirect])
-
-  //   useEffect(() => {
-  //     if (userInfo) {
-  //         // Option 1: Clear local storage cart items
-  //         localStorage.removeItem('cartItems');
-          
-  //         // Option 2: Ideally, here you'd fetch and load user's cart items from server
-  //         // Assuming you have a function to fetch cart items
-  //         fetchCartDetails(userInfo.userId).then(cartItems => {
-  //             localStorage.setItem('cartItems', JSON.stringify(cartItems));
-  //         });
-
-  //         history.push(redirect);
-  //     }
-  // }, [history, userInfo, redirect]);
 
     useEffect(() => {
       if (userInfo) {
@@ -68,11 +48,6 @@ function LoginScreen({location,history}) {
 
           <Form onSubmit={submitHandler}>
 
-
-              {/* <Form.Group controlId='email'>
-                <Form.Label>Email Address </Form.Label>
-                <Form.Control required type='email' placeholder='Enter Email' value={email} onChange={(e)=> setEmail(e.target.value)}></Form.Control>
-              </Form.Group> */}
               <Form.Group controlId='username'>
                 <Form.Label>Username</Form.Label>
                 <Form.Control
