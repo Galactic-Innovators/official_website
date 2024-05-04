@@ -52,7 +52,7 @@ function App() {
           <Route path="/aboutus" component={AboutScreen} exact />
           <Route path="/contactus" component={ContactScreen} exact />
           <Route path="/profile" component={ProfileScreen}/>
-          <Route path="/payments" component={CheckoutScreen} exact />
+          {/* <Route path="/payments" component={CheckoutScreen} exact /> */}
           <Route path="/order-confirmation" component={OrderConfirmationScreen} />
           <Route path="/success" component={SuccessScreen} />
         </Container>

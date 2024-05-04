@@ -78,6 +78,7 @@ function CheckoutScreen() {
                 amount: item.unit_price * 100, // Convert price to cents
                 currency: "cad",
                 quantity: item.qty,
+                stripe_id: item.stripe_id, // Use a default image if no image is available
             }));
     console.log(cartItemsPayload);        
 
@@ -233,6 +234,7 @@ function CheckoutScreen() {
                     <input type="hidden" name={`items[${index}][amount]`} value={item.amount} />
                     <input type="hidden" name={`items[${index}][currency]`} value={item.currency} />
                     <input type="hidden" name={`items[${index}][quantity]`} value={item.quantity} />
+                    <input type="hidden" name={`items[${index}][stripe_id]`} value={item.stripe_id} />
                 </React.Fragment>
                 ))}
                     <button className="checkout-button" type="submit">

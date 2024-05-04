@@ -43,6 +43,7 @@ class TestUploadImage:
         collection = Collection.objects.create(title="Test Collection")
         product_data = {
             "title": "asdf",
+            "stripe_id": "adsf",
             "description": "adsf",
             "slug": "-",
             "inventory": 10,
@@ -66,6 +67,7 @@ class TestUploadImage:
         collection = Collection.objects.create(title="Test Collection")
         product_data = {
             "title": "asdf",
+            "stripe_id": "adsf",
             "description": "adsf",
             "slug": "-",
             "inventory": 10,
@@ -89,6 +91,7 @@ class TestUploadImage:
         collection = Collection.objects.create(title="Test Collection")
         product_data = {
             "title": "asdf",
+            "stripe_id": "adsf",
             "description": "adsf",
             "slug": "-",
             "inventory": 10,
@@ -130,6 +133,7 @@ class TestCreateproduct:
         response = create_product(
             {
                 "title": "asdf",
+                "stripe_id": "adsf",
                 "description": "adsf",
                 "slug": "-",
                 "inventory": 10,
@@ -155,6 +159,7 @@ class TestCreateproduct:
         response = create_product(
             {
                 "title": "asdf",
+                "stripe_id": "adsf",
                 "description": "adsf",
                 "slug": "-",
                 "inventory": 10,
@@ -180,6 +185,7 @@ class TestRetrieveproduct:
         assert response.status_code == status.HTTP_200_OK
         assert response.data == {
             "id": product.id,
+            "stripe_id": product.stripe_id,
             "title": product.title,
             "description": product.description,
             "slug": product.slug,
@@ -226,6 +232,7 @@ class TestProducts:
         response = create_product(
             {
                 "title": "a",
+                "stripe_id": "a",
                 "slug": "a",
                 "unit_price": 0.01,
                 "inventory": 1,
