@@ -22,6 +22,7 @@ function CartScreen({ match, location, history }) {
     console.log("cart", cart);
     console.log("cartItem", cartItems);
     const stripePromise = loadStripe('pk_test_kbqUrvH0YXB7wc9EHEO6e9dP00Ox2h6G5M');
+
     useEffect(() => {
         const fetchCustomerCartId = async () => {
             if (!userInfo) {
@@ -73,31 +74,6 @@ function CartScreen({ match, location, history }) {
         history.push('/login?redirect=payments')
     }
 
-    // Action to update cart item quantity in the database
-    // const updateCartItemQuantity = (cartId, productId, qty) => async (dispatch, getState) => {
-    //     try {
-    //         const { userInfo } = getState().userLogin;
-    //         const config = {
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //                 Authorization: `Bearer ${userInfo.token}`,
-    //             },
-    //         };
-
-    //         await axios.put('/api/cart/update-item', { cartId, productId, qty }, config);
-
-    //         dispatch({
-    //             type: CART_UPDATE_ITEM,
-    //             payload: { productId, qty },
-    //         });
-
-    //         // Optionally, refresh the cart details after update
-    //         dispatch(fetchCartDetails(cartId));
-    //     } catch (error) {
-    //         console.error('Failed to update cart item quantity', error);
-    //         // Handle error (e.g., dispatch an error action)
-    //     }
-    // };
     const defaultImage = process.env.PUBLIC_URL + '/images/sample.jpg';
     return (
         <Row className="justify-content-center">
