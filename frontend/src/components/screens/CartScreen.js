@@ -5,7 +5,7 @@ import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap'
 import Message from '../Message'
 import { addToCart,removeFromCart, fetchCartDetails } from '../../actions/cartActions'
 import axios from 'axios';
-
+import { loadStripe } from '@stripe/stripe-js';
 
 function CartScreen({ match, location, history }) {
     const productId = match.params.id
@@ -21,7 +21,7 @@ function CartScreen({ match, location, history }) {
     const cartItems = useSelector(state => state.cart.cartItems);
     console.log("cart", cart);
     console.log("cartItem", cartItems);
-    
+    const stripePromise = loadStripe('pk_test_kbqUrvH0YXB7wc9EHEO6e9dP00Ox2h6G5M');
     useEffect(() => {
         const fetchCustomerCartId = async () => {
             if (!userInfo) {
@@ -50,6 +50,14 @@ function CartScreen({ match, location, history }) {
         fetchCustomerCartId();
     }, [userInfo, history, dispatch]);
 
+    const cartItemsPayload = cartItems.map(item => ({
+        name: item.name,
+        amount: item.unit_price * 100, // Convert price to cents
+        currency: "cad",
+        quantity: item.qty,
+        stripe_id: item.stripe_id, // Use a default image if no image is available
+    }));
+    console.log(cartItemsPayload);       
 
     useEffect(() => {
         if (productId && cart.cartId) {
@@ -193,7 +201,7 @@ function CartScreen({ match, location, history }) {
                     </ListGroup>
 
                     <ListGroup.Item>
-                        <Button
+                        {/* <Button
                             type='button'
                             className='btn-block'
                             disabled={cartItems.length === 0}
@@ -201,6 +209,25 @@ function CartScreen({ match, location, history }) {
                         >
                             Proceed To Checkout
                         </Button>
+                         */}
+                         <form action="/api/stripe/create-checkout-session" method="POST"> 
+                        {cartItemsPayload.map((item, index) => (
+                        <React.Fragment key={item.id}>
+                            {/* <input type="hidden" name={`items[${index}][id]`} value={item.id} />
+                            <input type="hidden" name={`items[${index}][name]`} value={item.name} />
+                            <input type="hidden" name={`items[${index}][amount]`} value={item.amount} />
+                            <input type="hidden" name={`items[${index}][currency]`} value={item.currency} /> */}
+                            <input type="hidden" name={`items[${index}][quantity]`} value={item.quantity} />
+                            <input type="hidden" name={`items[${index}][stripe_id]`} value={item.stripe_id} />
+                        </React.Fragment>
+                        ))}
+                            <button className="checkout-button" type="submit">
+                            Proceed to Payment
+                            </button>
+                            {/* <button className="checkout-button" onClick={handleCheckout}>
+                            Proceed to Payment
+                            </button> */}
+                        </form>
                     </ListGroup.Item>
 
 

@@ -16,7 +16,9 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 class PaymentViewSet(APIView):
     def post(self, request):
         parsed_items = []
-
+        # print("request:", request, "\n\n")
+        # print("request.data", request.data, "\n\n")
+        # print("request.data.items()", request.data.items(), "\n\n")
         # Iterate through the request data
         for key, value in request.data.items():
             # Check if the key starts with 'items[' to identify item data
@@ -41,11 +43,11 @@ class PaymentViewSet(APIView):
         items = parsed_items
         input_items = []
         for item in items:
-            print("currency: ", item.get("currency"))
-            print("name", item.get("name"))
-            print("unit_amount", item.get("amount"))
-            print("quantity", item.get("quantity"))
-            print("stripe_id:", item.get("stripe_id"))
+            # print("currency: ", item.get("currency"))
+            # print("name", item.get("name"))
+            # print("unit_amount", item.get("amount"))
+            # print("quantity", item.get("quantity"))
+            # print("stripe_id:", item.get("stripe_id"))
             input_items.append(
                 {
                     'price': item.get("stripe_id"),
@@ -66,7 +68,7 @@ class PaymentViewSet(APIView):
                     "quantity": int(round(float(item.get("quantity", 1)))),
                 }
             )
-        print("input_items:\n", input_items)
+        # print("input_items:\n", input_items)
 
         YOUR_DOMAIN = "http://127.0.0.1:3000/"
         try:
@@ -74,10 +76,10 @@ class PaymentViewSet(APIView):
                 line_items=input_items,
                 payment_method_types=["card"],
                 mode="payment",
-                success_url="http://localhost:3000/?success?session_id={CHECKOUT_SESSION_ID}",
+                success_url="http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}",
                 # success_url='http://localhost:3000/?success&session_id={CHECKOUT_SESSION_ID}',
                 # cancel_url="http://localhost:3000/?canceled=true",
-                cancel_url='http://localhost:3000/canceled',
+                cancel_url='http://localhost:3000/cart/:id?',
                 automatic_tax={"enabled": True},  # Enable or disable automatic tax calculation
                 billing_address_collection="required",  # Set to 'required' to collect billing address
                 shipping_options=[{"shipping_rate": "shr_1P1h9kLyCz9ytZLnNjnm4TMt"}], # Use 'shipping_options' to specify shipping rates
