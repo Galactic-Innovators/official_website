@@ -13,7 +13,7 @@ develop-eggs/
 dist/
 downloads/
 /backend/store/migrations/
-/backend/storefront/settings/
+/backend/storefront/settings/dev.py
 eggs/
 .eggs/
 lib/

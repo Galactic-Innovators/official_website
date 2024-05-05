@@ -1,26 +1,59 @@
 import React from 'react';
 import { Container, Image } from 'react-bootstrap';
-
+import '../../Testing.css';
 function AboutScreen() {
   const defaultImage = process.env.PUBLIC_URL + '/images/playstation.jpg';
 
   return (
-    <div>
-      {/* Image Section */}
-      <Image src={defaultImage} fluid style={{ width: '100%', height: '80vh', objectFit: 'cover' }} />
-      
-      {/* Text Content Section */}
-      <Container className="mt-4">
-        <p>In recent times, there has been a notable surge in individuals desiring to establish their own online stores and sell personal products. However, many of them face significant challenges, particularly in understanding how to start and in attracting the right customer base. To address this challenge, our project proposes the development of an innovative web application designed to assist individuals in launching and growing their e-commerce businesses. As for its category, it will be an application in an established area.</p>
-
-        <p>The web application will be developed using the Django framework. The core functionality of our web application revolves around a sophisticated recommendation system. Utilizing machine learning algorithms, such as collaborative filtering, our system aims to match the right products with the right customers, thereby enhancing the purchase rate and aiding business growth for our users. This technology will be powered by user input data collected through a custom-built collector API, with data being securely stored in a cloud-based database.</p>
-
-        <p>Our product gives the user the ability to jumpstart their e-commerce ventures with minimal initial investment, tapping into a market that was previously challenging to access.</p>
-
-        <p>Furthermore, we expect that the project will be an enriching learning experience for our team. It offers an opportunity to deepen our understanding of the Software Development Life Cycle and Agile development methodologies. And through this project, we anticipate enhancing our skills in both front-end and back-end development. More importantly, it provides a practical platform to apply machine learning algorithms in solving real-world problems.</p>
-
-        <p>In summary, our project not only aims to empower emerging e-commerce entrepreneurs but also serves as an opportunity for our team's growth in various domains of software development and machine learning application.</p>
-      </Container>
+<div className='main-container'>
+      <div className='flex-row-ebc'>
+        <div className='site-logo'>
+          <div className='line' />
+          <div className='line-1' />
+          <div className='line-2' />
+          <div className='site-logo-3'>
+            <span className='site'>Site</span>
+            <span className='logo'>Logo</span>
+          </div>
+        </div>
+        <div className='menu-header'>
+          <span className='about'>About</span>
+          <span className='features'>Features</span>
+          <span className='pricing'>Pricing</span>
+          <span className='gallery'>Gallery</span>
+          <span className='team'>Team</span>
+        </div>
+      </div>
+      <div className='mercedes-glk-matic-coupe'>
+        <span className='mercedes'>Honda </span>
+        <span className='glk-300-4matic'>Civic Type R</span>
+        <span className='mercedes-4'> Hatchback</span>
+      </div>
+      <button className='button'>
+        <span className='more'>More</span>
+      </button>
+      <div className='flex-row-ff'>
+        <div className='image' />
+        <span className='engine'>Engine</span>
+        <span className='max-speed'>Max Speed</span>
+        <span className='hp'>315 hp</span>
+        <span className='km-h'>275 km/h </span>
+        <span className='kmpl'>2.0 L 4-cylinder</span>
+        <span className='sec'>
+          5.3 sec <br />
+        </span>
+      </div>
+      <div className='flex-row-bfb'>
+        <div className='social'>
+          <div className='vector' />
+        </div>
+        <div className='social-5' />
+        <div className='instagram' />
+        <div className='vector-6' />
+        <div className='ellipse' />
+        <div className='ellipse-7' />
+        <div className='ellipse-8' />
+      </div>
     </div>
   );
 }
