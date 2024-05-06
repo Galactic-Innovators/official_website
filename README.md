@@ -1,4 +1,4 @@
-# AI-Powered E-Commerce App Django
+# East_Side_Type_R Web App
 
 ![Django CI](https://github.com/ECE651Group16/AI-Powered-E-Commerce-App/actions/workflows/django.yml/badge.svg?branch=main) ![Node CI](https://github.com/ECE651Group16/AI-Powered-E-Commerce-App/actions/workflows/react.yml/badge.svg?branch=main) 
 
@@ -91,5 +91,5 @@ Distributed under the Apache License Version 2.0 License. See [LICENSE](LICENSE)
 
 ## 📩 Contact
 
-Project Link: https://github.com/ECE651Group16/AI-Powered-E-Commerce-App
+Email: IT@gigoffical.com
 
