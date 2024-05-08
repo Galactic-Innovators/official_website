@@ -1,6 +1,6 @@
 import React from 'react'
 import { Spinner } from 'react-bootstrap'
-import { reuleaux } from 'ldrs'
+// import { reuleaux } from 'ldrs'
 
 
 // Default values shown
@@ -9,7 +9,7 @@ import { reuleaux } from 'ldrs'
 
 function Loader() {
   
-  reuleaux.register()
+  // reuleaux.register()
     return (
       //   <Spinner animation="border" role="status" style={{height:'100px',width:'100px',margin:'auto',display:'block'}}>
       //   <span className="sr-only">Loading...</span>
