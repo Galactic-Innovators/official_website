@@ -14,20 +14,27 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  /* background-color: #282c34; */
+  background-color: #882e2a;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  /* color: white; */
+  color: #d7d7d7;
 }
 
 .App-link {
   color: #61dafb;
 }
-
+.nav-link {
+  font-size: 1.1rem; /* Adjust the size as needed */
+}
+.nav-dropdown-item {
+  font-size: 1.1rem;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -45,12 +52,6 @@
   align-items: stretch;
   
 }
-
-/* .product-card {
-  display: inline-block;
-  margin: 10px;
-  width: 200px; 
-} */
 
 .product-card {
   display: flex;
