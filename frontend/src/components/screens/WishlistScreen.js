@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams, useHistory  } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap'
-import Message from '../Message'
+import Message from '../Message';
+import Loader from '../Loader';
 import { addTolikes,removeFromLikes, fetchLikesDetails } from '../../actions/likesActions'
 import axios from 'axios';
 
 
 function WishlistScreen({ match, location, history }) {
-    // const { id } = useParams();
-    // console.log("Wishlist ID from URL:", id); 
+    const [loading, setLoading] = useState(true); // Initialize loading state
     const productId = match.params.id
     const qty = location.search ? Number(location.search.split('=')[1]) : 1
     const dispatch = useDispatch()
@@ -51,6 +51,8 @@ function WishlistScreen({ match, location, history }) {
                 }
             } catch (error) {
                 console.error('Failed to fetch customer cart ID:', error);
+            } finally {
+                setLoading(false); // Set loading to false once data is fetched or in case of an error
             }
         };
 
@@ -58,34 +60,6 @@ function WishlistScreen({ match, location, history }) {
     }, [userInfo, history, dispatch]);
 
 
-
-    // useEffect(() => {
-    //     const fetchCustomerLikesId = async () => {
-    //         if (!userInfo) {
-    //             history.push('/login');
-    //             return;
-    //         }
-    //         try {
-    //             const config = {
-    //                 headers: {
-    //                     'Authorization': `JWT ${userInfo.accessToken}`, 
-    //                 },
-    //             };
-    //             console.log("Getting /store/customers/ with key", `JWT ${userInfo.accessToken}`);
-    //             const { data } = await axios.get('/store/customers/', config);
-    //             // Assuming the response includes the likes_id directly
-    //             const customerlikesId = data.find(customer => customer.user_id === userInfo.id).likes_id;
-    //             console.log("likes_ID:", customerlikesId);
-    //             if (customerlikesId) {
-    //                 dispatch(fetchLikesDetails(customerlikesId));
-    //             }
-    //         } catch (error) {
-    //             console.error('Failed to fetch customer likes ID:', error);
-    //         }
-    //     };
-
-    //     fetchCustomerLikesId();
-    // }, [userInfo, history, dispatch]);
 
 
     useEffect(() => {
@@ -155,6 +129,9 @@ function WishlistScreen({ match, location, history }) {
     };
 
     const defaultImage = process.env.PUBLIC_URL + '/images/sample.jpg';
+    if (loading) {
+        return <Loader />; // Render Loader while loading is true
+    }
     return (
         <Row>
             <Col>

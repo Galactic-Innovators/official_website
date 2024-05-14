@@ -1,5 +1,6 @@
 import React from 'react'
 import { Spinner } from 'react-bootstrap'
+import { RingLoader } from 'react-spinners'
 // import { reuleaux } from 'ldrs'
 
 
@@ -16,7 +17,7 @@ function Loader() {
       // </Spinner>
       <div style={{ height: '100px', width: '100px', margin: 'auto', display: 'block' }}>
             
-      <l-reuleaux
+      {/* <l-reuleaux
       size="80"
       stroke="10"
       stroke-length="0.15"
@@ -24,6 +25,8 @@ function Loader() {
       speed="1.2" 
       color="#882e2a" 
     ></l-reuleaux>
+     */}
+     <RingLoader color="#60d4f9" />
          </div>
 
     )

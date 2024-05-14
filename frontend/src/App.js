@@ -42,7 +42,8 @@ function App() {
       <Header />
       <main className="py-3">
         <Container>
-          <Route path="/" component={HomeScreen} exact />
+          <Route path="/" component={AboutScreen} exact />
+          <Route path="/home" component={HomeScreen} exact />
           <Route path="/login" component={LoginScreen} exact />
           <Route path="/register" component={RegisterScreen} exact />
           <Route path="/products/:id" component={ProductScreen} exact />

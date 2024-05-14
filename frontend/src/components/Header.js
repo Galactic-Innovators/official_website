@@ -18,14 +18,14 @@ function Header() {
   return (
     <div>
       {/* bg="dark" transparent variant="dark" */}
-      <Navbar  style={{ backgroundColor: '#d4dad8' }} variant="secondary">
+      <Navbar  style={{ backgroundColor: '#07072b' }} variant="dark">
           <Container>
 
           <LinkContainer to="/">
           <Navbar.Brand>
             <img
-              src={`${process.env.PUBLIC_URL}/images/ESTR.jpg`}
-              alt="ESTR Logo"
+              src={`${process.env.PUBLIC_URL}/images/gig_logo.jpg`}
+              alt="gig Logo"
               style={{ width: 'auto', height: '50px' }}
             />
           </Navbar.Brand>

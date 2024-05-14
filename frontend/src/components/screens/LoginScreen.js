@@ -21,17 +21,20 @@ function LoginScreen({location,history}) {
  
     const userLogin = useSelector(state=>state.userLogin)
     const {error,loading,userInfo}=userLogin
-
+    const [delay, setDelay] = useState(false); // Initialize delay state
 
     useEffect(() => {
       if (userInfo) {
-        localStorage.removeItem('cartItems');
-        localStorage.removeItem('likesItems');
-        dispatch(clearCart()); // Clear the cart in Redux state
-        dispatch(clearLikes()); 
-        dispatch(fetchCartDetails(userInfo.cartId)); // Optionally, fetch the new user's cart
-        dispatch(fetchLikesDetails(userInfo.likesId));
-        history.push(redirect);
+        setDelay(true); // Set delay state to true upon successful login
+        setTimeout(() => {
+          localStorage.removeItem('cartItems');
+          localStorage.removeItem('likesItems');
+          dispatch(clearCart()); // Clear the cart in Redux state
+          dispatch(clearLikes()); 
+          dispatch(fetchCartDetails(userInfo.cartId)); // Optionally, fetch the new user's cart
+          dispatch(fetchLikesDetails(userInfo.likesId));
+          history.push(redirect);
+      }, 2000); // 1-second delay
       }
     }, [history, userInfo, redirect, dispatch]);
 
@@ -39,12 +42,13 @@ function LoginScreen({location,history}) {
         e.preventDefault()
         dispatch(login(username,password))
     }
+
     return (
         <div>
          <FormContainer>
           <h1>Sign In</h1>
           {error && <Message variant='danger'>{error}</Message>}
-          {loading && <Loader />}
+          {(delay) && <Loader />}
 
           <Form onSubmit={submitHandler}>
 

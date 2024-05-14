@@ -173,6 +173,7 @@ function ProductScreen({ match, history }) {
 
 
   // Testing code for loader!!!! DONT!!! DELETE!!!  
+
   // const [isLoading, setIsLoading] = useState(false);
 
   // useEffect(() => {
