@@ -25,6 +25,7 @@ function ProductScreen({ match, history }) {
   const maxReviewsDisplay = 2;
 
 
+
   // Function to go back to the previous page
   const goBackHandler = () => {
     history.goBack();
@@ -169,6 +170,29 @@ function ProductScreen({ match, history }) {
     }
     
   }
+
+
+  // Testing code for loader!!!! DONT!!! DELETE!!!  
+
+  // const [isLoading, setIsLoading] = useState(false);
+
+  // useEffect(() => {
+  //     setIsLoading(true); // Start loading
+  //     const timer = setTimeout(() => {
+  //         setIsLoading(false); // End loading after 5 seconds
+  //     }, 5000); // Adjust time as needed for your test
+
+  //     return () => clearTimeout(timer); // Cleanup timeout
+  //   }, [product]);
+
+
+  //   if (isLoading) {
+  //       return <Loader />;
+  //   }
+
+  //   if (error) {
+  //       return <Message variant='danger'>{error}</Message>;
+  //   }
 
 
 

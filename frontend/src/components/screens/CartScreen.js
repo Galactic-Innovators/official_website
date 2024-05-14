@@ -5,9 +5,11 @@ import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap'
 import Message from '../Message'
 import { addToCart,removeFromCart, fetchCartDetails } from '../../actions/cartActions'
 import axios from 'axios';
+import Loader from '../Loader';
 import { loadStripe } from '@stripe/stripe-js';
 
 function CartScreen({ match, location, history }) {
+    const [loading, setLoading] = useState(true); // Initialize loading state
     const productId = match.params.id
     const qty = location.search ? Number(location.search.split('=')[1]) : 1
     const dispatch = useDispatch()
@@ -45,6 +47,8 @@ function CartScreen({ match, location, history }) {
                 }
             } catch (error) {
                 console.error('Failed to fetch customer cart ID:', error);
+            } finally {
+                setLoading(false); // Set loading to false once data is fetched or in case of an error
             }
         };
 
@@ -75,6 +79,10 @@ function CartScreen({ match, location, history }) {
     }
 
     const defaultImage = process.env.PUBLIC_URL + '/images/sample.jpg';
+
+    if (loading) {
+        return <Loader />; // Render Loader while loading is true
+    }
     return (
         <Row className="justify-content-center">
             <Col md={8}>

@@ -17,18 +17,18 @@ function Header() {
 
   return (
     <div>
-      <Navbar bg="dark" variant="dark">
+      {/* bg="dark" transparent variant="dark" */}
+      <Navbar  style={{ backgroundColor: '#07072b' }} variant="dark">
           <Container>
 
-          <LinkContainer to="/"LinkContainer>
-        {/* <Navbar.Brand>A.R.K</Navbar.Brand> */}
-        <Navbar.Brand>
-              <img
-                src={`${process.env.PUBLIC_URL}/images/ESTR.jpg`}  // Update the path to your image
-                alt="ESTR Logo"
-                style={{ width: 'auto', height: '30px' }} // You can adjust the size as needed
-              />
-            </Navbar.Brand>
+          <LinkContainer to="/">
+          <Navbar.Brand>
+            <img
+              src={`${process.env.PUBLIC_URL}/images/gig_logo.jpg`}
+              alt="gig Logo"
+              style={{ width: 'auto', height: '50px' }}
+            />
+          </Navbar.Brand>
         </LinkContainer>
 
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -39,11 +39,11 @@ function Header() {
             navbarScroll
           >
             <LinkContainer to="/all_products">
-            <Nav.Link><i className="fas fa-th"></i> All Product</Nav.Link>
+            <Nav.Link ><i className="fas fa-th"></i> All Product</Nav.Link>
             </LinkContainer>
 
             <LinkContainer to="/">
-            <Nav.Link><i className="fas fa-home"></i> Home</Nav.Link>
+            <Nav.Link aria-label="Home"><i className="fas fa-home"></i> Home</Nav.Link>
             </LinkContainer>
 
             <LinkContainer to="/contactus">

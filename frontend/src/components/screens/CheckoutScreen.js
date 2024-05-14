@@ -7,6 +7,7 @@ import { addToCart,removeFromCart, fetchCartDetails } from '../../actions/cartAc
 import axios from 'axios';
 import { useHistory, useLocation } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
+import Loader from '../Loader';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
 
@@ -15,6 +16,7 @@ import shopLogo from '../../images/shop.jpg'; // Path to shop logo
 import applePayLogo from '../../images/apple.jpg'; // Path to Apple Pay logo
 
 function CheckoutScreen() {
+    const [loading, setLoading] = useState(true); // Initialize loading state
     const dispatch = useDispatch();
     const history = useHistory();
     const [message, setMessage] = useState("");
@@ -61,6 +63,8 @@ function CheckoutScreen() {
                 }
             } catch (error) {
                 console.error('Failed to fetch customer cart ID:', error);
+            } finally {
+                setLoading(false); // Set loading to false once data is fetched or in case of an error
             }
         };
 
@@ -81,7 +85,10 @@ function CheckoutScreen() {
                 stripe_id: item.stripe_id, // Use a default image if no image is available
             }));
     console.log(cartItemsPayload);        
-
+    
+    if (loading) {
+        return <Loader />; // Render Loader while loading is true
+    }
     return (
         <div className="d-flex justify-content-center align-items-start">
         <div style={{ maxWidth: '600px', width: '100%' }}>
