@@ -199,3 +199,12 @@
 .checkout-button:hover {
   background-color: #45a049; /* Darker shade of green */
 }
+
+
+.trash-icon {
+  transition: transform 0.2s;
+}
+
+.trash-icon:hover {
+  transform: rotate(20deg);
+}
