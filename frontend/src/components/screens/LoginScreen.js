@@ -89,8 +89,8 @@ function LoginScreen({ location, history }) {
               className="input-6"
               id="password"
             />
-            <span className="span-eye">eye</span>
-            <div className="password-text"></div>
+            {/* <span className="span-eye">eye</span> */}
+            {/* <div className="password-text"></div> */}
           </div>
         </div>
         <button className="button mt-3" type="submit">
@@ -100,7 +100,11 @@ function LoginScreen({ location, history }) {
       <div className="dont-have-account">
         <span className="dont-have-account-7">Don't have an account yet?</span>
         <span className="space"> </span>
-        <span className="sign-up">Sign Up</span>
+        <span className="sign-up">
+          <Link to={redirect ? `/register?redirect=${redirect}` : "/register"}>
+            Sign Up
+          </Link>
+        </span>
       </div>
       {/* <span className="all-rights-reserved">© 2023 All rights reserved.</span> */}
       <div className="bg-circle" />

@@ -118,6 +118,7 @@ button {
     text-align: left;
     white-space: nowrap;
     z-index: 30;
+    margin-left: 570px;
   }
 
 .span-johndoe-mail {
@@ -150,7 +151,7 @@ button {
 
 .input-2, 
 .input-5 {
-  align-self: stretch;
+  align-self: center;
   flex-shrink: 0;
   position: relative;
   height: 44px;
@@ -158,6 +159,8 @@ button {
   z-index: 31;
   overflow: hidden;
   border-radius: 8px;
+  width: 100%; /* Ensure the input fields take the full width of the parent container */
+  max-width: 300px; /* Optionally, limit the maximum width */
 }
 .input-3,
 .input-6 {
@@ -189,7 +192,7 @@ button {
   opacity: 0.5;
   z-index: 32;
 }
-.password-text {
+/* .password-text {
   display: flex;
   align-items: flex-start;
   flex-wrap: nowrap;
@@ -203,7 +206,7 @@ button {
     no-repeat center;
   background-size: cover;
   z-index: 33;
-}
+} */
 .button {
   display: flex;
   align-items: center;
