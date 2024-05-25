@@ -5,12 +5,12 @@
     "Source Han Sans CN", sans-serif;
 }
 
-.main-container {
+.login_main-container {
   overflow: hidden;
 }
 
-.main-container,
-.main-container * {
+.login_main-container,
+.login_main-container * {
   box-sizing: border-box;
 }
 
@@ -21,7 +21,7 @@ button {
   outline: 0;
 }
 
-.main-container {
+.login_main-container {
   position: relative;
   width: 1440px;
   height: 1024px;
@@ -92,7 +92,7 @@ button {
   margin: 16px 0 0 570px;
   z-index: 23;
 }
-.input {
+.Email_password_input {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -104,31 +104,22 @@ button {
   min-width: 0;
   z-index: 24;
 }
-.email {
-  flex-shrink: 0;
-  flex-basis: auto;
-  position: relative;
-  height: 18px;
-  color: #000000;
-  font-family: Outfit, var(--default-font-family);
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 17.64px;
-  text-align: left;
-  white-space: nowrap;
-  z-index: 25;
-}
-.input-2 {
-  align-self: stretch;
-  flex-shrink: 0;
-  position: relative;
-  height: 44px;
-  font-size: 0px;
-  border: 1px solid #e7e7e7;
-  z-index: 26;
-  overflow: hidden;
-  border-radius: 8px;
-}
+.email,
+.span-password {
+    flex-shrink: 0;
+    flex-basis: auto;
+    position: relative;
+    height: 18px;
+    color: #000000;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17.64px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 30;
+  }
+
 .span-johndoe-mail {
   display: block;
   position: relative;
@@ -144,17 +135,6 @@ button {
   opacity: 0.75;
   z-index: 27;
 }
-.input-3 {
-  position: absolute;
-  width: 300px;
-  height: 44px;
-  top: -1px;
-  left: -1px;
-  background: transparent;
-  border: none;
-  z-index: 28;
-  outline: none;
-}
 .input-4 {
   display: flex;
   flex-direction: column;
@@ -167,20 +147,8 @@ button {
   min-width: 0;
   z-index: 29;
 }
-.span-password {
-  flex-shrink: 0;
-  flex-basis: auto;
-  position: relative;
-  height: 18px;
-  color: #000000;
-  font-family: Outfit, var(--default-font-family);
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 17.64px;
-  text-align: left;
-  white-space: nowrap;
-  z-index: 30;
-}
+
+.input-2, 
 .input-5 {
   align-self: stretch;
   flex-shrink: 0;
@@ -191,6 +159,7 @@ button {
   overflow: hidden;
   border-radius: 8px;
 }
+.input-3,
 .input-6 {
   position: absolute;
   width: 300px;
@@ -532,3 +501,172 @@ button {
   white-space: nowrap;
   z-index: 13;
 }
+
+
+  .sign-up-forms {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    gap: 16px;
+    position: relative;
+    width: 300px;
+    margin: 16px 0 0 570px;
+    z-index: 23;
+  }
+  .create-account {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-shrink: 0;
+    flex-basis: auto;
+    position: relative;
+    width: 112px;
+    height: 20px;
+    color: #ffffff;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 21;
+  }
+  .already-have-account {
+    position: relative;
+    width: 202px;
+    height: 18px;
+    margin: 16px 0 0 618px;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17.64px;
+    text-align: center;
+    text-overflow: initial;
+    white-space: nowrap;
+    z-index: 22;
+  }
+  .already-have-account-7 {
+    position: relative;
+    color: #808080;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17.64px;
+    text-align: center;
+  }
+  .log-in {
+    position: relative;
+    color: #9c6eff;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 17.64px;
+    text-align: center;
+    text-decoration: underline;
+  }
+  
+  .create-account-8 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 30px;
+    top: 263px;
+    left: calc(50% - 84px);
+    color: #000000;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 6;
+  }
+  .sign-up-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 8px;
+    position: absolute;
+    width: 300px;
+    height: 104px;
+    top: 338px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 7;
+  }
+  .sign-up-way-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    gap: 16px;
+    position: relative;
+    min-width: 0;
+    height: 48px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #e7e7e7;
+    z-index: 8;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  .sign-up-google {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-shrink: 0;
+    flex-basis: auto;
+    position: relative;
+    width: 141px;
+    height: 20px;
+    color: #000000;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 9;
+  }
+  .sign-up-way-button-9 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    gap: 16px;
+    position: relative;
+    min-width: 0;
+    height: 48px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #e7e7e7;
+    z-index: 12;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  .sign-up-facebook {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-shrink: 0;
+    flex-basis: auto;
+    position: relative;
+    width: 159px;
+    height: 20px;
+    color: #000000;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 13;
+  }
+  

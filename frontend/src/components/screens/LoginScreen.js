@@ -9,7 +9,7 @@ import {
   Card,
   Form,
 } from "react-bootstrap";
-import Loader from "../Loader";
+import Login_Loader from "../Login_loder";
 import Message from "../Message";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCartDetails, clearCart } from "../../actions/cartActions";
@@ -50,32 +50,53 @@ function LoginScreen({ location, history }) {
     dispatch(login(username, password));
   };
   return (
-    <div className="main-container">
+    <div className="login_main-container">
+      {error && <Message variant="danger">{error}</Message>}
+      {delay && <Login_Loader />}
       <div className="or-divider">
         <div className="border" />
         <span className="or">OR</span>
         <div className="border-1" />
       </div>
-      <div className="sign-in-forms">
-        <div className="input">
-          <span className="email">Email</span>
+      <form onSubmit={submitHandler} className="form-signin">
+        <div className="Email_password_input">
+          <label htmlFor="username" className="email">
+            Email
+          </label>
           <div className="input-2">
-            <span className="span-johndoe-mail">johndoe@mail.com</span>
-            <input className="input-3" />
+            <input
+              required
+              type="text"
+              placeholder="Enter Email"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              className="input-3"
+              id="username"
+            />
           </div>
         </div>
         <div className="input-4">
-          <span className="span-password">Password</span>
+          <label htmlFor="password" className="span-password">
+            Password
+          </label>
           <div className="input-5">
-            <input className="input-6" />
+            <input
+              required
+              type="password"
+              placeholder="Enter Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="input-6"
+              id="password"
+            />
             <span className="span-eye">eye</span>
-            <div className="password-text" />
+            <div className="password-text"></div>
           </div>
         </div>
-      </div>
-      <button className="button">
-        <span className="sign-in-account">Sign in</span>
-      </button>
+        <button className="button mt-3" type="submit">
+          <span className="create-account">Sign In</span>
+        </button>
+      </form>
       <div className="dont-have-account">
         <span className="dont-have-account-7">Don't have an account yet?</span>
         <span className="space"> </span>
@@ -110,7 +131,7 @@ function LoginScreen({ location, history }) {
       <FormContainer>
         <h1>Sign In</h1>
         {error && <Message variant="danger">{error}</Message>}
-        {delay && <Loader />}
+        {delay && <Login_Loader />}
 
         <Form onSubmit={submitHandler}>
           <Form.Group controlId="username">

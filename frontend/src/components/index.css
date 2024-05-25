@@ -1,0 +1,8 @@
+.login-loader-container {
+    height: 200px;
+    width: 100px;
+    margin: auto;
+    display: block;
+    margin-top: 630px; /* Adjust this value as needed */
+    margin-left: 695px; /* Adjust this value as needed to move to the right */
+  }

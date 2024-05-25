@@ -2,19 +2,12 @@ import React from "react";
 import { Spinner } from "react-bootstrap";
 import { RingLoader } from "react-spinners";
 import "./index.css";
-function Loader() {
+function Login_Loader() {
   return (
-    <div
-      style={{
-        height: "200px",
-        width: "100px",
-        margin: "auto",
-        display: "block",
-      }}
-    >
+    <div className="login-loader-container">
       <RingLoader color="#60d4f9" />
     </div>
   );
 }
 
-export default Loader;
+export default Login_Loader;
