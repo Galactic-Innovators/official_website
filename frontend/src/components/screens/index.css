@@ -331,10 +331,10 @@ button {
   position: absolute;
   width: 90px;
   height: 90px;
-  top: 163px;
+  top: 188px;
   left: 50%;
   transform: translateX(-50%);
-  background: url('../assets/images/2feb9fef56b65c8221f52bb2ea10472.png') no-repeat center;
+  background: url('../assets/images/8375ed7de3c702d2a2b34ef06e1d1c9.png') no-repeat center;
   background-size: cover;
   z-index: 45;
 }
