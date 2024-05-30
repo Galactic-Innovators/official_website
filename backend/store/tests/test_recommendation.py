@@ -7,40 +7,46 @@ from rest_framework.test import APIClient
 from django.contrib.auth import get_user_model
 from store.models import Customer, Order, OrderItem, Product
 
+
 # Define factories
 class UserFactory(DjangoModelFactory):
     class Meta:
         model = get_user_model()
-    
-    username = 'user'
-    email = 'user@example.com'
+
+    username = "user"
+    email = "user@example.com"
+
 
 class CustomerFactory(DjangoModelFactory):
     class Meta:
         model = Customer
-    
+
     user = SubFactory(UserFactory)
+
 
 class ProductFactory(DjangoModelFactory):
     class Meta:
         model = Product
-    
-    name = 'Sample Product'
+
+    name = "Sample Product"
     price = 9.99
+
 
 class OrderFactory(DjangoModelFactory):
     class Meta:
         model = Order
-    
+
     customer = SubFactory(CustomerFactory)
+
 
 class OrderItemFactory(DjangoModelFactory):
     class Meta:
         model = OrderItem
-    
+
     order = SubFactory(OrderFactory)
     product = SubFactory(ProductFactory)
     quantity = 1
+
 
 # Define the test class
 @pytest.mark.django_db
@@ -76,5 +82,6 @@ class TestRecommendation:
         url = "/store/recommendation/"
         response = api_client.get(url)
         assert response.status_code == status.HTTP_200_OK
+
 
 # Execute the tests as needed

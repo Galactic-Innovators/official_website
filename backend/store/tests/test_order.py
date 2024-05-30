@@ -7,13 +7,15 @@ from factory.django import DjangoModelFactory
 from factory import SubFactory, post_generation
 from factory.fuzzy import FuzzyInteger
 
+
 # Factories for generating test data
 class UserFactory(DjangoModelFactory):
     class Meta:
         model = get_user_model()
 
-    username = 'test_user'
-    email = 'testuser@example.com'
+    username = "test_user"
+    email = "testuser@example.com"
+
 
 class CartFactory(DjangoModelFactory):
     class Meta:
@@ -22,12 +24,14 @@ class CartFactory(DjangoModelFactory):
     # Assuming 'customer' field on Cart model maps to a User
     customer = SubFactory(UserFactory)
 
+
 class CartItemFactory(DjangoModelFactory):
     class Meta:
         model = CartItem
 
     cart = SubFactory(CartFactory)
     quantity = FuzzyInteger(1, 5)  # Creates a random integer between 1 and 5
+
 
 # Test class
 @pytest.mark.django_db
@@ -54,7 +58,7 @@ class TestCreateCollection:
         CartItemFactory(cart=cart, quantity=1)  # Creating a cart item
         response = api_client.post(f"/store/orders/", {"cart_id": cart.id})
         assert response.status_code == status.HTTP_200_OK
-        assert 'customer' in response.data
+        assert "customer" in response.data
 
     def test_retrieve_orders(self, api_client):
         user = UserFactory()
@@ -66,6 +70,7 @@ class TestCreateCollection:
         response = api_client.get(f"/store/orders/")
         assert response.status_code == status.HTTP_200_OK
         assert response.data[0]["id"] == order_id
+
 
 # Ensure FactoryBoy is installed to use these factories:
 # pip install factory_boy

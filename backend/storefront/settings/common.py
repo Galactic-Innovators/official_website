@@ -61,8 +61,8 @@ MIDDLEWARE = [
 ]
 
 if settings.DEBUG:
-    MIDDLEWARE += ['silk.middleware.SilkyMiddleware',
-    
+    MIDDLEWARE += [
+        "silk.middleware.SilkyMiddleware",
     ]
 
 INTERNAL_IPS = [
