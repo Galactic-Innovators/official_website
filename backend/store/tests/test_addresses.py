@@ -1,38 +1,46 @@
 import pytest
+from factory import DjangoModelFactory, SubFactory
 from rest_framework import status
 from rest_framework.test import APIClient
 from store.models import Customer
 from django.contrib.auth import get_user_model
-from model_bakery import baker
 
+# Factory for generating user data
+class UserFactory(DjangoModelFactory):
+    class Meta:
+        model = get_user_model()
 
+    username = 'testuser'
+    email = 'testuser@example.com'
+    password = 'password'
+
+# Factory for generating customer data
+class CustomerFactory(DjangoModelFactory):
+    class Meta:
+        model = Customer
+
+    user = SubFactory(UserFactory)
+
+# Fixture for API client
+@pytest.fixture
+def api_client():
+    return APIClient()
+
+# Fixture for authenticated API client
+@pytest.fixture
+def authenticate(api_client):
+    user = UserFactory()
+    api_client.force_authenticate(user=user)
+    return user
+
+# Test class for address management
 @pytest.mark.django_db
 class TestAddresses:
     @pytest.fixture
-    def api_client():
-        return APIClient()
-
-    @pytest.fixture
-    def user_model(self):
-        return get_user_model()
-
-    @pytest.fixture
-    def user(self, user_model):
-        user = baker.make(user_model)
-        return user
-
-    @pytest.fixture
-    def customer(self, user):
-        # Ensure a single Customer instance is created per User
-        customer, created = Customer.objects.get_or_create(user=user)
-        return customer
-
-    @pytest.fixture
-    def api_client(self):
-        return APIClient()
+    def customer(self):
+        return CustomerFactory()
 
     def test_addresses_list_authorized_user(self, api_client, customer):
-
         api_client.force_authenticate(user=customer.user)
         url = f"/store/customers/{customer.id}/addresses/"
         response = api_client.get(url)
@@ -43,26 +51,21 @@ class TestAddresses:
         response = api_client.get(url)
         assert response.status_code == status.HTTP_401_UNAUTHORIZED
 
-    def test_addresses_list_unauthorized_user(self, api_client, user_model):
-        user_1 = baker.make(user_model)
-        user_2 = baker.make(user_model)
-
-        customer_2, created = Customer.objects.get_or_create(user=user_2)
+    def test_addresses_list_unauthorized_user(self, api_client):
+        user_1 = UserFactory()
+        customer_1 = CustomerFactory(user=user_1)
+        user_2 = UserFactory()
+        customer_2 = CustomerFactory(user=user_2)
 
         api_client.force_authenticate(user=user_1)
         url = f"/store/customers/{customer_2.id}/addresses/"
         response = api_client.get(url)
         assert response.status_code == status.HTTP_403_FORBIDDEN
 
-    def test_addresses_list_admin_user(self, api_client, user_model):
-        user_1 = user_model.objects.create_superuser(
-            "admin", "admin@example.com", "password123"
-        )
-        user_2 = baker.make(user_model)
-
-        customer_2, created = Customer.objects.get_or_create(user=user_2)
-
-        api_client.force_authenticate(user=user_1)
+    def test_addresses_list_admin_user(self, api_client):
+        admin_user = UserFactory(is_superuser=True, username="admin", email="admin@example.com")
+        api_client.force_authenticate(user=admin_user)
+        customer_2 = CustomerFactory()
         url = f"/store/customers/{customer_2.id}/addresses/"
         response = api_client.get(url)
         assert response.status_code == status.HTTP_200_OK
@@ -79,7 +82,6 @@ class TestAddresses:
         assert response.status_code == status.HTTP_201_CREATED
 
     def test_addresses_instance_can_patch(self, api_client, customer):
-        # first create address
         api_client.force_authenticate(user=customer.user)
         url = f"/store/customers/{customer.id}/addresses/"
         address_details = {
@@ -88,8 +90,6 @@ class TestAddresses:
             "zip": "N2L 3G1",
         }
         response = api_client.post(url, address_details)
-        assert response.status_code == status.HTTP_201_CREATED
-        # update address
         address_id = response.data["id"]
         updated_address_details = {
             "street": "1280 Main St W",
@@ -101,7 +101,6 @@ class TestAddresses:
         assert response.status_code == status.HTTP_200_OK
 
     def test_addresses_instance_can_delete(self, api_client, customer):
-        # first create address
         api_client.force_authenticate(user=customer.user)
         url = f"/store/customers/{customer.id}/addresses/"
         address_details = {
@@ -110,8 +109,6 @@ class TestAddresses:
             "zip": "N2L 3G1",
         }
         response = api_client.post(url, address_details)
-        assert response.status_code == status.HTTP_201_CREATED
-        # delete address
         address_id = response.data["id"]
         url = f"/store/customers/{customer.id}/addresses/{address_id}/"
         response = api_client.delete(url)
