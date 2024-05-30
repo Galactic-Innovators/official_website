@@ -1,5 +1,6 @@
 import pytest
-from factory import DjangoModelFactory, SubFactory
+from factory.django import DjangoModelFactory
+from factory import SubFactory
 from rest_framework import status
 from rest_framework.test import APIClient
 from store.models import Product

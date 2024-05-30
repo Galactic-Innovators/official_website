@@ -2,7 +2,9 @@ import pytest
 from rest_framework import status
 from rest_framework.test import APIClient
 from store.models import Product
-from factory import DjangoModelFactory, SubFactory
+from factory.django import DjangoModelFactory
+from factory import SubFactory
+
 from django.contrib.auth import get_user_model
 
 # Factories for generating test data

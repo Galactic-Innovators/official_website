@@ -4,7 +4,8 @@ from rest_framework.test import APIClient
 import pytest
 from store.models import Customer, Product, Review, Order, OrderItem
 from core.models import User
-from factory import DjangoModelFactory, SubFactory, post_generation
+from factory.django import DjangoModelFactory
+from factory import SubFactory, post_generation
 
 # Define factories for your models
 class UserFactory(DjangoModelFactory):

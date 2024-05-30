@@ -3,7 +3,8 @@ from rest_framework import status
 from rest_framework.test import APIClient
 from django.contrib.auth import get_user_model
 from store.models import Order, Cart, CartItem
-from factory import DjangoModelFactory, SubFactory, post_generation
+from factory.django import DjangoModelFactory
+from factory import SubFactory, post_generation
 from factory.fuzzy import FuzzyInteger
 
 # Factories for generating test data

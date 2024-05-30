@@ -3,7 +3,9 @@ from rest_framework import status
 from rest_framework.test import APIClient
 from store.models import Customer
 from django.contrib.auth import get_user_model
-from factory import DjangoModelFactory, SubFactory
+from factory.django import DjangoModelFactory
+from factory import SubFactory
+
 
 # Factory for generating user data
 class UserFactory(DjangoModelFactory):
