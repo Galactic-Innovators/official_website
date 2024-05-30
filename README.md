@@ -20,32 +20,6 @@ The backend code is stored in the `Backend/` directory. Here's how to get starte
 cd Backend/
 ```
 
-2. **Install Dependencies**
-   Ensure you have Python 3.10 and Pipenv installed. Then, install the required packages:
-
-```bash
-pipenv install
-```
-
-3. **Activate the Virtual Environment**
-
-```bash
-pipenv shell
-```
-
-4. **Setup the Database**
-   Make sure MySQL is installed and running. Update the settings.py file with your database credentials, then execute:
-
-```bash
-python manage.py migrate
-```
-
-5. **Run the Development Server**
-
-```bash
-python manage.py runserver
-```
-
 ### Frontend Setup
 
 The frontend code is stored in the Frontend/ directory and is built using React. Follow these steps to set up the
@@ -57,21 +31,6 @@ frontend:
 cd Frontend/
 ```
 
-2. **Install Node.js and npm**
-   Make sure you have Node.js and npm installed on your machine.
-   3.**Install Dependencies**
-   ```bash
-   npm install
-   ```
-
-4.**Start the Development Server**
-
-```bash
-npm start
-```
-
-After following these steps, the backend server will be running, and you can access the frontend application in your
-browser.
 
 ## 📚 Documentation
 
