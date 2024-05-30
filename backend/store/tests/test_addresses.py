@@ -41,7 +41,6 @@ def authenticate(api_client):
 @pytest.mark.django_db
 class TestAddresses:
     @pytest.fixture
-    @pytest.fixture
     def customer(self):
         return CustomerFactory(phone='1234567890', birth_date=datetime.date(1990, 1, 1))
 
