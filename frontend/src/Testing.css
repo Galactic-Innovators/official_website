@@ -20,13 +20,12 @@
   button {
     outline: 0;
   }
-  
-  .main-container {
-    position: relative;
-    width: 1440px;
-    height: 800px;
-    margin: 0 auto;
-    background: #22242a;
+  .main-container {	
+    position: relative;	
+    width: 1440px;	
+    height: 800px;	
+    margin: 0 auto;	
+    background: #22242a;	
   }
   .flex-row-ebc {
     display: flex;

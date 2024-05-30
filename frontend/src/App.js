@@ -6,21 +6,22 @@ import Header from "./components/Header";
 import HomeScreen from "./components/screens/HomeScreen";
 import ProductScreen from "./components/screens/ProductScreen";
 import CartScreen from "./components/screens/CartScreen";
-import LoginScreen from './components/screens/LoginScreen';
-import RegisterScreen from './components/screens/RegisterScreen';
-import AllProductScreen from './components/screens/AllProductScreen';
+import LoginScreen from "./components/screens/LoginScreen";
+import RegisterScreen from "./components/screens/RegisterScreen";
+import AllProductScreen from "./components/screens/AllProductScreen";
 import ProfileScreen from "./components/screens/ProfileScreen";
 import AboutScreen from "./components/screens/AboutScreen";
 import ContactScreen from "./components/screens/ContactScreen";
-import CheckoutScreen from './components/screens/CheckoutScreen'; 
-import axios from 'axios';
+import CheckoutScreen from "./components/screens/CheckoutScreen";
+import axios from "axios";
 import SessionCheck from "./components/SessionCheck";
 import WishlistScreen from "./components/screens/WishlistScreen";
-import { loadStripe } from '@stripe/stripe-js';
-import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import React, { useEffect } from "react";
 import OrderConfirmationScreen from "./components/screens/OrderConfirmationScreen";
 import SuccessScreen from "./components/screens/SuccessScreen";
-
+import setupAxiosInterceptors from "./axiosConfig";
 // axios.interceptors.response.use(
 //   (response) => response,
 //   (error) => {
@@ -35,10 +36,13 @@ import SuccessScreen from "./components/screens/SuccessScreen";
 
 function App() {
   // const stripePromise = loadStripe('pk_test_A7jK4iCYHL045qgjjfzAfPxu');
+  useEffect(() => {
+    setupAxiosInterceptors();
+  }, []);
   return (
     // <Elements stripe={stripePromise}>
     <Router>
-    <SessionCheck /> 
+      <SessionCheck />
       <Header />
       <main className="py-3">
         <Container>
@@ -52,16 +56,19 @@ function App() {
           <Route path="/all_products" component={AllProductScreen} exact />
           <Route path="/aboutus" component={AboutScreen} exact />
           <Route path="/contactus" component={ContactScreen} exact />
-          <Route path="/profile" component={ProfileScreen}/>
+          <Route path="/profile" component={ProfileScreen} />
           {/* <Route path="/payments" component={CheckoutScreen} exact /> */}
-          <Route path="/order-confirmation" component={OrderConfirmationScreen} />
+          <Route
+            path="/order-confirmation"
+            component={OrderConfirmationScreen}
+          />
           <Route path="/success" component={SuccessScreen} />
         </Container>
       </main>
 
       <Footer />
-      </Router>
-      // </Elements>
+    </Router>
+    // </Elements>
   );
 }
 

@@ -2,9 +2,9 @@
 
 import django.contrib.auth.models
 import django.contrib.auth.validators
-import django.utils.timezone
+from datetime import timezone
 from django.db import migrations, models
-
+utc = timezone.utc
 
 class Migration(migrations.Migration):
 
