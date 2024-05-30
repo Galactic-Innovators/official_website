@@ -50,6 +50,7 @@ class TestUploadImage:
             "total_sells": 10,
             "unit_price": 10,
             "collection": collection.id,
+            "stripe_id": "adsf",
         }
         # Assuming create_product correctly returns a product ID
         response = create_product(product_data)
@@ -74,6 +75,7 @@ class TestUploadImage:
             "total_sells": 10,
             "unit_price": 10,
             "collection": collection.id,
+            "stripe_id": "adsf",
         }
         # Assuming create_product correctly returns a product ID
         response = create_product(product_data)
@@ -98,6 +100,7 @@ class TestUploadImage:
             "total_sells": 10,
             "unit_price": 10,
             "collection": collection.id,
+            "stripe_id": "adsf",
         }
         # Assuming create_product correctly returns a product ID
         response = create_product(product_data)
@@ -140,6 +143,7 @@ class TestCreateproduct:
                 "total_sells": 10,
                 "unit_price": 10,
                 "collection": collection.id,
+                "stripe_id": "adsf",
             }
         )
 
@@ -166,6 +170,7 @@ class TestCreateproduct:
                 "total_sells": 10,
                 "unit_price": 10,
                 "collection": collection.id,
+                "stripe_id": "adsf",
             }
         )
         print(response.data)
@@ -192,6 +197,7 @@ class TestRetrieveproduct:
             "inventory": product.inventory,
             "total_sells": product.total_sells,
             "collection": product.collection.id,  # Assuming you want the collection ID
+            "stripe_id": product.stripe_id,
             "images": [],  # Include if your response expects an images list
             "unit_price": product.unit_price,  # Convert Decimal to string
             "price_with_tax": round(
@@ -237,6 +243,7 @@ class TestProducts:
                 "unit_price": 0.01,
                 "inventory": 1,
                 "collection": collection.id,
+                "stripe_id": "adsf",
             }
         )
         print(response)
