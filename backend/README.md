@@ -24,10 +24,20 @@ Ensure you have the following installed before starting:
    ```
 
 2. **Install Dependencies in a Virtual Environment**
+   MacOS:
    ```bash
-   pip install -r requirement.txt
+   python3 -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
    ```
-3. **Configure MySQL**
+   Windows:
+   ```bash
+   python3 -m venv venv
+   Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+   .\venv\Scripts\Activate
+   pip install -r requirements.txt
+   ```
+4. **Configure MySQL**
 
    Start the MySQL service on your machine.
    Create a new MySQL database for the project:
@@ -36,7 +46,7 @@ Ensure you have the following installed before starting:
    CREATE DATABASE storefront;
    ```
 
-4. **Update Django Settings**
+5. **Update Django Settings**
 
    Navigate to the settings file at AI-Powered-E-Commerce-App/settings.py.
    Configure the DATABASES setting to reflect your MySQL setup:
@@ -54,7 +64,7 @@ Ensure you have the following installed before starting:
    }
    ```
 
-5. **Run Database Migrations**
+6. **Run Database Migrations**
 
    ```bash
    python manage.py makemigrations
@@ -75,7 +85,7 @@ Ensure you have the following installed before starting:
     (2, 'Model', '-', 'Type R Model', 15.00, 5, 1, '2024-05-03 19:58:45.000000', 1, 'price_1PCVrgLyCz9ytZLnITNGvdH5');
    ```
 
-6. **Running the Project**
+7. **Running the Project**
    To run the project:
 
    ```bash
@@ -84,7 +94,7 @@ Ensure you have the following installed before starting:
 
    The project should now be running on http://127.0.0.1:8000/.
 
-7. **Create admin user**
+8. **Create admin user**
    ```python
    python manage.py createsuperuser
    ```
