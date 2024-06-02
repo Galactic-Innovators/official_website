@@ -22,6 +22,7 @@ import React, { useEffect } from "react";
 import OrderConfirmationScreen from "./components/screens/OrderConfirmationScreen";
 import SuccessScreen from "./components/screens/SuccessScreen";
 import setupAxiosInterceptors from "./axiosConfig";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 // axios.interceptors.response.use(
 //   (response) => response,
 //   (error) => {
@@ -41,33 +42,44 @@ function App() {
   }, []);
   return (
     // <Elements stripe={stripePromise}>
-    <Router>
-      <SessionCheck />
-      <Header />
-      <main className="py-3">
-        <Container>
-          <Route path="/" component={AboutScreen} exact />
-          <Route path="/home" component={HomeScreen} exact />
-          <Route path="/login" component={LoginScreen} exact />
-          <Route path="/register" component={RegisterScreen} exact />
-          <Route path="/products/:id" component={ProductScreen} exact />
-          <Route path="/cart/:id?" component={CartScreen} exact />
-          <Route path="/wishlist/:id?" component={WishlistScreen} exact />
-          <Route path="/all_products" component={AllProductScreen} exact />
-          <Route path="/aboutus" component={AboutScreen} exact />
-          <Route path="/contactus" component={ContactScreen} exact />
-          <Route path="/profile" component={ProfileScreen} />
-          {/* <Route path="/payments" component={CheckoutScreen} exact /> */}
-          <Route
-            path="/order-confirmation"
-            component={OrderConfirmationScreen}
-          />
-          <Route path="/success" component={SuccessScreen} />
-        </Container>
-      </main>
-
-      <Footer />
-    </Router>
+    <div>
+      <Router>
+        <SessionCheck />
+        <Header />
+        <main className="py-3">
+          <Container>
+            <Route path="/" component={AboutScreen} exact />
+            <Route path="/home" component={HomeScreen} exact />
+            <Route path="/login" component={LoginScreen} exact />
+            <Route path="/register" component={RegisterScreen} exact />
+            <Route path="/products/:id" component={ProductScreen} exact />
+            <Route path="/cart/:id?" component={CartScreen} exact />
+            <Route path="/wishlist/:id?" component={WishlistScreen} exact />
+            <Route path="/all_products" component={AllProductScreen} exact />
+            <Route path="/aboutus" component={AboutScreen} exact />
+            {/* <Route
+            path="/aboutus"
+            component={() => {
+              window.location.href =
+                "https://mp.weixin.qq.com/s/4NwUE30WQT4H_jIIK5dIWA";
+              return null;
+            }}
+            exact
+          /> */}
+            <Route path="/contactus" component={ContactScreen} exact />
+            <Route path="/profile" component={ProfileScreen} />
+            {/* <Route path="/payments" component={CheckoutScreen} exact /> */}
+            <Route
+              path="/order-confirmation"
+              component={OrderConfirmationScreen}
+            />
+            <Route path="/success" component={SuccessScreen} />
+          </Container>
+        </main>
+        <Footer />
+      </Router>
+      <SpeedInsights />
+    </div>
     // </Elements>
   );
 }
