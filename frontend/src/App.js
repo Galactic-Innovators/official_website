@@ -1,6 +1,6 @@
 import "./App.css";
 import { Container } from "react-bootstrap";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import HomeScreen from "./components/screens/HomeScreen";
@@ -23,6 +23,7 @@ import OrderConfirmationScreen from "./components/screens/OrderConfirmationScree
 import SuccessScreen from "./components/screens/SuccessScreen";
 import setupAxiosInterceptors from "./axiosConfig";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import NotFoundScreen from "./components/screens/NotFoundScreen";
 // axios.interceptors.response.use(
 //   (response) => response,
 //   (error) => {
@@ -48,16 +49,17 @@ function App() {
         <Header />
         <main className="py-3">
           <Container>
-            <Route path="/" component={AboutScreen} exact />
-            <Route path="/home" component={HomeScreen} exact />
-            <Route path="/login" component={LoginScreen} exact />
-            <Route path="/register" component={RegisterScreen} exact />
-            <Route path="/products/:id" component={ProductScreen} exact />
-            <Route path="/cart/:id?" component={CartScreen} exact />
-            <Route path="/wishlist/:id?" component={WishlistScreen} exact />
-            <Route path="/all_products" component={AllProductScreen} exact />
-            <Route path="/aboutus" component={AboutScreen} exact />
-            {/* <Route
+            <Switch>
+              <Route path="/" component={AboutScreen} exact />
+              <Route path="/home" component={HomeScreen} exact />
+              <Route path="/login" component={LoginScreen} exact />
+              <Route path="/register" component={RegisterScreen} exact />
+              <Route path="/products/:id" component={ProductScreen} exact />
+              <Route path="/cart/:id?" component={CartScreen} exact />
+              <Route path="/wishlist/:id?" component={WishlistScreen} exact />
+              <Route path="/all_products" component={AllProductScreen} exact />
+              <Route path="/aboutus" component={AboutScreen} exact />
+              {/* <Route
             path="/aboutus"
             component={() => {
               window.location.href =
@@ -66,14 +68,17 @@ function App() {
             }}
             exact
           /> */}
-            <Route path="/contactus" component={ContactScreen} exact />
-            <Route path="/profile" component={ProfileScreen} />
-            {/* <Route path="/payments" component={CheckoutScreen} exact /> */}
-            <Route
-              path="/order-confirmation"
-              component={OrderConfirmationScreen}
-            />
-            <Route path="/success" component={SuccessScreen} />
+              <Route path="/contactus" component={ContactScreen} exact />
+              <Route path="/profile" component={ProfileScreen} />
+              {/* <Route path="/payments" component={CheckoutScreen} exact /> */}
+              <Route
+                path="/order-confirmation"
+                component={OrderConfirmationScreen}
+              />
+              <Route path="/success" component={SuccessScreen} />
+              <Route component={NotFoundScreen} />{" "}
+              {/* This route catches all unmatched routes */}
+            </Switch>
           </Container>
         </main>
         <Footer />

@@ -1,7 +1,10 @@
 .App {
-  text-align: center;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  text-align: center; /* Ensure text is centered inside child components */
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
