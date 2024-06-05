@@ -34,7 +34,7 @@ EMAIL_HOST_USER = ""
 EMAIL_HOST_PASSWORD = ""
 EMAIL_PORT = 2525
 
-DEBUG_TOOLBAR_CONFIG =  {'SHOW_TOOLBAR_CALLBACK': lambda request: settings.DEBUG and 'test' not in sys.argv,
+DEBUG_TOOLBAR_CONFIG =  {'SHOW_TOOLBAR_CALLBACK': lambda request: settings.DEBUG,
     'IS_RUNNING_TESTS': False,}
 
 STRIPE_PUBLIC_KEY = "pk_test_kbqUrvH0YXB7wc9EHEO6e9dP00Ox2h6G5M"
