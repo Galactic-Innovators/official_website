@@ -52,6 +52,11 @@ urlpatterns = (
     + customers_router.urls
 )
 
+#contact us page email
+urlpatterns += [
+    path('contact/', views.ContactView.as_view(), name='contact'),
+]
+
 # URLConfiguration
 """
 # urlpatterns = router.urls

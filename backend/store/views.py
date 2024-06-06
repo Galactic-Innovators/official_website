@@ -74,10 +74,36 @@ from .serializers import (
 from .recommender import recommend
 
 from django.shortcuts import redirect
+from django.core.mail import send_mail,EmailMessage, get_connection
 
 
 # Create your views here.
 # generic views
+
+#for contact us page emailing
+class ContactView(APIView):
+    def post(self, request, *args, **kwargs):
+        name = request.data.get('name')
+        email = request.data.get('email')
+        message = request.data.get('message')
+        #if user didn't fill out necessary info in front end
+        if not (name and email and message):
+            return Response({'error': 'Missing required fields'}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            # Create EmailMessage instance
+            subject = f'New message from {name}'
+            body = "from: " + email +"\nmessage: " + message
+            from_email = settings.EMAIL_HOST_USER
+            to_email = [settings.EMAIL_HOST_USER] #change this if need to email to a different email 
+
+            email_message = EmailMessage(subject, body, from_email, to_email)
+            email_message.send()
+
+            return Response({'success': 'Message sent successfully'}, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
 class ProductViewSet(ModelViewSet):
     queryset = Product.objects.prefetch_related("images").all()
     serializer_class = ProductSerializer
