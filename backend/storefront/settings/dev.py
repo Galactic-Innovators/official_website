@@ -29,10 +29,7 @@ CACHES = {
     }
 }
 
-EMAIL_HOST = "smtp4dev"
-EMAIL_HOST_USER = ""
-EMAIL_HOST_PASSWORD = ""
-EMAIL_PORT = 2525
+
 
 DEBUG_TOOLBAR_CONFIG =  {'SHOW_TOOLBAR_CALLBACK': lambda request: settings.DEBUG,
     'IS_RUNNING_TESTS': False,}

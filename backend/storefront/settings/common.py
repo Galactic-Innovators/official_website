@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "likes",
     "payments",
     "core",
+
 ]
 
 MIDDLEWARE = [
@@ -202,3 +203,11 @@ LOGGING = {
         }
     },
 }
+
+#for contact us page email:
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  
+EMAIL_PORT = 587  
+EMAIL_HOST_USER = 'notification.gigofficial@gmail.com'  # email address
+EMAIL_HOST_PASSWORD = 'hovrkjxcqczevivy'  # This is the gmail "app password"
+EMAIL_USE_TLS = True  

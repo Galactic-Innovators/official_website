@@ -14,66 +14,95 @@ function ContactScreen() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
       [name]: value,
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Log the form data to the console
-    // In a real application, you would send this data to a server
-    console.log(formData);
-    alert("Thank you for your message. We'll get back to you shortly.");
-    // Reset the form
-    setFormData({
-      name: '',
-      email: '',
-      message: '',
-    });
+
+    try {
+      // Send the form data to the backend
+      await axios.post('/store/contact/', formData);
+      // Alert the user that the message was sent successfully
+      alert("Thank you for your message. We'll get back to you shortly.");
+      // Reset the form
+      setFormData({
+        name: '',
+        email: '',
+        message: '',
+      });
+    } catch (error) {
+      // Handle error
+      console.error('Error sending message:', error);
+      alert('Failed to send message. Please try again later.');
+    }
   };
 
   return (
     <div className="contact-us-container">
       <h2>Contact Us</h2>
-        <Form onSubmit={handleSubmit}>
-            <Row className="align-items-center">
-                <Col sm={3} className="my-1">
-                <Form.Group controlId='name'>
-                <Form.Label htmlFor="inlineFormInputName" visuallyHidden>
-                    Name
-                </Form.Label>
-                <Form.Control required type="text" name="name" value ={formData.name} onChange={handleChange} placeholder="Name"/>
-               </Form.Group>
-                </Col>
-            </Row>
-            <Row className="align-items-center">
-                <Col sm={3} className="my-1">
-                <Form.Group controlId='email'>
-                <Form.Label htmlFor="inlineFormInputEmail" visuallyHidden>
-                    Email
-                </Form.Label>
-                <Form.Control required type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email"/>
-               </Form.Group>
-                </Col>
-            </Row>
-            <Row className="align-items-center">
-                <Col sm={3} className="my-1">
-                <Form.Group controlId='message'>
-                <Form.Label htmlFor="inlineFormInputMessage" visuallyHidden>
-                    Message
-                </Form.Label>
-                <Form.Control as="textarea" rows={3} name="message" required type="text" value={formData.message} onChange={handleChange} placeholder="Message"/>
-               </Form.Group>
-                </Col>
-            </Row>
-            <Row className="align-items-center">
-                <Col xs="auto" className="my-1">
-                <Button type="submit">Submit</Button>
-                </Col>
-            </Row>
-        </Form>
+      <Form onSubmit={handleSubmit}>
+        <Row className="align-items-center">
+          <Col sm={3} className="my-1">
+            <Form.Group controlId="name">
+              <Form.Label htmlFor="inlineFormInputName" visuallyHidden>
+                Name
+              </Form.Label>
+              <Form.Control
+                required
+                type="text"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Name"
+                name="name"
+              />
+            </Form.Group>
+          </Col>
+        </Row>
+        <Row className="align-items-center">
+          <Col sm={3} className="my-1">
+            <Form.Group controlId="email">
+              <Form.Label htmlFor="inlineFormInputEmail" visuallyHidden>
+                Email
+              </Form.Label>
+              <Form.Control
+                required
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Email"
+                name="email"
+              />
+            </Form.Group>
+          </Col>
+        </Row>
+        <Row className="align-items-center">
+          <Col sm={3} className="my-1">
+            <Form.Group controlId="message">
+              <Form.Label htmlFor="inlineFormInputMessage" visuallyHidden>
+                Message
+              </Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                required
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Message"
+                name="message"
+              />
+            </Form.Group>
+          </Col>
+        </Row>
+        <Row className="align-items-center">
+          <Col xs="auto" className="my-1">
+            <Button type="submit">Submit</Button>
+          </Col>
+        </Row>
+      </Form>
     </div>
   );
 }
