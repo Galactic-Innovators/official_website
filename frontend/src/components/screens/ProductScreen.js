@@ -22,6 +22,7 @@ import Heart from "react-animated-heart";
 
 function ProductScreen({ match, history }) {
   const { id } = useParams();
+  const [isClick, setClick] = useState(false);
   const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userLogin);
@@ -32,7 +33,7 @@ function ProductScreen({ match, history }) {
   const { loading, error, product } = productDetails;
   const defaultImage = process.env.PUBLIC_URL + "/images/sample.jpg";
   const maxReviewsDisplay = 2;
-  const [isClickLike, setClickLike] = useState(false);
+
   // Function to go back to the previous page
   const goBackHandler = () => {
     history.goBack();
@@ -78,7 +79,7 @@ function ProductScreen({ match, history }) {
             (item) => item.product.id === product.id
           );
 
-          setClickLike(isProductInWishlist);
+          setClick(isProductInWishlist);
           console.log(isProductInWishlist);
         } else {
         }
@@ -138,54 +139,60 @@ function ProductScreen({ match, history }) {
     }
   };
 
-  const addToLikesHandler = async () => {
+  const toggleLikesHandler = async () => {
     if (!userInfo) {
       history.push("/login");
       return;
     }
     try {
-      console.log("userInfo:", userInfo);
-      let currentLikesId = likesUuid; // Assuming this state holds the current user's likes ID
-
-      // If the user does not have a likes ID, create a new likes
+      let currentLikesId = likesUuid;
+      // Ensure the user has a likes ID
       if (!currentLikesId) {
         const config = {
           headers: {
             Authorization: `JWT ${userInfo.accessToken}`,
           },
         };
-        console.log("POSTING: /store/likes/ with ", config);
         const { data } = await axios.post("/store/likes/", {}, config);
-        currentLikesId = data.id; // Assuming the response includes the likes ID
-
-        // Optionally, update the likesUuid state or redux store with the new likes ID
+        currentLikesId = data.id;
+        setLikesUuid(currentLikesId);
       }
 
-      // Add the product to the likes
-      if (currentLikesId) {
-        const config = {
-          headers: {
-            Authorization: `JWT ${userInfo.accessToken}`,
-          },
-        };
+      const config = {
+        headers: {
+          Authorization: `JWT ${userInfo.accessToken}`,
+        },
+      };
+      // Fetch current wishlist items
+      const { data: wishlist } = await axios.get(
+        `/store/likes/${currentLikesId}`,
+        config
+      );
+      const itemInWishlist = wishlist.items.find(
+        (item) => item.product.id === product.id
+      );
+      if (itemInWishlist) {
+        // If the product is already in the wishlist, remove it
+        await axios.delete(
+          `/store/likes/${currentLikesId}/items/${itemInWishlist.id}`,
+          config
+        );
+        setClick(false); // Update the heart to show it is not clicked
+      } else {
+        // If the product is not in the wishlist, add it
         const postData = {
-          product_id: id, // id from useParams()
-          quantity: qty,
+          product_id: product.id,
         };
-
         await axios.post(
           `/store/likes/${currentLikesId}/items/`,
           postData,
           config
         );
-
-        // Redirect to cart page or show success message
-        // history.push("/wishlist");
+        setClick(true); // Update the heart to show it is clicked
       }
     } catch (error) {
-      console.error("Failed to add item to wishlist:", error);
       history.push("/login");
-      // Handle error, e.g., show error message
+      console.error("Failed to toggle item in wishlist:", error);
     }
   };
 
@@ -236,10 +243,9 @@ function ProductScreen({ match, history }) {
                       }}
                     >
                       <Heart
-                        isClick={isClickLike}
+                        isClick={isClick}
                         onClick={() => {
-                          setClickLike(!isClickLike);
-                          addToLikesHandler();
+                          toggleLikesHandler();
                         }}
                       />
                     </div>
@@ -299,21 +305,11 @@ function ProductScreen({ match, history }) {
                       </Row>
                     </ListGroup.Item>
                   )}
-                  <ListGroup.Item>
-                    <Button
-                      className="btn-block"
-                      disabled={product.inventory == 0}
-                      type="button"
-                      onClick={addToLikesHandler}
-                    >
-                      Add to Wishlist
-                    </Button>
-                  </ListGroup.Item>
 
                   <ListGroup.Item>
                     <Button
                       className="btn-block"
-                      disabled={product.inventory == 0}
+                      disabled={product.inventory === 0}
                       type="button"
                       onClick={addToCartHandler}
                     >
