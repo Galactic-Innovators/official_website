@@ -1,13 +1,21 @@
-import React from "react";
-import { Container, Image } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Container } from "react-bootstrap";
 import "../../Testing.css";
-import Loader from "../Loader";
-import Message from "../Message";
-import Preloader from "../Preloader/Preloader";
-import CountDown from "../Countdown/Timer";
 import Mindmap from "../Mindmap";
+import { useInView } from "react-intersection-observer";
+import "./AboutScreen.css"; // Create this CSS file for animations
 
 function AboutScreen() {
+  const { ref: titleRef, inView: titleInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.25,
+  });
+
+  const { ref: mindmapRef, inView: mindmapInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.25,
+  });
+
   const defaultImage = process.env.PUBLIC_URL + "/images/playstation.jpg";
 
   return (
@@ -25,14 +33,14 @@ function AboutScreen() {
     //   </div>
 
     // </div>
-    <div>
-    <Container>
-      <h1>About Us</h1>
-      <Mindmap />
+    <Container className="about-screen">
+      <h1 style={{textAlign: 'center'}} ref={titleRef} className={`title ${titleInView ? 'pop-up' : ''}`}>
+        Meet our team
+      </h1>
+      <div ref={mindmapRef} className={`mindmap-container ${mindmapInView ? 'pop-up' : ''}`}>
+        <Mindmap />
+      </div>
     </Container>
-    <Preloader />
-    </div>
-
   );
 }
 
