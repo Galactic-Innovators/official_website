@@ -1,8 +1,8 @@
 .mindmap-node {
-    display: inline-block;
+    position: absolute;
     text-align: center;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: top 0.5s ease, left 0.5s ease, transform 0.5s ease;
   }
   
   .mindmap-node .headshot {
