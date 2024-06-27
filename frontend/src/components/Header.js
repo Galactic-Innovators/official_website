@@ -35,32 +35,32 @@ function Header() {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <LinkContainer to="/all_products">
+              {/* <LinkContainer to="/all_products">
                 <Nav.Link>
                   <i className="fas fa-th"></i> All Product
                 </Nav.Link>
-              </LinkContainer>
-
+              </LinkContainer> */}
+{/* 
               <LinkContainer to="/">
                 <Nav.Link aria-label="Home">
                   <i className="fas fa-home"></i> Home
                 </Nav.Link>
-              </LinkContainer>
+              </LinkContainer> */}
 
-              <LinkContainer to="/contactus">
+              {/* <LinkContainer to="/contactus">
                 <Nav.Link>
                   <i className="fas fa-envelope"></i> Contact Us
                 </Nav.Link>
-              </LinkContainer>
-
+              </LinkContainer> */}
+{/* 
               <LinkContainer to="/aboutus">
                 <Nav.Link>
                   <i className="fas fa-info-circle"></i> About Us
                 </Nav.Link>
               </LinkContainer>
-            </Nav>
+            </Nav> */}
 
-            <Nav className="ms-auto">
+            {/* <Nav className="ms-auto">
               <LinkContainer to="/wishlist">
                 <Nav.Link>
                   <i className="fas fa-heart"></i> Wishlist
@@ -71,9 +71,9 @@ function Header() {
                 <Nav.Link>
                   <i className="fas fa-shopping-cart"></i> Cart
                 </Nav.Link>
-              </LinkContainer>
+              </LinkContainer> */}
 
-              {userInfo ? (
+              {/* {userInfo ? (
                 <NavDropdown
                   title={`${userInfo.first_name} ${userInfo.last_name}`}
                   id="username"
@@ -92,7 +92,7 @@ function Header() {
                     <i className="fas fa-user"></i> Login
                   </Nav.Link>
                 </LinkContainer>
-              )}
+              )} */}
             </Nav>
           </Navbar.Collapse>
         </Container>

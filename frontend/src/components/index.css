@@ -7,3 +7,14 @@
     margin-top: 630px; /* Adjust this value as needed */
     margin-left: 695px; /* Adjust this value as needed to move to the right */
   }
+  .footer a {
+    color: grey;
+    text-decoration: none;
+  }
+  .footer a:hover {
+    text-decoration: underline; /* Optional: Add underline on hover */
+    color: white;
+  }
+  .footer-icon {
+    margin-right: 0px; /* Adjust the margin for the icons */
+  }
