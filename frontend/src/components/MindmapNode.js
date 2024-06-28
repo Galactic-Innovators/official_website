@@ -1,6 +1,8 @@
 import React from "react";
 import { Image } from "react-bootstrap";
 import "./MindmapNode.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 const MindmapNode = ({ person, onClick, style, size }) => {
   return (
@@ -16,6 +18,11 @@ const MindmapNode = ({ person, onClick, style, size }) => {
         <div className="info">
           <h3>{person.name}</h3>
           <p>{person.role}</p>
+          {person.linkedin && (
+            <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="linkedin-link">
+              <FontAwesomeIcon icon={faLinkedin} scale={'20px'}/>
+            </a>
+          )}
         </div>
       )}
     </div>
