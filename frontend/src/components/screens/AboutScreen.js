@@ -9,11 +9,13 @@ function AboutScreen() {
   const { ref: titleRef, inView: titleInView } = useInView({
     triggerOnce: true,
     threshold: 0.25,
+    transition: 1,
   });
 
   const { ref: mindmapRef, inView: mindmapInView } = useInView({
     triggerOnce: true,
     threshold: 0.25,
+    transition: 1,
   });
 
   const defaultImage = process.env.PUBLIC_URL + "/images/playstation.jpg";

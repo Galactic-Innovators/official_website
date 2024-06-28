@@ -6,12 +6,12 @@ import xiaohongshu from "./assets/images/xiaohongshu.png";
 
 
 const initialTeam = [
-    { id: 1, name: "Jeremy", role: "3D Team Lead", headshot: weixin, size: '100px', categories: ['founders', '3d-printing'],  linkedin: 'https://linkedin.com/in/jeremy'},
-    { id: 2, name: "Kevin", role: "Software Team Lead", headshot: weixin, size: '100px', categories: ['founders', 'software'],linkedin: 'https://www.linkedin.com/in/kevinchenzk/' },
+    { id: 1, name: "Jeremy", role: "3D Team Lead", headshot: weixin, size: '150px', categories: ['founders', '3d-printing'],  linkedin: 'https://linkedin.com/in/jeremy'},
+    { id: 2, name: "Kevin", role: "Software Team Lead", headshot: weixin, size: '150px', categories: ['founders', 'software'],linkedin: 'https://www.linkedin.com/in/kevinchenzk/' },
     { id: 3, name: "Eric", role: "Software Developer | 3D Designer", headshot: weixin, size: '100px', categories: ['software', '3d-printing'],linkedin: 'https://linkedin.com/in/jeremy' },
-    { id: 4, name: "Anny", role: "Project Manager", headshot: weixin, size: '80px', categories: ['founders'] ,linkedin: 'https://linkedin.com/in/jeremy'},
+    { id: 4, name: "Anny", role: "Project Manager", headshot: weixin, size: '100px', categories: ['founders'] ,linkedin: 'https://linkedin.com/in/jeremy'},
     { id: 5, name: "Clyde", role: "Software Developer", headshot: weixin, size: '80px', categories: ['software'],linkedin: 'https://linkedin.com/in/jeremy' },
-    { id: 6, name: "Cycas", role: "Software Developer", headshot: weixin, size: '100px', categories: ['software'],linkedin: 'https://linkedin.com/in/jeremy' },
+    { id: 6, name: "Cycas", role: "Software Developer", headshot: weixin, size: '150px', categories: ['software'],linkedin: 'https://linkedin.com/in/jeremy' },
     { id: 7, name: "Xiaoying", role: "UX Designer", headshot: weixin, size: '80px', categories: ['software'],linkedin: 'https://linkedin.com/in/jeremy' },
     // Add more team members here
   ];
@@ -31,8 +31,8 @@ const getRandomPosition = (existingPositions) => {
   
       overlap = Object.values(existingPositions).some(
         (pos) =>
-          Math.abs(parseInt(pos.top) - randomY) < 15 &&
-          Math.abs(parseInt(pos.left) - randomX) < 15
+          Math.abs(parseInt(pos.top) - randomY) < 12 &&
+          Math.abs(parseInt(pos.left) - randomX) < 12
       );
     }
   
@@ -102,7 +102,7 @@ const getRandomPosition = (existingPositions) => {
             onClick={handleNodeClick}
             style={{
               ...positions[person.id],
-              transform: selectedFilter && person.categories.includes(selectedFilter.id) ? 'scale(1.2)' : '',
+              transform: selectedFilter && person.categories.includes(selectedFilter.id) ? 'scale(1.3)' : '',
               opacity: selectedFilter && !person.categories.includes(selectedFilter.id) ? 0.3 : 1
             }}
             size={person.size}
