@@ -6,11 +6,12 @@ import { Link, useParams, useHistory } from "react-router-dom";
 import Heart from "react-animated-heart";
 import axios from "axios";
 
-function Product({ product, history }) {
+function Product({ product }) {
   const [isClick, setClick] = useState(false);
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
   const { id } = useParams();
+  const history = useHistory();
   const [cartUuid, setCartUuid] = useState("");
   const [qty, setQty] = useState(1);
   const [likesUuid, setLikesUuid] = useState("");
@@ -61,56 +62,63 @@ function Product({ product, history }) {
     fetchCustomerDetails();
   }, [userInfo, product.id]);
 
-  const addToLikesHandler = async () => {
+  const toggleLikesHandler = async () => {
     if (!userInfo) {
       history.push("/login");
       return;
     }
     try {
-      let currentLikesId = likesUuid; // Assuming this state holds the current user's likes ID
-
-      // If the user does not have a likes ID, create a new likes
+      let currentLikesId = likesUuid;
+      // Ensure the user has a likes ID
       if (!currentLikesId) {
         const config = {
           headers: {
             Authorization: `JWT ${userInfo.accessToken}`,
           },
         };
-        console.log("POSTING: /store/likes/ with ", config);
         const { data } = await axios.post("/store/likes/", {}, config);
-        currentLikesId = data.id; // Assuming the response includes the likes ID
+        currentLikesId = data.id;
         setLikesUuid(currentLikesId);
-        // Optionally, update the likesUuid state or redux store with the new likes ID
       }
-      console.log("userInfo:", userInfo);
-      console.log("user wishlist id", likesUuid);
-      // Add the product to the likes
-      if (currentLikesId) {
-        const config = {
-          headers: {
-            Authorization: `JWT ${userInfo.accessToken}`,
-          },
-        };
+
+      const config = {
+        headers: {
+          Authorization: `JWT ${userInfo.accessToken}`,
+        },
+      };
+      // Fetch current wishlist items
+      const { data: wishlist } = await axios.get(
+        `/store/likes/${currentLikesId}`,
+        config
+      );
+      const itemInWishlist = wishlist.items.find(
+        (item) => item.product.id === product.id
+      );
+      if (itemInWishlist) {
+        // If the product is already in the wishlist, remove it
+        await axios.delete(
+          `/store/likes/${currentLikesId}/items/${itemInWishlist.id}`,
+          config
+        );
+        setClick(false); // Update the heart to show it is not clicked
+      } else {
+        // If the product is not in the wishlist, add it
         const postData = {
-          product_id: product.id, // id from useParams()
+          product_id: product.id,
         };
-        console.log("posting", postData);
         await axios.post(
           `/store/likes/${currentLikesId}/items/`,
           postData,
           config
         );
-        setClick(true); // Update the state to show the heart as clicked
-        // Redirect to cart page or show success message
-        // history.push("/wishlist");
+        setClick(true); // Update the heart to show it is clicked
       }
     } catch (error) {
       history.push("/login");
-      console.error("Failed to add item to wishlist:", error);
-
-      // Handle error, e.g., show error message
+      console.error("Failed to toggle item in wishlist:", error);
     }
   };
+
   return (
     <Card classname="my-3 p-3 rounded">
       <div style={{ position: "relative" }}>
@@ -128,8 +136,7 @@ function Product({ product, history }) {
           <Heart
             isClick={isClick}
             onClick={() => {
-              setClick(!isClick);
-              addToLikesHandler();
+              toggleLikesHandler();
             }}
           />
         </div>

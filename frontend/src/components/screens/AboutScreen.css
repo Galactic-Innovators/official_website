@@ -1,0 +1,26 @@
+.about-screen {
+    padding-top: 3000px; /* Adjust this value to add more or less space */
+  }
+.title {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    margin-bottom: 50px;
+}
+
+.title.pop-up {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mindmap-container {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    transition-delay: 0.5s;
+}
+
+.mindmap-container.pop-up {
+    opacity: 1;
+    transform: translateY(0);
+}

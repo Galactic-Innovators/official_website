@@ -1,0 +1,39 @@
+.mindmap-node {
+    position: absolute;
+    text-align: center;
+    cursor: pointer;
+    transition: top 0.5s ease, left 0.5s ease, transform 0.5s ease;
+  }
+  
+  .mindmap-node .headshot {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s ease;
+  }
+  
+  .mindmap-node:hover .headshot {
+    transform: scale(1.2);
+  }
+  
+  .mindmap-node .info {
+    display: none;
+    margin-top: 10px;
+  }
+  
+  .mindmap-node .info h3, .mindmap-node .info p {
+    margin: 0;
+  }
+  
+  .mindmap-node .info {
+    display: block;
+    animation: fadeIn 0.5s;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
