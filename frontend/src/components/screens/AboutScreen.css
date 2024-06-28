@@ -3,7 +3,7 @@
     padding-top: 3000px; /* Adjust this value to add more or less space */
   }
 .title {
-    font-family: 'Great Vibes', cursive;
+    font-family:'Pacifico', cursive;
     overflow: hidden;
     white-space: nowrap;
     border-right: 3px solid;
@@ -12,7 +12,18 @@
     text-align: center;
     margin: 20px 0;
 }
-
+.svg-title {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5em;
+    text-align: center;
+    margin: 20px 0;
+    fill: none;
+    stroke: black;
+    stroke-width: 2;
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: draw 5s forwards;
+  }
 .title.pop-up {
     opacity: 1;
     transform: translateY(0);
@@ -39,4 +50,9 @@
   @keyframes blink-caret {
     from, to { border-color: transparent }
     50% { border-color: black; }
+  }
+@keyframes draw {
+    to {
+      stroke-dashoffset: 0;
+    }
   }

@@ -8,14 +8,12 @@ import "./AboutScreen.css"; // Create this CSS file for animations
 function AboutScreen() {
   const { ref: titleRef, inView: titleInView } = useInView({
     triggerOnce: true,
-    threshold: 0.25,
-    transition: 1,
+    threshold: 0.5
   });
 
   const { ref: mindmapRef, inView: mindmapInView } = useInView({
     triggerOnce: true,
-    threshold: 0.25,
-    transition: 1,
+    threshold: 0.5
   });
 
   const defaultImage = process.env.PUBLIC_URL + "/images/playstation.jpg";
@@ -36,12 +34,13 @@ function AboutScreen() {
 
     // </div>
     <Container className="about-screen">
-      <h1
-        ref={titleRef}
-        className={`title ${titleInView ? 'pop-up' : ''}`}
-      >
-        Meet our team
-      </h1>
+      <div ref={titleRef} className={`title-container ${titleInView ? 'pop-up' : ''}`}>
+        <svg viewBox="0 0 500 100" className="svg-title">
+          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+            Meet our team
+          </text>
+        </svg>
+      </div>
       <div ref={mindmapRef} className={`mindmap-container ${mindmapInView ? 'pop-up' : ''}`}>
         <Mindmap />
       </div>
