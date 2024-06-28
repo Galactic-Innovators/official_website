@@ -36,7 +36,10 @@ function AboutScreen() {
 
     // </div>
     <Container className="about-screen">
-      <h1 style={{textAlign: 'center'}} ref={titleRef} className={`title ${titleInView ? 'pop-up' : ''}`}>
+      <h1
+        ref={titleRef}
+        className={`title ${titleInView ? 'pop-up' : ''}`}
+      >
         Meet our team
       </h1>
       <div ref={mindmapRef} className={`mindmap-container ${mindmapInView ? 'pop-up' : ''}`}>
