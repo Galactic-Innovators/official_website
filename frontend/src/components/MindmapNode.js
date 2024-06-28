@@ -2,7 +2,7 @@ import React from "react";
 import { Image } from "react-bootstrap";
 import "./MindmapNode.css";
 
-const MindmapNode = ({ person, onClick, style }) => {
+const MindmapNode = ({ person, onClick, style, size }) => {
   return (
     <div className="mindmap-node" onClick={() => onClick(person)} style={style}>
       <Image
@@ -10,6 +10,7 @@ const MindmapNode = ({ person, onClick, style }) => {
         alt={person.name}
         roundedCircle
         className="headshot"
+        style={{ width: size, height: size }}
       />
       {person.showInfo && (
         <div className="info">
