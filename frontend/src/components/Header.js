@@ -23,7 +23,7 @@ function Header() {
               <img
                 src={`${process.env.PUBLIC_URL}/images/GIG_Logo_Trans.png`}
                 alt="gig Logo"
-                style={{ width: "auto", height: "50px" }}
+                style={{ width: "auto", height: "5vh" }}
               />
             </Navbar.Brand>
           </LinkContainer>
@@ -32,7 +32,7 @@ function Header() {
           <Navbar.Collapse id="navbarScroll">
             <Nav
               className="mr-auto my-2 my-lg-0"
-              style={{ maxHeight: "100px" }}
+              style={{ maxHeight: "10vh" }}
               navbarScroll
             >
               {/* <LinkContainer to="/all_products">

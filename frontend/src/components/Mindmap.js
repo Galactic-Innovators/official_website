@@ -29,13 +29,13 @@ const getRandomPosition = (existingPositions) => {
     let overlap = true;
   
     while (overlap) {
-      randomX = Math.floor(Math.random() * 80) + 10; // 10% to 90%
-      randomY = Math.floor(Math.random() * 80) + 10; // 10% to 90%
+      randomX = Math.floor(Math.random() * 99) + 1; // 10% to 90%
+      randomY = Math.floor(Math.random() * 99) + 1; // 10% to 90%
       newPosition = { top: `${randomY}%`, left: `${randomX}%` };
   
       overlap = Object.values(existingPositions).some(
         (pos) =>
-          Math.abs(parseInt(pos.top) - randomY) < 18 &&
+          Math.abs(parseInt(pos.top) - randomY) < 19 &&
           Math.abs(parseInt(pos.left) - randomX) < 15
       );
     }
