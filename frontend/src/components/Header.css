@@ -1,0 +1,23 @@
+/* Header.css */
+.header-container {
+    background-color: #07072b; /* Assuming a dark theme */
+}
+
+.navbar {
+    transition: all 0.3s ease; /* Smooth transition for any changes */
+}
+
+.header-logo {
+    height: clamp(1vh, 5vh, 60px); /* Use clamp to control the size */
+    width: auto; /* Maintain aspect ratio */
+}
+
+.nav-icon {
+    font-size: clamp(0.5vw, 1.5vw, 24px); /* Adjust icon sizes appropriately */
+}
+
+@media (max-width: 768px) {
+    .header-logo {
+        height: clamp(1vh, 4vh, 40px); /* Smaller on mobile devices */
+    }
+}

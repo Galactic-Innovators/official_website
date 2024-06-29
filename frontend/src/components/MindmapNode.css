@@ -5,16 +5,41 @@
     align-items: center; /* Align children (headshot and info) in the center */
     justify-content: center; /* Center everything vertically within the node */
     transition: top 0.5s ease, left 0.5s ease, transform 0.5s ease;
-    width: 100px;  /* Adjust width as needed */
-    height: 150px; /* Adjust height as needed */
+    width: clamp(50px, 2vw, 100px); /* Prevent excessive width */
+    height: auto; /* 15% of the viewport height */
   }
   
-  .mindmap-node .headshot {
+  .mindmap-node .headshot-small {
+    width: clamp(4vw, 7vw, 60px); /* Minimum size, preferred size based on viewport width, maximum size */
+    height: clamp(4vw, 7vw, 60px); /* Ensure the width and height are the same for circular icons */
+    border-radius: 50%; /* Makes the image rounded */
     transition: transform 0.3s ease;
-    width: 100%;  /* Adjust based on actual size requirements */
-    margin-bottom: 5px; /* Space between headshot and text */
   }
-  
+  .mindmap-node .headshot-medium {
+    width: clamp(5vw, 8vw, 70px); /* Minimum size, preferred size based on viewport width, maximum size */
+    height: clamp(5vw, 8vw, 70px); /* Ensure the width and height are the same for circular icons */
+    border-radius: 50%; /* Makes the image rounded */
+    transition: transform 0.3s ease;
+  }
+  .mindmap-node .headshot-large {
+    width: clamp(6vw, 9vw, 80px); /* Minimum size, preferred size based on viewport width, maximum size */
+    height: clamp(6vw, 9vw, 80px); /* Ensure the width and height are the same for circular icons */
+    border-radius: 50%; /* Makes the image rounded */
+    transition: transform 0.3s ease;
+  }
+  .mindmap-node .headshot-xlarge {
+    width: clamp(7vw, 10vw, 90px); /* Minimum size, preferred size based on viewport width, maximum size */
+    height: clamp(7vw, 10vw, 90px); /* Ensure the width and height are the same for circular icons */
+    border-radius: 50%; /* Makes the image rounded */
+    transition: transform 0.3s ease;
+  }
+  .headshot {
+    width: clamp(1vw, 5vw, 90px); /* Clamped to reasonable min and max sizes */
+    height: clamp(1vw, 5vw, 90px);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
   .mindmap-node:hover .headshot {
     transform: scale(1.3);
   }
@@ -28,30 +53,76 @@
   }
   
   .mindmap-node .info h3{
+    font-size: clamp(12px, 1.2vw, 20px); /* Minimum size, preferred size, maximum */
     align-items: center;
     text-align: center;
     white-space: nowrap; /* Prevents text wrapping */
     flex-direction: column; /* Aligns children (h3, p) in a row */
     animation: fadeIn 3.3s;
-    font-size: 30px;
   }
   .mindmap-node .info p {
+    font-size: clamp(10px, 1.0vw, 18px); /* Adjust these values as necessary */
     align-items: center;
     text-align: center;
     white-space: nowrap; /* Prevents text wrapping */
     flex-direction: column; /* Aligns children (h3, p) in a row */
     animation: fadeIn 3.3s;
-    font-size: 20px;
   }
   .mindmap-node .linkedin-link {
     color: #0077B5; /* LinkedIn's brand color */
     text-decoration: none;
-    display: inline-block;
-    margin-top: 0px;
-    font-size: 25px;
+    margin-top: 0vh;
+    font-size: clamp(12px, 1vw, 16px);
     animation: fadeIn 3.3s;
   }
+  @media (max-width: 768px) {
+    .mindmap-node {
+      width: 4vw;
+    }
   
+    .mindmap-node .info h3 {
+      font-size: 1.2vw;
+    }
+  
+    .mindmap-node .info p {
+      font-size: 1.0vw;
+    }
+  
+    .mindmap-node .linkedin-link {
+      font-size: 1.2vw;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .mindmap-node {
+      width: 4vw;
+    }
+  
+    .mindmap-node .info h3 {
+        font-size: 1.2vw;
+    }
+
+    .mindmap-node .info p {
+        font-size: 1.0vw;
+    }
+
+    .mindmap-node .linkedin-link {
+        font-size: 1.2vw;
+    }
+  }
+  @media (min-width: 1200px) {
+    .mindmap-node .info h3 {
+        font-size: 18px; /* Fixed size for very large screens */
+    }
+
+    .mindmap-node .info p, .mindmap-node .linkedin-link {
+        font-size: 16px; /* Fixed size for very large screens */
+    }
+
+    .title, .svg-title {
+        font-size: 35px; /* Larger fixed size for titles on big screens */
+    }
+}
   @keyframes fadeIn {
     from {
       opacity: 0;
