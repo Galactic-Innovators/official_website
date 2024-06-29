@@ -35,8 +35,8 @@ const getRandomPosition = (existingPositions) => {
   
       overlap = Object.values(existingPositions).some(
         (pos) =>
-          Math.abs(parseInt(pos.top) - randomY) < 19 &&
-          Math.abs(parseInt(pos.left) - randomX) < 15
+          Math.abs(parseInt(pos.top) - randomY) < 27 &&
+          Math.abs(parseInt(pos.left) - randomX) < 10
       );
     }
   
