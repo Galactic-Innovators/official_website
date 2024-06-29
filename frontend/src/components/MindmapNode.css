@@ -10,26 +10,26 @@
   }
   
   .mindmap-node .headshot-small {
-    width: clamp(30px, 4vw, 90px); /* Minimum size, preferred size based on viewport width, maximum size */
-    height: clamp(30px, 4vw, 90px); /* Ensure the width and height are the same for circular icons */
+    width: clamp(1vw, 5vw, 70px); /* Minimum size, preferred size based on viewport width, maximum size */
+    height: clamp(1vw, 5vw, 70px); /* Ensure the width and height are the same for circular icons */
     border-radius: 50%; /* Makes the image rounded */
     transition: transform 0.3s ease;
   }
   .mindmap-node .headshot-medium {
-    width: clamp(40px, 5vw, 100px); /* Minimum size, preferred size based on viewport width, maximum size */
-    height: clamp(40px, 5vw, 100px); /* Ensure the width and height are the same for circular icons */
+    width: clamp(4vw, 7vw, 80px); /* Minimum size, preferred size based on viewport width, maximum size */
+    height: clamp(4vw, 7vw, 80px); /* Ensure the width and height are the same for circular icons */
     border-radius: 50%; /* Makes the image rounded */
     transition: transform 0.3s ease;
   }
   .mindmap-node .headshot-large {
-    width: clamp(50px, 6vw, 110px); /* Minimum size, preferred size based on viewport width, maximum size */
-    height: clamp(50px, 6vw, 110px); /* Ensure the width and height are the same for circular icons */
+    width: clamp(3vw, 9vw, 90px); /* Minimum size, preferred size based on viewport width, maximum size */
+    height: clamp(3vw, 9vw, 90px); /* Ensure the width and height are the same for circular icons */
     border-radius: 50%; /* Makes the image rounded */
     transition: transform 0.3s ease;
   }
   .mindmap-node .headshot-xlarge {
-    width: clamp(60px, 7vw, 120px); /* Minimum size, preferred size based on viewport width, maximum size */
-    height: clamp(60px, 7vw, 120px); /* Ensure the width and height are the same for circular icons */
+    width: clamp(4vw, 11vw, 100px); /* Minimum size, preferred size based on viewport width, maximum size */
+    height: clamp(4vw, 11vw, 100px); /* Ensure the width and height are the same for circular icons */
     border-radius: 50%; /* Makes the image rounded */
     transition: transform 0.3s ease;
   }
