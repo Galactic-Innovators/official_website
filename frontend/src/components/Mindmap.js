@@ -2,9 +2,10 @@ import React, { useState, useEffect, useRef  } from "react";
 import MindmapNode from "./MindmapNode";
 import "./Mindmap.css"; // Make sure to create this CSS file
 import weixin from "./assets/images/weixin.svg";
-import xiaohongshu from "./assets/images/xiaohongshu.png";
-
-
+import Developer_icon from "./assets/images/Developer_icon.png";
+import Designer_icon from "./assets/images/Designer_icon.png";
+import Printing_icon from "./assets/images/3D_printing_icon.png";
+import Founder_icon from "./assets/images/Founder_icon.png";
 const initialTeam = [
     { id: 1, name: "Jeremy Cheung", role: "3D Team Lead", headshot: weixin, sizeCategory: 'xlarge', categories: ['founders', '3d-printing'],  linkedin: 'https://www.linkedin.com/in/jeremyc1231/'},
     { id: 2, name: "Kevin Chen", role: "Software Team Lead", headshot: weixin, sizeCategory: 'xlarge', categories: ['founders', 'software', 'designer'],linkedin: 'https://www.linkedin.com/in/kevinchenzk/' },
@@ -19,10 +20,10 @@ const initialTeam = [
     // Add more team members her
   ];
 const filters = [
-    { id: 'founders', sizeCategory: 'small' , headshot: xiaohongshu},
-    { id: 'software', sizeCategory: 'medium', headshot: xiaohongshu},
-    { id: '3d-printing', sizeCategory: 'large', headshot: xiaohongshu},
-    { id: 'designer', sizeCategory: 'medium', headshot: xiaohongshu}
+    { id: 'founders', sizeCategory: 'medium' , headshot: Founder_icon},
+    { id: 'software', sizeCategory: 'large', headshot: Developer_icon},
+    { id: '3d-printing', sizeCategory: 'xlarge', headshot: Printing_icon},
+    { id: 'designer', sizeCategory: 'large', headshot: Designer_icon}
 ];
 const getRandomPosition = (existingPositions) => {
     let randomX, randomY, newPosition;
@@ -35,8 +36,8 @@ const getRandomPosition = (existingPositions) => {
   
       overlap = Object.values(existingPositions).some(
         (pos) =>
-          Math.abs(parseInt(pos.top) - randomY) < 27 &&
-          Math.abs(parseInt(pos.left) - randomX) < 10
+          Math.abs(parseInt(pos.top) - randomY) < 35 &&
+          Math.abs(parseInt(pos.left) - randomX) < 12
       );
     }
   

@@ -5,36 +5,38 @@
     align-items: center; /* Align children (headshot and info) in the center */
     justify-content: center; /* Center everything vertically within the node */
     transition: top 0.5s ease, left 0.5s ease, transform 0.5s ease;
-    width: 2vw; /* 10% of the viewport width */
+    width: clamp(50px, 2vw, 100px); /* Prevent excessive width */
     height: auto; /* 15% of the viewport height */
   }
   
   .mindmap-node .headshot-small {
-    width: clamp(1vw, 5vw, 70px); /* Minimum size, preferred size based on viewport width, maximum size */
-    height: clamp(1vw, 5vw, 70px); /* Ensure the width and height are the same for circular icons */
+    width: clamp(4vw, 7vw, 60px); /* Minimum size, preferred size based on viewport width, maximum size */
+    height: clamp(4vw, 7vw, 60px); /* Ensure the width and height are the same for circular icons */
     border-radius: 50%; /* Makes the image rounded */
     transition: transform 0.3s ease;
   }
   .mindmap-node .headshot-medium {
-    width: clamp(4vw, 7vw, 80px); /* Minimum size, preferred size based on viewport width, maximum size */
-    height: clamp(4vw, 7vw, 80px); /* Ensure the width and height are the same for circular icons */
+    width: clamp(5vw, 8vw, 70px); /* Minimum size, preferred size based on viewport width, maximum size */
+    height: clamp(5vw, 8vw, 70px); /* Ensure the width and height are the same for circular icons */
     border-radius: 50%; /* Makes the image rounded */
     transition: transform 0.3s ease;
   }
   .mindmap-node .headshot-large {
-    width: clamp(3vw, 9vw, 90px); /* Minimum size, preferred size based on viewport width, maximum size */
-    height: clamp(3vw, 9vw, 90px); /* Ensure the width and height are the same for circular icons */
+    width: clamp(6vw, 9vw, 80px); /* Minimum size, preferred size based on viewport width, maximum size */
+    height: clamp(6vw, 9vw, 80px); /* Ensure the width and height are the same for circular icons */
     border-radius: 50%; /* Makes the image rounded */
     transition: transform 0.3s ease;
   }
   .mindmap-node .headshot-xlarge {
-    width: clamp(4vw, 11vw, 100px); /* Minimum size, preferred size based on viewport width, maximum size */
-    height: clamp(4vw, 11vw, 100px); /* Ensure the width and height are the same for circular icons */
+    width: clamp(7vw, 10vw, 90px); /* Minimum size, preferred size based on viewport width, maximum size */
+    height: clamp(7vw, 10vw, 90px); /* Ensure the width and height are the same for circular icons */
     border-radius: 50%; /* Makes the image rounded */
     transition: transform 0.3s ease;
   }
   .headshot {
-    border-radius: 50%; /* Makes the image rounded */
+    width: clamp(1vw, 5vw, 90px); /* Clamped to reasonable min and max sizes */
+    height: clamp(1vw, 5vw, 90px);
+    border-radius: 50%;
     transition: transform 0.3s ease;
 }
 
@@ -51,7 +53,7 @@
   }
   
   .mindmap-node .info h3{
-    font-size: clamp(12px, 1.1vw, 22px); /* Minimum size, preferred size, maximum */
+    font-size: clamp(12px, 1.2vw, 20px); /* Minimum size, preferred size, maximum */
     align-items: center;
     text-align: center;
     white-space: nowrap; /* Prevents text wrapping */
@@ -59,7 +61,7 @@
     animation: fadeIn 3.3s;
   }
   .mindmap-node .info p {
-    font-size: clamp(10px, 1.0vw, 20px); /* Adjust these values as necessary */
+    font-size: clamp(10px, 1.0vw, 18px); /* Adjust these values as necessary */
     align-items: center;
     text-align: center;
     white-space: nowrap; /* Prevents text wrapping */
@@ -70,7 +72,7 @@
     color: #0077B5; /* LinkedIn's brand color */
     text-decoration: none;
     margin-top: 0vh;
-    font-size: 1.0vw; /* Relative to viewport width */
+    font-size: clamp(12px, 1vw, 16px);
     animation: fadeIn 3.3s;
   }
   @media (max-width: 768px) {
