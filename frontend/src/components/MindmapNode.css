@@ -5,14 +5,14 @@
     align-items: center; /* Align children (headshot and info) in the center */
     justify-content: center; /* Center everything vertically within the node */
     transition: top 0.5s ease, left 0.5s ease, transform 0.5s ease;
-    width: 100px;  /* Adjust width as needed */
-    height: 150px; /* Adjust height as needed */
+    width: 2vw; /* 10% of the viewport width */
+    height: auto; /* 15% of the viewport height */
   }
   
   .mindmap-node .headshot {
+    width: auto; /* Or remove this to ensure inline styles control size */
+    height: auto; /* Or remove this to ensure inline styles control size */
     transition: transform 0.3s ease;
-    width: 100%;  /* Adjust based on actual size requirements */
-    margin-bottom: 0px; /* Space between headshot and text */
   }
   
   .mindmap-node:hover .headshot {
@@ -28,30 +28,63 @@
   }
   
   .mindmap-node .info h3{
+    font-size: 1.1vw; /* Relative to viewport width */
     align-items: center;
     text-align: center;
     white-space: nowrap; /* Prevents text wrapping */
     flex-direction: column; /* Aligns children (h3, p) in a row */
     animation: fadeIn 3.3s;
-    font-size: 25px;
   }
   .mindmap-node .info p {
+    font-size: 1.0vw; /* Relative to viewport width */
     align-items: center;
     text-align: center;
     white-space: nowrap; /* Prevents text wrapping */
     flex-direction: column; /* Aligns children (h3, p) in a row */
     animation: fadeIn 3.3s;
-    font-size: 15px;
   }
   .mindmap-node .linkedin-link {
     color: #0077B5; /* LinkedIn's brand color */
     text-decoration: none;
-    display: inline-block;
-    margin-top: 0px;
-    font-size: 15px;
+    margin-top: 0vh;
+    font-size: 1.0vw; /* Relative to viewport width */
     animation: fadeIn 3.3s;
   }
+  @media (max-width: 768px) {
+    .mindmap-node {
+      width: 4vw;
+    }
   
+    .mindmap-node .info h3 {
+      font-size: 1.2vw;
+    }
+  
+    .mindmap-node .info p {
+      font-size: 1.0vw;
+    }
+  
+    .mindmap-node .linkedin-link {
+      font-size: 1.2vw;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .mindmap-node {
+      width: 4vw;
+    }
+  
+    .mindmap-node .info h3 {
+        font-size: 1.2vw;
+    }
+
+    .mindmap-node .info p {
+        font-size: 1.0vw;
+    }
+
+    .mindmap-node .linkedin-link {
+        font-size: 1.2vw;
+    }
+  }
   @keyframes fadeIn {
     from {
       opacity: 0;
