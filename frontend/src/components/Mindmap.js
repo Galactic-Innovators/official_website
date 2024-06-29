@@ -6,19 +6,23 @@ import xiaohongshu from "./assets/images/xiaohongshu.png";
 
 
 const initialTeam = [
-    { id: 1, name: "Jeremy", role: "3D Team Lead", headshot: weixin, size: '150px', categories: ['founders', '3d-printing'],  linkedin: 'https://linkedin.com/in/jeremy'},
-    { id: 2, name: "Kevin", role: "Software Team Lead", headshot: weixin, size: '150px', categories: ['founders', 'software'],linkedin: 'https://www.linkedin.com/in/kevinchenzk/' },
-    { id: 3, name: "Eric", role: "Software Developer | 3D Designer", headshot: weixin, size: '100px', categories: ['software', '3d-printing'],linkedin: 'https://linkedin.com/in/jeremy' },
-    { id: 4, name: "Anny", role: "Project Manager", headshot: weixin, size: '100px', categories: ['founders'] ,linkedin: 'https://linkedin.com/in/jeremy'},
-    { id: 5, name: "Clyde", role: "Software Developer", headshot: weixin, size: '80px', categories: ['software'],linkedin: 'https://linkedin.com/in/jeremy' },
-    { id: 6, name: "Cycas", role: "Software Developer", headshot: weixin, size: '150px', categories: ['software'],linkedin: 'https://linkedin.com/in/jeremy' },
-    { id: 7, name: "Xiaoying", role: "UX Designer", headshot: weixin, size: '80px', categories: ['software'],linkedin: 'https://linkedin.com/in/jeremy' },
+    { id: 1, name: "Jeremy Cheung", role: "3D Team Lead", headshot: weixin, size: '120px', categories: ['founders', '3d-printing'],  linkedin: 'https://www.linkedin.com/in/jeremyc1231/'},
+    { id: 2, name: "Kevin Chen", role: "Software Team Lead", headshot: weixin, size: '120px', categories: ['founders', 'software', 'designer'],linkedin: 'https://www.linkedin.com/in/kevinchenzk/' },
+    { id: 3, name: "Eric Li", role: "Software Developer | 3D Designer", headshot: weixin, size: '70px', categories: ['software', '3d-printing'],linkedin: 'https://www.linkedin.com/in/ericxuchengli/' },
+    { id: 4, name: "Anny Liu", role: "Project Manager", headshot: weixin, size: '70px', categories: ['founders'] ,linkedin: 'https://linkedin.com/in/jeremy'},
+    { id: 5, name: "Clyde Jiang", role: "Software Developer", headshot: weixin, size: '80px', categories: ['software'],linkedin: 'https://www.linkedin.com/in/linqi-jiang-638225170/' },
+    { id: 6, name: "Cycas Su", role: "Software Developer", headshot: weixin, size: '90px', categories: ['software'],linkedin: 'https://linkedin.com/in/jeremy' },
+    { id: 7, name: "Ying Xiao", role: "UX Designer", headshot: weixin, size: '100px', categories: ['designer'],linkedin: 'https://linkedin.com/in/jeremy' },
+    { id: 8, name: "Oliver Chen", role: "3D Designer", headshot: weixin, size: '110px', categories: ['3d-printing'],linkedin: 'https://linkedin.com/in/jeremy' },
+    { id: 9, name: "Imran Malik", role: "3D Designer", headshot: weixin, size: '70px', categories: ['3d-printing'],linkedin: 'https://linkedin.com/in/jeremy' },
+    { id: 10, name: "Acacia Hong", role: "Graphic Designer", headshot: weixin, size: '80px', categories: ['designer'],linkedin: 'https://www.linkedin.com/in/acacia-hong-827239109/' },
     // Add more team members here
   ];
 const filters = [
-    { id: 'founders', size: '60px' , headshot: xiaohongshu},
-    { id: 'software', size: '80px' , headshot: xiaohongshu},
-    { id: '3d-printing', size: '80px', headshot: xiaohongshu}
+    { id: 'founders', size: '80px' , headshot: xiaohongshu},
+    { id: 'software', size: '90px' , headshot: xiaohongshu},
+    { id: '3d-printing', size: '100px', headshot: xiaohongshu},
+    { id: 'designer', size: '90px', headshot: xiaohongshu}
 ];
 const getRandomPosition = (existingPositions) => {
     let randomX, randomY, newPosition;
@@ -31,8 +35,8 @@ const getRandomPosition = (existingPositions) => {
   
       overlap = Object.values(existingPositions).some(
         (pos) =>
-          Math.abs(parseInt(pos.top) - randomY) < 12 &&
-          Math.abs(parseInt(pos.left) - randomX) < 12
+          Math.abs(parseInt(pos.top) - randomY) < 15 &&
+          Math.abs(parseInt(pos.left) - randomX) < 15
       );
     }
   

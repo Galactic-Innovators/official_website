@@ -1,7 +1,8 @@
 .mindmap {
     position: relative;
     width: 100%;
-    height: 1000px; /* Adjust as needed */
+    height: 100%;
+    height: 800px; /* Adjust as needed */
     overflow: visible;
     margin-bottom: 50px;
   }

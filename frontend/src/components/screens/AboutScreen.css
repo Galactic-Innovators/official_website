@@ -11,6 +11,7 @@
     font-size: 2.5em;
     text-align: center;
     margin: 20px 0;
+    margin-bottom: 0px;
 }
 .svg-title {
     font-family: 'Pacifico', cursive;
@@ -23,6 +24,7 @@
     stroke-dasharray: 500;
     stroke-dashoffset: 500;
     animation: draw 5s forwards;
+    margin-bottom: 0px;
   }
 .title.pop-up {
     opacity: 1;

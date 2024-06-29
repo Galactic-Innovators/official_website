@@ -12,7 +12,7 @@
   .mindmap-node .headshot {
     transition: transform 0.3s ease;
     width: 100%;  /* Adjust based on actual size requirements */
-    margin-bottom: 5px; /* Space between headshot and text */
+    margin-bottom: 0px; /* Space between headshot and text */
   }
   
   .mindmap-node:hover .headshot {
@@ -33,7 +33,7 @@
     white-space: nowrap; /* Prevents text wrapping */
     flex-direction: column; /* Aligns children (h3, p) in a row */
     animation: fadeIn 3.3s;
-    font-size: 30px;
+    font-size: 25px;
   }
   .mindmap-node .info p {
     align-items: center;
@@ -41,14 +41,14 @@
     white-space: nowrap; /* Prevents text wrapping */
     flex-direction: column; /* Aligns children (h3, p) in a row */
     animation: fadeIn 3.3s;
-    font-size: 20px;
+    font-size: 15px;
   }
   .mindmap-node .linkedin-link {
     color: #0077B5; /* LinkedIn's brand color */
     text-decoration: none;
     display: inline-block;
     margin-top: 0px;
-    font-size: 25px;
+    font-size: 15px;
     animation: fadeIn 3.3s;
   }
   

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import "../../Testing.css";
 import Mindmap from "../Mindmap";
+import Preloader from "../Preloader/Preloader";
 import { useInView } from "react-intersection-observer";
 import "./AboutScreen.css"; // Create this CSS file for animations
 
@@ -44,6 +45,7 @@ function AboutScreen() {
       <div ref={mindmapRef} className={`mindmap-container ${mindmapInView ? 'pop-up' : ''}`}>
         <Mindmap />
       </div>
+      {/* <Preloader /> */}
     </Container>
   );
 }
