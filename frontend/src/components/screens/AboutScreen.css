@@ -1,13 +1,32 @@
-.about-screen {
-    padding-top: 3000px; /* Adjust this value to add more or less space */
-  }
-.title {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-    margin-bottom: 50px;
-}
 
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+/* .about-screen {
+    padding-top: 3000px; 
+  } */
+.title {
+    font-family:'Pacifico', cursive;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid;
+    animation: typing 3.5s steps(30, end), blink-caret 0.75s step-end infinite;
+    font-size: clamp(20px, 2.5em, 40px); /* Adjust for titles */
+    text-align: center;
+    /* margin: 20px 0; */
+    margin-bottom: 0px;
+}
+.svg-title {
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(20px, 2.5em, 40px); /* Adjust for titles */
+    text-align: center;
+    /* margin: 20px 0; */
+    fill: none;
+    stroke: black;
+    stroke-width: 2;
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: draw 5s forwards;
+    margin-bottom: 0px;
+  }
 .title.pop-up {
     opacity: 1;
     transform: translateY(0);
@@ -24,3 +43,30 @@
     opacity: 1;
     transform: translateY(0);
 }
+
+.gallery-container {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transition-delay: 0.5s;
+}
+
+.gallery-container.pop-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: black; }
+  }
+@keyframes draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }

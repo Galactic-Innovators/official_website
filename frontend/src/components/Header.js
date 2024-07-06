@@ -3,6 +3,7 @@ import { Navbar, Nav, Container, Row, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { logout } from "../actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
+import './Header.css'; // Make sure to import the CSS file
 
 function Header() {
   const userLogin = useSelector((state) => state.userLogin);
@@ -14,27 +15,26 @@ function Header() {
   };
 
   return (
-    <div>
-      {/* bg="dark" transparent variant="dark" */}
-      <Navbar style={{ backgroundColor: "#07072b" }} variant="dark">
+    <div className="header-container">
+      <Navbar expand="lg" variant="dark">
         <Container>
           <LinkContainer to="/">
             <Navbar.Brand>
               <img
                 src={`${process.env.PUBLIC_URL}/images/GIG_Logo_Trans.png`}
-                alt="gig Logo"
-                style={{ width: "auto", height: "50px" }}
+                alt="GIG Logo"
+                className="header-logo"
               />
             </Navbar.Brand>
           </LinkContainer>
 
-          <Navbar.Toggle aria-controls="navbarScroll" />
+          {/* <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
               className="mr-auto my-2 my-lg-0"
-              style={{ maxHeight: "100px" }}
+              style={{ maxHeight: "10vh" }}
               navbarScroll
-            >
+            > */}
               {/* <LinkContainer to="/all_products">
                 <Nav.Link>
                   <i className="fas fa-th"></i> All Product
@@ -93,8 +93,8 @@ function Header() {
                   </Nav.Link>
                 </LinkContainer>
               )} */}
-            </Nav>
-          </Navbar.Collapse>
+            {/* </Nav>
+          </Navbar.Collapse> */}
         </Container>
       </Navbar>
     </div>
