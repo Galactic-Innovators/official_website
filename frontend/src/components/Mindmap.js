@@ -2,21 +2,31 @@ import React, { useState, useEffect, useRef  } from "react";
 import MindmapNode from "./MindmapNode";
 import "./Mindmap.css"; // Make sure to create this CSS file
 import weixin from "./assets/images/weixin.svg";
+import Acacia from "./assets/images/Acacia.jpg";
+import Kevin from "./assets/images/Kevin.jpg";
+import Eric from "./assets/images/Eric.jpg";
+import Anny from "./assets/images/Anny.jpg";
+import Clyde from "./assets/images/Clyde.jpg";
+import Cycas from "./assets/images/Cycas.jpg";
+import Ying from "./assets/images/Ying.jpg";
+import Oliver from "./assets/images/Oliver.jpg";
+import Imran from "./assets/images/Imran.jpg";
+import Jeremy from "./assets/images/Jeremy.jpg";
 import Developer_icon from "./assets/images/Developer_icon.png";
 import Designer_icon from "./assets/images/Designer_icon.png";
 import Printing_icon from "./assets/images/3D_printing_icon.png";
 import Founder_icon from "./assets/images/Founder_icon.png";
 const initialTeam = [
-    { id: 1, name: "Jeremy Cheung", role: "3D Team Lead", headshot: weixin, sizeCategory: 'xlarge', categories: ['founders', '3d-printing'],  linkedin: 'https://www.linkedin.com/in/jeremyc1231/'},
-    { id: 2, name: "Kevin Chen", role: "Software Team Lead", headshot: weixin, sizeCategory: 'xlarge', categories: ['founders', 'software', 'designer'],linkedin: 'https://www.linkedin.com/in/kevinchenzk/' },
-    { id: 3, name: "Eric Li", role: "Software Developer | 3D Designer", headshot: weixin, sizeCategory: 'large', categories: ['software', '3d-printing'],linkedin: 'https://www.linkedin.com/in/ericxuchengli/' },
-    { id: 4, name: "Anny Liu", role: "Project Manager", headshot: weixin, sizeCategory: 'large', categories: ['founders'] ,linkedin: 'https://linkedin.com/in/jeremy'},
-    { id: 5, name: "Clyde Jiang", role: "Software Developer", headshot: weixin, sizeCategory: 'small', categories: ['software'],linkedin: 'https://www.linkedin.com/in/linqi-jiang-638225170/' },
-    { id: 6, name: "Cycas Su", role: "Software Developer", headshot: weixin, sizeCategory: 'medium', categories: ['software'],linkedin: 'https://linkedin.com/in/jeremy' },
-    { id: 7, name: "Ying Xiao", role: "UX Designer", headshot: weixin, sizeCategory: 'medium', categories: ['designer'],linkedin: 'https://linkedin.com/in/jeremy' },
-    { id: 8, name: "Oliver Chen", role: "3D Designer", headshot: weixin, sizeCategory: 'small', categories: ['3d-printing'],linkedin: 'https://linkedin.com/in/jeremy' },
-    { id: 9, name: "Imran Malik", role: "3D Designer", headshot: weixin, sizeCategory: 'small', categories: ['3d-printing'],linkedin: 'https://linkedin.com/in/jeremy' },
-    { id: 10, name: "Acacia Hong", role: "Graphic Designer", headshot: weixin, sizeCategory: 'large', categories: ['designer'],linkedin: 'https://www.linkedin.com/in/acacia-hong-827239109/' },
+    { id: 1, name: "Jeremy Cheung", role: "3D Team Lead", headshot: Jeremy, sizeCategory: 'xlarge', categories: ['founders', '3d-printing'],  linkedin: 'https://www.linkedin.com/in/jeremyc1231/'},
+    { id: 2, name: "Kevin Chen", role: "Software Team Lead", headshot: Kevin, sizeCategory: 'xlarge', categories: ['founders', 'software', 'designer'],linkedin: 'https://www.linkedin.com/in/kevinchenzk/' },
+    { id: 3, name: "Eric Li", role: "Software Developer | 3D Designer", headshot: Eric, sizeCategory: 'large', categories: ['software', '3d-printing'],linkedin: 'https://www.linkedin.com/in/ericxuchengli/' },
+    { id: 4, name: "Anny Liu", role: "Project Manager", headshot: Anny, sizeCategory: 'large', categories: ['founders'] ,linkedin: 'https://linkedin.com/in/jeremy'},
+    { id: 5, name: "Clyde Jiang", role: "Software Developer", headshot: Clyde, sizeCategory: 'small', categories: ['software'],linkedin: 'https://www.linkedin.com/in/linqi-jiang-638225170/' },
+    { id: 6, name: "Cycas Su", role: "Software Developer", headshot: Cycas, sizeCategory: 'medium', categories: ['software'],linkedin: 'https://linkedin.com/in/jeremy' },
+    { id: 7, name: "Ying Xiao", role: "UX Designer", headshot: Ying, sizeCategory: 'medium', categories: ['designer'],linkedin: 'https://linkedin.com/in/jeremy' },
+    { id: 8, name: "Oliver Chen", role: "3D Designer", headshot: Oliver, sizeCategory: 'small', categories: ['3d-printing'],linkedin: 'https://linkedin.com/in/jeremy' },
+    { id: 9, name: "Imran Malik", role: "3D Designer", headshot: Imran, sizeCategory: 'small', categories: ['3d-printing'],linkedin: 'https://linkedin.com/in/jeremy' },
+    { id: 10, name: "Acacia Hong", role: "Graphic Designer", headshot: Acacia, sizeCategory: 'large', categories: ['designer'],linkedin: 'https://www.linkedin.com/in/acacia-hong-827239109/' },
     // Add more team members her
   ];
 const filters = [
