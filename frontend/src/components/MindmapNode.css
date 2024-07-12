@@ -10,32 +10,42 @@
   }
   
   .mindmap-node .headshot-small {
-    width: clamp(4vw, 7vw, 60px); /* Minimum size, preferred size based on viewport width, maximum size */
-    height: clamp(4vw, 7vw, 60px); /* Ensure the width and height are the same for circular icons */
-    border-radius: 50%; /* Makes the image rounded */
+    width: 7vw;
+    height: 7vw;
+    /* width: clamp(4vw, 7vw, 60px); 
+    height: clamp(4vw, 7vw, 60px);     */
+    border-radius: 50%; 
     transition: transform 0.3s ease;
   }
   .mindmap-node .headshot-medium {
-    width: clamp(5vw, 8vw, 70px); /* Minimum size, preferred size based on viewport width, maximum size */
-    height: clamp(5vw, 8vw, 70px); /* Ensure the width and height are the same for circular icons */
-    border-radius: 50%; /* Makes the image rounded */
+    width: 8vw;
+    height: 8vw;
+    /* width: clamp(5vw, 8vw, 70px); 
+    height: clamp(5vw, 8vw, 70px);  */
+    border-radius: 50%; 
     transition: transform 0.3s ease;
   }
   .mindmap-node .headshot-large {
-    width: clamp(6vw, 9vw, 80px); /* Minimum size, preferred size based on viewport width, maximum size */
-    height: clamp(6vw, 9vw, 80px); /* Ensure the width and height are the same for circular icons */
+    width: 8vw;
+    height: 8vw;
+    /* width: clamp(6vw, 9vw, 80px);
+    height: clamp(6vw, 9vw, 80px);  */
     border-radius: 50%; /* Makes the image rounded */
     transition: transform 0.3s ease;
   }
   .mindmap-node .headshot-xlarge {
-    width: clamp(7vw, 10vw, 90px); /* Minimum size, preferred size based on viewport width, maximum size */
-    height: clamp(7vw, 10vw, 90px); /* Ensure the width and height are the same for circular icons */
+    width: 10vw;
+    height: 10vw;
+    /* width: clamp(7vw, 10vw, 90px); 
+    height: clamp(7vw, 10vw, 90px); */
     border-radius: 50%; /* Makes the image rounded */
     transition: transform 0.3s ease;
   }
   .headshot {
-    width: clamp(1vw, 5vw, 90px); /* Clamped to reasonable min and max sizes */
-    height: clamp(1vw, 5vw, 90px);
+    width: auto;
+    height: auto;
+    /* width: clamp(1vw, 5vw, 90px); 
+    height: clamp(1vw, 5vw, 90px); */
     border-radius: 50%;
     transition: transform 0.3s ease;
 }
@@ -53,7 +63,8 @@
   }
   
   .mindmap-node .info h3{
-    font-size: clamp(12px, 1.2vw, 20px); /* Minimum size, preferred size, maximum */
+    font-size: medium;
+    /* font-size: clamp(12px, 1.2vw, 20px); */
     align-items: center;
     text-align: center;
     white-space: nowrap; /* Prevents text wrapping */
@@ -61,7 +72,8 @@
     animation: fadeIn 3.3s;
   }
   .mindmap-node .info p {
-    font-size: clamp(10px, 1.0vw, 18px); /* Adjust these values as necessary */
+    font-size: medium;
+    /* font-size: clamp(10px, 1.0vw, 18px);  */
     align-items: center;
     text-align: center;
     white-space: nowrap; /* Prevents text wrapping */
@@ -72,7 +84,8 @@
     color: #0077B5; /* LinkedIn's brand color */
     text-decoration: none;
     margin-top: 0vh;
-    font-size: clamp(12px, 1vw, 16px);
+    font-size: medium;
+    /* font-size: clamp(12px, 1vw, 16px); */
     animation: fadeIn 3.3s;
   }
   @media (max-width: 768px) {
