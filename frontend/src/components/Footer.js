@@ -1,11 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col, ListGroup } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faLine, faMailchimp, faTiktok, faWeixin } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faFileContract, faMailBulk, faShieldAlt, faVoicemail } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faFileContract, faMailBulk, faShieldAlt, faShippingFast, faVoicemail } from '@fortawesome/free-solid-svg-icons';
 import "./index.css";
 
 function Footer() {
+  const wechatQRCode = process.env.PUBLIC_URL + "/images/wechat_qr_code.jpg";
+  console.log(wechatQRCode);
+  const [showWeChatPopup, setShowWeChatPopup] = useState(false);
+
+  const handleWeChatClick = (e) => {
+    e.preventDefault(); // Prevent default link behavior
+    setShowWeChatPopup(!showWeChatPopup);
+  };
+
+  const handleClickOutside = (event) => {
+    if (!event.target.closest('.wechat-popup') && !event.target.closest('.wechat-icon')) {
+      setShowWeChatPopup(false);
+    }
+  };
+  useEffect(() => {
+    if (showWeChatPopup) {
+      document.addEventListener('click', handleClickOutside);
+    } else {
+      document.removeEventListener('click', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [showWeChatPopup]);
+
   return (
     <footer className="footer mt-auto py-4" style={{ backgroundColor: "#07072b", color: "grey" }}>
       <Container>
@@ -22,6 +47,11 @@ function Footer() {
               <FontAwesomeIcon icon={faFileContract} className="mx-1" />
               Terms of Service
             </a>
+            <span className="mx-1">|</span>
+            <a href="/return-policy">
+              <FontAwesomeIcon icon={faShippingFast} className="mx-1" />
+              Refund Policy
+            </a>
         </Col>
 
         <Col md="auto">
@@ -29,9 +59,19 @@ function Footer() {
             <a href="https://www.instagram.com/galatic_innovators?igsh=aHo0ZGZ2MHJiZG5p">
               <FontAwesomeIcon icon={faInstagram} size="lg" className="footer-icon" />
             </a>
-            <a href="/aboutus">
-              <FontAwesomeIcon icon={faWeixin} size="lg" className="footer-icon" />
-            </a>
+            <div className="wechat-icon-wrapper" style={{ display: 'inline-block', position: 'relative' }}>
+              <a href="/aboutus" className="wechat-icon" onClick={handleWeChatClick}>
+                <FontAwesomeIcon icon={faWeixin} size="lg" className="footer-icon" />
+              </a>
+              {showWeChatPopup && (
+                <div className="wechat-popup">
+                  <div className="wechat-popup-content">
+                    <img src={wechatQRCode} alt="WeChat QR Code" className="wechat-qr-code"/>
+                  </div>
+                  <div className="wechat-arrow"></div>
+                </div>
+              )}
+            </div>
             <a href="/aboutus">
               <FontAwesomeIcon icon={faTiktok} size="lg" className="footer-icon" />
             </a>
