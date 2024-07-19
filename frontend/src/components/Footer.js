@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col, ListGroup } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faLine, faMailchimp, faTiktok, faWeixin } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faFileContract, faMailBulk, faShieldAlt, faVoicemail } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faFileContract, faMailBulk, faShieldAlt, faShippingFast, faVoicemail } from '@fortawesome/free-solid-svg-icons';
 import "./index.css";
 
 function Footer() {
@@ -46,6 +46,11 @@ function Footer() {
             <a href="/terms-of-service">
               <FontAwesomeIcon icon={faFileContract} className="mx-1" />
               Terms of Service
+            </a>
+            <span className="mx-1">|</span>
+            <a href="/return-policy">
+              <FontAwesomeIcon icon={faShippingFast} className="mx-1" />
+              Refund Policy
             </a>
         </Col>
 
