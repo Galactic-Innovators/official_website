@@ -48,7 +48,7 @@ function Footer() {
               Terms of Service
             </a>
             <span className="mx-1">|</span>
-            <a href="/return-policy">
+            <a href="/refund-policy">
               <FontAwesomeIcon icon={faShippingFast} className="mx-1" />
               Refund Policy
             </a>
