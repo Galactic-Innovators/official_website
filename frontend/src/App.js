@@ -25,6 +25,7 @@ import setupAxiosInterceptors from "./axiosConfig";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import NotFoundScreen from "./components/screens/NotFoundScreen";
 import PrivacyPolicyScreen from "./components/screens/PrivacyPolicyScreen";
+import TermsofServiceScreen from "./components/screens/TermsofServiceScreen";
 // axios.interceptors.response.use(
 //   (response) => response,
 //   (error) => {
@@ -72,6 +73,7 @@ function App() {
               <Route path="/contactus" component={ContactScreen} exact />
               <Route path="/profile" component={ProfileScreen} />
               <Route path="/privacy-policy" component={PrivacyPolicyScreen} />
+              <Route path="/terms-of-service" component={TermsofServiceScreen} />
               {/* <Route path="/payments" component={CheckoutScreen} exact /> */}
               <Route
                 path="/order-confirmation"
