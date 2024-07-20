@@ -1,26 +1,86 @@
 .about-screen {
-    padding-top: 3000px; /* Adjust this value to add more or less space */
+    padding-top: 100px; /* Adjust this value to add more or less space */
   }
-.title {
+  
+  .title {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
     margin-bottom: 50px;
-}
-
-.title.pop-up {
+  }
+  
+  .title.pop-up {
     opacity: 1;
     transform: translateY(0);
-}
-
-.mindmap-container {
+  }
+  
+  .paragraph {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-    transition-delay: 0.5s;
-}
-
-.mindmap-container.pop-up {
+    margin-bottom: 30px;
+  }
+  
+  .paragraph.pop-up:nth-child(2) {
+    transition-delay: 0.3s;
+  }
+  
+  .paragraph.pop-up:nth-child(3) {
+    transition-delay: 0.6s;
+  }
+  
+  .paragraph.pop-up:nth-child(4) {
+    transition-delay: 0.9s;
+  }
+  
+  .paragraph.pop-up {
     opacity: 1;
     transform: translateY(0);
+  }
+  
+  .mindmap-section {
+    margin-top: 1000px; /* Add 1000px margin between paragraphs and mindmap */
+  }
+  
+  .mindmap-container {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    transition-delay: 1.2s; /* Delays the appearance of the mindmap */
+  }
+  
+  .mindmap-container.pop-up {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+
+/* for section 2: */
+  .paragraph_sec2 {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transform: translateY(20px);
+  margin-bottom: 50px;
+}
+
+.paragraph_sec2.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.title_sec2 {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transform: translateY(20px);
+  margin-top: 200px;
+  margin-bottom: 50px;
+}
+
+.title_sec2.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-triggered-section {
+  margin-top: 50px; /* Adjust as needed */
 }
