@@ -1,6 +1,7 @@
 /* Header.css */
 .header-container {
-    background-color: #07072b; /* Assuming a dark theme */
+
+    background-color: transparent; /* Assuming a dark theme #07072b*/
 }
 
 .navbar {
