@@ -9,7 +9,7 @@
   }
 /* Footer.css */
 .footer {
-  background-color: #07072b; /* Dark background for the footer */
+  background-color: transparent; /* Dark background for the footer#07072b */
   color: grey; /* Grey text color */
   padding: 20px 0; /* Add some padding */
   
@@ -38,7 +38,7 @@
 }
 
 .extra-space {
-  background-color: #07072b; /* Same background color as the footer */
+  background-color: transparent; /* Same background color as the footer #07072b */
   height: 10vh; /* Adjust height as needed */
 }
 .wechat-popup {
