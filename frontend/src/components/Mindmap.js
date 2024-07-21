@@ -16,6 +16,7 @@ import Developer_icon from "./assets/images/Developer_icon.png";
 import Designer_icon from "./assets/images/Designer_icon.png";
 import Printing_icon from "./assets/images/3D_printing_icon.png";
 import Founder_icon from "./assets/images/Founder_icon.png";
+import "./Mindmap.css";
 const initialTeam = [
     { id: 1, name: "Jeremy Cheung", role: "3D Team Lead", headshot: Jeremy, sizeCategory: 'xlarge', categories: ['founders', '3d-printing'],  linkedin: 'https://www.linkedin.com/in/jeremyc1231/'},
     { id: 2, name: "Kevin Chen", role: "Software Team Lead", headshot: Kevin, sizeCategory: 'xlarge', categories: ['founders', 'software', 'designer'],linkedin: 'https://www.linkedin.com/in/kevinchenzk/' },
