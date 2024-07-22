@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
-import "../../Testing.css";
 import Mindmap from "../Mindmap";
 import Preloader from "../Preloader/Preloader";
 import { useInView } from "react-intersection-observer";

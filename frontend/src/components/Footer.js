@@ -3,7 +3,7 @@ import { Container, Row, Col, ListGroup } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faLine, faMailchimp, faTiktok, faWeixin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faFileContract, faMailBulk, faShieldAlt, faShippingFast, faVoicemail } from '@fortawesome/free-solid-svg-icons';
-import "./index.css";
+import "./Footer.css";
 
 function Footer() {
   const wechatQRCode = process.env.PUBLIC_URL + "/images/wechat_qr_code.jpg";

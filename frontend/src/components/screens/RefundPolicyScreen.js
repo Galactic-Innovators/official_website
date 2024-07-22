@@ -1,8 +1,8 @@
 import React from 'react';
-
+import "./RefundPolicyScreen.css";
 const RefundPolicyScreen = () => {
     return (
-        <div>
+        <div className='refund-policy-container'>
         <h1 style={{ textAlign: "center" }}>Refund Policy</h1>
         <h4 style={{ textAlign: "left" }}>No refunds or exchanges</h4>
         <p style={{ textAlign: "left" }}>

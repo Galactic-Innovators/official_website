@@ -1,8 +1,8 @@
 import React from "react";
-
+import "./TermsofServiceScreen.css";
 function TermsofServiceScreen() {
     return (
-        <div>
+        <div className="termsofservice-container">
             <h1 style={{ textAlign: "center" }}>Terms of service</h1>
             <h4 style={{ textAlign: "left" }}>OVERVIEW</h4>
             <p>

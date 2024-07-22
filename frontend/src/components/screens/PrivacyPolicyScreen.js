@@ -1,8 +1,8 @@
 import React from "react";
-
+import "./PrivacyPolicyScreen.css";
 function PrivacyPolicyScreen() {
     return (
-        <div>
+        <div className="privacy-policy">
             <h1 style={{textAlign: "center"}}>Privacy Policy</h1>
             <p>
                 This Privacy Policy describes how our website <a href="https://gigofficial.com" target="_blank" rel="noopener noreferrer">https://gigofficial.com

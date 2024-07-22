@@ -15,6 +15,10 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+.main-container {
+  max-width: 100%; /* Adjust this value to set the desired width */
+  margin: 0 auto; /* Center the container horizontally */
+}
 
 .App-header {
   /* background-color: #282c34; */

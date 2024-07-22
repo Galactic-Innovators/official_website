@@ -51,7 +51,7 @@ function App() {
         <SessionCheck />
         <Header />
         <main className="py-3">
-          <Container>
+        <Container className="custom-container">
             <Switch>
               <Route path="/" component={AboutScreen} exact />
               <Route path="/home" component={HomeScreen} exact />
