@@ -1,0 +1,6 @@
+.refund-policy-container {
+    font-family: "Times New Roman, sans-serif";
+    line-height: 2; /* Adjust this value to set the desired line height */
+    max-width: 85%; /* Adjust this value to set the desired width */
+    margin: auto auto; /* Center the container horizontally */
+}
