@@ -32,7 +32,7 @@ function Footer() {
   }, [showWeChatPopup]);
 
   return (
-    <footer className="footer mt-auto py-4" >
+    <footer className="footer" >
       <Container>
       <Row className="my-3">
           <hr style={{ color: 'white', backgroundColor: 'white', height: 2, marginTop: '1.5vh'}} />

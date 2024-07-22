@@ -32,11 +32,13 @@ function AboutScreen() {
   const slideTo = (slideNumber) => {
     drawerboxToggle(slideNumber);
     drawerbtnToggle(slideNumber);
-
-    const previousSlideNumber = chosenSlideNumber;
+  
+    const slideOffset = (slideNumber - 1) * -100;
+    const slideBarOffset = (slideNumber - 1) * 100;
+  
     setChosenSlideNumber(slideNumber);
-    setOffset(offset + (slideNumber - previousSlideNumber) * -100);
-    setBarOffset(barOffset + (slideNumber - previousSlideNumber) * 100);
+    setOffset(slideOffset);
+    setBarOffset(slideBarOffset);
   };
 
   const drawerboxToggle = (drawerboxNumber) => {
