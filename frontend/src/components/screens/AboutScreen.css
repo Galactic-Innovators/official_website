@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 /* .about-screen {
     padding-top: 3000px; 
@@ -43,6 +44,17 @@
     transform: translateY(0);
 }
 
+.gallery-container {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transition-delay: 0.5s;
+}
+
+.gallery-container.pop-up {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* AboutScreen.css */
 

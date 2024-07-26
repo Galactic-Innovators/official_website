@@ -3,8 +3,13 @@ import { Container } from "react-bootstrap";
 import Mindmap from "../Mindmap";
 import Preloader from "../Preloader/Preloader";
 import { useInView } from "react-intersection-observer";
+<<<<<<< HEAD
 import CountDown from "../Countdown/Countdown.js";
+=======
+import 'animate.css'
+>>>>>>> a27314eb384d6e4bee36d77136e0ebf6ecdc99f6
 import "./AboutScreen.css"; // Create this CSS file for animations
+import Gallery from "./Gallery";
 
 const HoverVideo = ({ videoSrc, imageSrc }) => {
   const videoRef = useRef(null);
@@ -50,6 +55,7 @@ function AboutScreen() {
     threshold: 0.5
   });
 
+<<<<<<< HEAD
   const [chosenSlideNumber, setChosenSlideNumber] = useState(1);
   const [offset, setOffset] = useState(0);
   const [barOffset, setBarOffset] = useState(0);
@@ -110,6 +116,30 @@ function AboutScreen() {
             </button>
           </div>
         </div>
+=======
+  const { ref: product_titleRef, inView: product_titleInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5
+  });
+
+  const { ref: galleryRef, inView: galleryInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5
+  });
+
+
+  const defaultImage = process.env.PUBLIC_URL + "/images/playstation.jpg";
+
+  return (
+
+    <Container className="about-screen">
+      <div ref={titleRef} className={`title-container ${titleInView ? 'pop-up' : ''}`}>
+        <svg viewBox="0 0 500 100" className="svg-title">
+          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+            Meet Our Team
+          </text>
+        </svg>
+>>>>>>> a27314eb384d6e4bee36d77136e0ebf6ecdc99f6
       </div>
       <div id="slide-section">
         <div id="slide-bar">
@@ -165,7 +195,22 @@ function AboutScreen() {
           </div>
         </div>
       </div>
+<<<<<<< HEAD
     </div>
+=======
+      <div ref={product_titleRef} className={`product_title ${product_titleInView ? 'pop-up' : ''}`}>
+        <svg viewBox="0 0 500 100" className="svg-title">
+          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+            Product
+          </text>
+        </svg>
+      </div>
+      {/* <Preloader /> */}
+      <div ref={galleryRef} className={`gallery-container ${galleryInView ? 'pop-up' : ''}`}>
+        <Gallery />
+      </div>
+    </Container>
+>>>>>>> a27314eb384d6e4bee36d77136e0ebf6ecdc99f6
   );
 }
 
