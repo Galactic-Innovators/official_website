@@ -1,0 +1,518 @@
+[33mcommit ce0c727f768693b11f178c82ba29fc0a353b6dc6[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mcycas_login[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: a470f86 c475555
+Author: Kevin Chen <z585chen@uwaterloo.ca>
+Date:   Mon Jul 22 12:09:30 2024 -0400
+
+    Merge pull request #22 from Galactic-Innovators/feature-update-footer
+    
+    Update showcase
+
+[33mcommit c475555ac6650b76c525b32407b6e0a88fd69563[m[33m ([m[1;31morigin/feature-update-footer[m[33m)[m
+Author: Zhengkang Chen <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Mon Jul 22 12:07:27 2024 -0400
+
+    showcase done
+
+[33mcommit b532d4885ddf9e2a5b697dee172ff70a5b1d8012[m
+Author: Zhengkang Chen <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Mon Jul 22 11:25:57 2024 -0400
+
+    update format
+
+[33mcommit a470f86a87c86a366a50bb94c5ba4a77385ffc4f[m
+Merge: 054da76 ed0d36c
+Author: Kevin Chen <z585chen@uwaterloo.ca>
+Date:   Sun Jul 21 15:56:04 2024 -0400
+
+    Merge pull request #21 from Galactic-Innovators/feature-update-footer
+    
+    Feature update footer
+
+[33mcommit ed0d36cd2e5be4b2b40bc6ed76ad40a24b532dfb[m
+Author: Zhengkang Chen <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Sun Jul 21 15:55:19 2024 -0400
+
+    update latest showcase
+
+[33mcommit 219510bf4b78111798693248036ca3067bbb1870[m
+Author: Zhengkang Chen <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Sun Jul 21 15:42:58 2024 -0400
+
+    update with lastest showcase
+
+[33mcommit 7c2da3b00639b188713cb767db4f77857b6772c3[m
+Author: Zhengkang Chen <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Sun Jul 21 15:42:27 2024 -0400
+
+    update ignore
+
+[33mcommit 339b5a281e32429cf01166fa303a3f9ead0b41f3[m
+Author: Zhengkang Chen <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Sun Jul 21 15:41:33 2024 -0400
+
+    update ignore
+
+[33mcommit 054da76486aaa2a424af533cf07b1fbac8d0613c[m
+Merge: 3005f39 b01004a
+Author: Kevin Chen <z585chen@uwaterloo.ca>
+Date:   Fri Jul 19 15:45:43 2024 -0400
+
+    Merge pull request #20 from Galactic-Innovators/feature-update-footer
+    
+    update refund policy
+
+[33mcommit b01004ad87441905f03b67a44003732440c4801f[m
+Author: Zhengkang Chen <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Fri Jul 19 15:45:08 2024 -0400
+
+    update refund policy
+
+[33mcommit 3005f39df47f3182a06f67ac3352b500dcccad1a[m
+Merge: 18818fa 8737731
+Author: Kevin Chen <z585chen@uwaterloo.ca>
+Date:   Fri Jul 19 15:43:48 2024 -0400
+
+    Merge pull request #19 from Galactic-Innovators/feature-update-footer
+    
+    update privacy policy, refund policy, terms of service
+
+[33mcommit 8737731ad5f95d7c0cbe13808188b9dd9b6e72b1[m
+Author: Zhengkang Chen <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Fri Jul 19 15:30:02 2024 -0400
+
+    adding refund policy
+
+[33mcommit b3cb79013152bfb2be88ee859f6c23f11e11f5b5[m
+Author: Zhengkang Chen <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Fri Jul 19 15:29:45 2024 -0400
+
+    adding refund policy
+
+[33mcommit b63755d97dc4dedec124e99a41b6af5e93bca5aa[m
+Author: Zhengkang Chen <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Fri Jul 19 13:27:24 2024 -0400
+
+    footer section all done
+
+[33mcommit e281c0ecc04c14ea7f7d16fd26b9639c0302781e[m
+Author: Zhengkang Chen <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Fri Jul 19 12:45:58 2024 -0400
+
+    terms of service done
+
+[33mcommit e0f8877b4bdd2fd22fca5bff17e2497c2358843c[m
+Author: Zhengkang Chen <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Fri Jul 19 12:05:43 2024 -0400
+
+    privacy policy done
+
+[33mcommit 0d920ef3acc2f787e9cd0592abd28b28f6e77337[m
+Author: Zhengkang Chen <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Fri Jul 19 02:13:54 2024 -0400
+
+    update privacypolicy
+
+[33mcommit 18818fac3317371897efefb1ca8635a6730c2105[m
+Merge: 3742bf8 bd897ab
+Author: Kevin Chen <z585chen@uwaterloo.ca>
+Date:   Thu Jul 11 20:57:31 2024 -0400
+
+    Merge pull request #18 from Galactic-Innovators/feature-update-footer
+    
+    adding personal icons
+
+[33mcommit bd897ab691247ec5b09f8d131250a3a88d3b586f[m
+Author: Zhengkang Chen <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Thu Jul 11 20:55:43 2024 -0400
+
+    adding personal icons
+
+[33mcommit 3742bf81874df376bdc7aed339f62e0769be0a53[m[33m ([m[1;32mmain[m[33m)[m
+Merge: d6c4a5e 4d8e0b9
+Author: Kevin Chen <z585chen@uwaterloo.ca>
+Date:   Sat Jun 29 00:59:56 2024 -0400
+
+    Merge pull request #17 from Galactic-Innovators/feature-update-footer
+    
+    team section update
+
+[33mcommit 4d8e0b9e52a49c4531ee89211e26451d380bae2c[m
+Author: Zhengkang Chen <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Sat Jun 29 00:59:13 2024 -0400
+
+    only need linkedin and photos
+
+[33mcommit 93b9fcd30520c964c7523a79d4e0186b9cdba09a[m
+Author: Zhengkang Chen <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Fri Jun 28 23:49:56 2024 -0400
+
+    all done
+
+[33mcommit 5024959772a0d781dad8ac927583fc6edd0e6e25[m
+Author: Zhengkang Chen <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Fri Jun 28 23:28:09 2024 -0400
+
+    about us auto done
+
+[33mcommit 979bde3a07396d51bbf837711b0c1fb750c86dec[m
+Author: Zhengkang Chen <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Fri Jun 28 23:12:12 2024 -0400
+
+    zoom in done
+
+[33mcommit 1aa94911f58ebf0d099f7fee1e79285e066c2125[m
+Author: Zhengkang Chen <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Fri Jun 28 22:52:52 2024 -0400
+
+    auto-scaling done
+
+[33mcommit be0ddb96950862ba719379a91fe95bd8d3cc6a5b[m
+Author: Zhengkang Chen <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Fri Jun 28 22:12:57 2024 -0400
+
+    good for 100% zoom
+
+[33mcommit d6c4a5ee487573ee0620c64ca488fcd17f7f0fae[m
+Merge: fc4be5b 2df74df
+Author: Kevin Chen <z585chen@uwaterloo.ca>
+Date:   Fri Jun 28 15:30:54 2024 -0400
+
+    Merge pull request #16 from Galactic-Innovators/feature-update-footer
+    
+    Feature update footer
+
+[33mcommit 2df74dfcff8ef92f8ae18ea7cc3830bb241fea9e[m
+Author: Zhengkang Chen <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Fri Jun 28 12:50:17 2024 -0400
+
+    all css done
+
+[33mcommit 5b0f6fcfe65bf3dc3128eeb2d63f282f6360a799[m
+Author: Zhengkang Chen <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Fri Jun 28 12:44:42 2024 -0400
+
+    meet our team type in
+
+[33mcommit 8ff80a264115b48f27e3e1bbe20cf72b8eecb9f5[m
+Author: Zhengkang Chen <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Fri Jun 28 12:34:41 2024 -0400
+
+    css done
+
+[33mcommit 96ea303ed59d1913adcce065d89eaec28019387e[m
+Author: Zhengkang Chen <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Fri Jun 28 01:24:01 2024 -0400
+
+    only need to fix the alignment of the text
+
+[33mcommit 1b900e804ad66758aa2cb75f1ec61445ca5ac438[m
+Author: Zhengkang Chen <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Thu Jun 27 21:03:00 2024 -0400
+
+    meet our team better
+
+[33mcommit fc4be5bfb6f3ddc4adab372b25f21401d25419e8[m
+Merge: 00c94af 3eb5647
+Author: Kevin Chen <z585chen@uwaterloo.ca>
+Date:   Thu Jun 27 18:17:23 2024 -0400
+
+    Merge pull request #15 from Galactic-Innovators/feature-update-footer
+    
+    Feature update meet our team
+
+[33mcommit 3eb5647e5ae3c6d282103ba5e60db1729a0662b7[m
+Author: Zhengkang Chen <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Thu Jun 27 18:16:44 2024 -0400
+
+    meet our team half way
+
+[33mcommit 15f884842b90179b7342f75ebd770a5b7a3cbfc6[m
+Author: Zhengkang Chen <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Thu Jun 27 17:58:25 2024 -0400
+
+    done something on meet our team
+
+[33mcommit 41bb1c41c9bcf3e88f353177cb18a02660bdbc65[m
+Author: Zhengkang Chen <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Thu Jun 27 14:32:40 2024 -0400
+
+    init of team page
+
+[33mcommit 00c94af2153fdfec68551da499201c4b6468d269[m
+Merge: c2e2d69 da9ac18
+Author: Kevin Chen <z585chen@uwaterloo.ca>
+Date:   Thu Jun 27 13:37:02 2024 -0400
+
+    Merge pull request #14 from Galactic-Innovators/feature-update-footer
+    
+    update footer
+
+[33mcommit da9ac18f07c63cf9719de57c6670afec76271081[m
+Author: Zhengkang Chen <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Thu Jun 27 13:34:10 2024 -0400
+
+    update footer, still need to update wechat, tiktok, xiaohongshu, termofconditions, privacy policy
+
+[33mcommit c2e2d6985ed0200a2771c227d7ef08d9a148d328[m
+Merge: 2fab7ec 9fc0fbe
+Author: Kevin Chen <z585chen@uwaterloo.ca>
+Date:   Sat Jun 15 02:11:58 2024 -0400
+
+    Merge pull request #13 from Galactic-Innovators/kevin
+    
+    fixing heart button issue
+
+[33mcommit 9fc0fbe89ed8647f46c2b180cbb7a265470a0f82[m[33m ([m[1;31morigin/kevin[m[33m)[m
+Author: kckevinchenzkk <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Sat Jun 15 02:07:52 2024 -0400
+
+    fixing heart button issue
+
+[33mcommit 2fab7ecc157183d829bdda9947537898eaf00fb4[m
+Merge: 27df498 9128e75
+Author: lix292 <70821322+lix292@users.noreply.github.com>
+Date:   Wed Jun 5 22:00:20 2024 -0400
+
+    Merge pull request #12 from Galactic-Innovators/eric
+    
+    Contact Us Email Working
+
+[33mcommit 9128e754893874b0bedaf242972b11797f93e4fb[m
+Author: lix292 <70821322+lix292@users.noreply.github.com>
+Date:   Wed Jun 5 21:40:24 2024 -0400
+
+    Updated database password
+
+[33mcommit d545a3dfc7259e1d4975b8856bcf8689233f30b0[m
+Author: lix292 <lix292@mcmaster.ca>
+Date:   Wed Jun 5 21:37:38 2024 -0400
+
+    frontend error fix
+
+[33mcommit 830c685a8c7f035277fb6b501014b35fd143ce1c[m
+Author: lix292 <lix292@mcmaster.ca>
+Date:   Wed Jun 5 20:07:12 2024 -0400
+
+    password changed
+
+[33mcommit 4f25c05776ee71176893bc85f0ae96a1a7d29af0[m
+Author: lix292 <lix292@mcmaster.ca>
+Date:   Wed Jun 5 20:03:24 2024 -0400
+
+    contact us email working
+
+[33mcommit 27df498e15b25487e001403e86b673172080ef5e[m
+Merge: d301039 95037b3
+Author: Kevin Chen <z585chen@uwaterloo.ca>
+Date:   Tue Jun 4 21:45:31 2024 -0400
+
+    Merge pull request #11 from Galactic-Innovators/kevin
+    
+    Kevin
+
+[33mcommit 95037b32f98ea6749a4e8c3df22707400087a38b[m
+Author: kckevinchenzkk <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Tue Jun 4 21:44:47 2024 -0400
+
+    chore: Update page title to Galactic Innovators
+
+[33mcommit 13087f7abc34e5512efbce1e9619bb3caf3790a1[m
+Author: kckevinchenzkk <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Tue Jun 4 21:21:52 2024 -0400
+
+    update sys bug
+
+[33mcommit d3010394edc5ebf3473785bd4da6caf10e4c087e[m
+Merge: d232c9a 6d50b6e
+Author: Kevin Chen <z585chen@uwaterloo.ca>
+Date:   Sun Jun 2 14:33:50 2024 -0400
+
+    Merge pull request #10 from Galactic-Innovators/kevin
+    
+    add preloader, notfound screen and update homescreen
+
+[33mcommit 6d50b6ec82787ce09ea1de6c88e41a97bd29026c[m
+Author: kckevinchenzkk <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Sun Jun 2 14:33:14 2024 -0400
+
+    add preloader, notfound screen and update homescreen
+
+[33mcommit d232c9a3a206b3d1774867fdf15dfa2f08bf11cd[m
+Merge: 665847e 9e76f3c
+Author: Kevin Chen <z585chen@uwaterloo.ca>
+Date:   Sat Jun 1 23:42:10 2024 -0400
+
+    Merge pull request #9 from Galactic-Innovators/kevin
+    
+    adding vercel web insight
+
+[33mcommit 9e76f3c23893fcc0029f0a399d02150abbd9edd2[m
+Author: kckevinchenzkk <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Sat Jun 1 22:50:24 2024 -0400
+
+    adding vercel web insight
+
+[33mcommit 665847eb247dc2a94d2fc6e46aaf719cb6090837[m
+Merge: 84f14bf 0591c8c
+Author: Kevin Chen <z585chen@uwaterloo.ca>
+Date:   Fri May 31 21:12:35 2024 -0400
+
+    Merge pull request #8 from Galactic-Innovators/kevin
+    
+    update package
+
+[33mcommit 0591c8c8767c88d858be82f8c429632c843dc251[m
+Author: kckevinchenzkk <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Fri May 31 21:12:09 2024 -0400
+
+    update package
+
+[33mcommit 84f14bf07aa84580f2fb419ef8b6d8ee55f51073[m
+Author: Kevin Chen <z585chen@uwaterloo.ca>
+Date:   Thu May 30 17:38:28 2024 -0400
+
+    Update README.md
+
+[33mcommit f7baa7d1fd409e0e117376cc137290a8f6895169[m
+Author: Kevin Chen <z585chen@uwaterloo.ca>
+Date:   Thu May 30 17:36:14 2024 -0400
+
+    Update README.md
+
+[33mcommit 3a0028888ef75a8d103f6c7cd1e84717fe83156e[m
+Merge: 082296f 990ac98
+Author: Kevin Chen <z585chen@uwaterloo.ca>
+Date:   Thu May 30 17:21:33 2024 -0400
+
+    Merge pull request #7 from Galactic-Innovators/kevin
+    
+    update reuqirement.txt
+
+[33mcommit 990ac988ddc27620aad335d56049ed3fff3ef328[m
+Author: kckevinchenzkk <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Thu May 30 17:20:51 2024 -0400
+
+    update reuqirement.txt
+
+[33mcommit 082296f1e3bce4413ae32ca77bc1f4ce729e529b[m
+Author: github-actions <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   Thu May 30 21:18:37 2024 +0000
+
+    Format Code
+
+[33mcommit e1d327b347aa321bd0d0b8bb84364585ec3c8916[m
+Merge: 280ca96 1483cae
+Author: Kevin Chen <z585chen@uwaterloo.ca>
+Date:   Thu May 30 17:18:07 2024 -0400
+
+    Merge pull request #6 from Galactic-Innovators/kevin
+    
+    Kevin
+
+[33mcommit 1483cae49dede305ca3e37d4b977f3d601ed0b59[m
+Author: kckevinchenzkk <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Thu May 30 17:16:32 2024 -0400
+
+    commit out pytest
+
+[33mcommit ce4ef1ff776af2a187d47b19d234f37791c5df7f[m
+Author: kckevinchenzkk <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Thu May 30 17:12:27 2024 -0400
+
+    updating all tests
+
+[33mcommit bf9921013f8dbaebb88dc7bf0fcdfc94da0938b6[m
+Author: kckevinchenzkk <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Thu May 30 17:09:35 2024 -0400
+
+    updating all tests
+
+[33mcommit 173ff9131c14aefb31f369546c0b97c30288e70f[m
+Author: kckevinchenzkk <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Thu May 30 17:03:14 2024 -0400
+
+    updating all tests
+
+[33mcommit 3919950a7df1d13c8f213d29131ab3573af40e8c[m
+Author: kckevinchenzkk <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Thu May 30 16:59:20 2024 -0400
+
+    updating all tests
+
+[33mcommit 2b4035061395175d616c0b38491368c5653ef73e[m
+Author: kckevinchenzkk <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Thu May 30 16:36:25 2024 -0400
+
+    update product test
+
+[33mcommit ff83ffd8ab18cfd268c1b32e861c0df56f440ace[m
+Author: kckevinchenzkk <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Thu May 30 16:24:14 2024 -0400
+
+    update timezone
+
+[33mcommit 8917ad9ead9d68fff36a3e1ffe0d4dddbbf18029[m
+Author: kckevinchenzkk <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Thu May 30 16:09:18 2024 -0400
+
+    update timezone
+
+[33mcommit 86587a372094dfa8a435dce2540497594950f9a0[m
+Author: kckevinchenzkk <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Thu May 30 16:02:50 2024 -0400
+
+    updating requirement
+
+[33mcommit e2d888a19691f9d9a24983030ae026cae697e8fa[m
+Author: kckevinchenzkk <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Thu May 30 15:12:07 2024 -0400
+
+    updating requirement
+
+[33mcommit df571e9ef8d7ac09b34366aa009a7828e5aae12d[m
+Author: kckevinchenzkk <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Thu May 30 15:01:08 2024 -0400
+
+    updating requirement
+
+[33mcommit 50be0212dece6033188895d773a03d83f0d5bf66[m
+Author: kckevinchenzkk <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Thu May 30 14:51:23 2024 -0400
+
+    updating requirement
+
+[33mcommit 7f44d53ea5ac5e247062f133a2046bbf04cd075a[m
+Author: kckevinchenzkk <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Thu May 30 14:44:08 2024 -0400
+
+    fixing debugtoolbar
+
+[33mcommit 02bb24fda585166d3166838e412575010ef36757[m
+Author: kckevinchenzkk <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Thu May 30 14:40:02 2024 -0400
+
+    update common.py
+
+[33mcommit 5d602cfc957dece24efe97337dbc7b85efe74f91[m
+Author: kckevinchenzkk <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Thu May 30 14:36:32 2024 -0400
+
+    fixing debugtoolbar
+
+[33mcommit 3cf0c9916fda0e57e73221c5eabffa1b3c4d9fed[m
+Author: kckevinchenzkk <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Thu May 30 14:30:33 2024 -0400
+
+    fixing debug toolbar
+
+[33mcommit fc84217feb001540256ba3564ce6a51932f25b40[m
+Author: kckevinchenzkk <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Thu May 30 14:23:01 2024 -0400
+
+    update yml
+
+[33mcommit 43f2d3822f4482b3a97d7b5304de597b8bb1818b[m
+Author: kckevinchenzkk <70932380+kckevinchenzkk@users.noreply.github.com>
+Date:   Thu May 30 14:19:48 2024 -0400
+
+    update readme
