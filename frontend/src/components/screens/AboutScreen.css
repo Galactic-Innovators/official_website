@@ -11,7 +11,7 @@
     font-size: clamp(20px, 2.5em, 40px); /* Adjust for titles */
     text-align: center;
     /* margin: 20px 0; */
-    margin-bottom: 0px;
+    margin-bottom: 50px;
 }
 .svg-title {
     font-family: 'Pacifico', cursive;
@@ -42,6 +42,62 @@
     opacity: 1;
     transform: translateY(0);
 }
+
+
+
+.paragraph {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  margin-bottom: 30px;
+}
+
+.paragraph.pop-up:nth-child(2) {
+  transition-delay: 0.3s;
+}
+
+.paragraph.pop-up:nth-child(3) {
+  transition-delay: 0.6s;
+}
+
+.paragraph.pop-up:nth-child(4) {
+  transition-delay: 0.9s;
+}
+
+.paragraph.pop-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* for section 2: */
+.paragraph_sec2 {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transform: translateY(20px);
+  margin-bottom: 50px;
+}
+
+.paragraph_sec2.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.title_sec2 {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transform: translateY(20px);
+  margin-top: 200px;
+  margin-bottom: 50px;
+}
+
+.title_sec2.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-triggered-section {
+  margin-top: 50px; /* Adjust as needed */
+}
+
 
 
 /* AboutScreen.css */
