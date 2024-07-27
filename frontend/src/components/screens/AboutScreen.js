@@ -32,20 +32,7 @@ function AboutScreen() {
     threshold: 0.5
   });
 
-  const { ref: para1Ref, inView: para1InView } = useInView({
-    triggerOnce: true,
-    threshold: 0.25,
-  });
 
-  const { ref: para2Ref, inView: para2InView } = useInView({
-    triggerOnce: true,
-    threshold: 0.25,
-  });
-
-  const { ref: para3Ref, inView: para3InView } = useInView({
-    triggerOnce: true,
-    threshold: 0.25,
-  });
 
   const [chosenSlideNumber, setChosenSlideNumber] = useState(1);
   const [offset, setOffset] = useState(0);
