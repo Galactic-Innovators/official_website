@@ -3,11 +3,8 @@ import { Container } from "react-bootstrap";
 import Mindmap from "../Mindmap";
 import Preloader from "../Preloader/Preloader";
 import { useInView } from "react-intersection-observer";
-<<<<<<< HEAD
 import CountDown from "../Countdown/Countdown.js";
-=======
-import 'animate.css'
->>>>>>> a27314eb384d6e4bee36d77136e0ebf6ecdc99f6
+import 'animate.css';
 import "./AboutScreen.css"; // Create this CSS file for animations
 import Gallery from "./Gallery";
 
@@ -55,7 +52,16 @@ function AboutScreen() {
     threshold: 0.5
   });
 
-<<<<<<< HEAD
+  const { ref: product_titleRef, inView: product_titleInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5
+  });
+
+  const { ref: galleryRef, inView: galleryInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5
+  });
+
   const [chosenSlideNumber, setChosenSlideNumber] = useState(1);
   const [offset, setOffset] = useState(0);
   const [barOffset, setBarOffset] = useState(0);
@@ -91,47 +97,9 @@ function AboutScreen() {
     bar.style.transform = `translateY(${barOffset}%)`;
   };
 
-  return (
-    <div id="main">
-      <div id="click-section">
-        <div id="drawerboxes">
-          <div className="drawerbox active">
-            <button className="drawer-btn active" onClick={() => slideTo(1)}>
-              The Wind Rises<span className="drawer-head">1</span>
-            </button>
-          </div>
-          <div className="drawerbox">
-            <button className="drawer-btn" onClick={() => slideTo(2)}>
-              Children of the Wind<span className="drawer-head">2</span>
-            </button>
-          </div>
-          <div className="drawerbox">
-            <button className="drawer-btn" onClick={() => slideTo(3)}>
-              Castle in the Sky<span className="drawer-head">3</span>
-            </button>
-          </div>
-          <div className="drawerbox">
-            <button className="drawer-btn" onClick={() => slideTo(4)}>
-              Spirited Away<span className="drawer-head">4</span>
-            </button>
-          </div>
-        </div>
-=======
-  const { ref: product_titleRef, inView: product_titleInView } = useInView({
-    triggerOnce: true,
-    threshold: 0.5
-  });
-
-  const { ref: galleryRef, inView: galleryInView } = useInView({
-    triggerOnce: true,
-    threshold: 0.5
-  });
-
-
   const defaultImage = process.env.PUBLIC_URL + "/images/playstation.jpg";
 
   return (
-
     <Container className="about-screen">
       <div ref={titleRef} className={`title-container ${titleInView ? 'pop-up' : ''}`}>
         <svg viewBox="0 0 500 100" className="svg-title">
@@ -139,7 +107,6 @@ function AboutScreen() {
             Meet Our Team
           </text>
         </svg>
->>>>>>> a27314eb384d6e4bee36d77136e0ebf6ecdc99f6
       </div>
       <div id="slide-section">
         <div id="slide-bar">
@@ -195,9 +162,6 @@ function AboutScreen() {
           </div>
         </div>
       </div>
-<<<<<<< HEAD
-    </div>
-=======
       <div ref={product_titleRef} className={`product_title ${product_titleInView ? 'pop-up' : ''}`}>
         <svg viewBox="0 0 500 100" className="svg-title">
           <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
@@ -210,7 +174,6 @@ function AboutScreen() {
         <Gallery />
       </div>
     </Container>
->>>>>>> a27314eb384d6e4bee36d77136e0ebf6ecdc99f6
   );
 }
 
