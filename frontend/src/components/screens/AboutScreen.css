@@ -29,16 +29,44 @@
 .title.pop-up {
     opacity: 1;
     transform: translateY(0);
-}
-
-.mindmap-container {
+  }
+  
+  .paragraph {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-    transition-delay: 0.5s;
-}
-
-.mindmap-container.pop-up {
+    margin-bottom: 30px;
+  }
+  
+  .paragraph.pop-up:nth-child(2) {
+    transition-delay: 0.3s;
+  }
+  
+  .paragraph.pop-up:nth-child(3) {
+    transition-delay: 0.6s;
+  }
+  
+  .paragraph.pop-up:nth-child(4) {
+    transition-delay: 0.9s;
+  }
+  
+  .paragraph.pop-up {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .mindmap-section {
+    margin-top: 1000px; /* Add 1000px margin between paragraphs and mindmap */
+  }
+  
+  .mindmap-container {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    transition-delay: 1.2s; /* Delays the appearance of the mindmap */
+  }
+  
+  .mindmap-container.pop-up {
     opacity: 1;
     transform: translateY(0);
 }
