@@ -125,27 +125,8 @@ function AboutScreen() {
             </div>
           </div>
           <div className="card" style={{ transform: `translateY(${offset}%)` }}>
-            <div>
-              <HoverVideo videoSrc="/img/video2.mp4" imageSrc="/images/image2.jpg" />
-            </div>
             <div className="card-img">
               <img src="/img/08.gif" alt="" />
-            </div>
-          </div>
-          <div className="card" style={{ transform: `translateY(${offset}%)` }}>
-            <div>
-              <HoverVideo videoSrc="/img/video3.mp4" imageSrc="/images/image3.jpg" />
-            </div>
-            <div className="card-img">
-              <img src="/img/03.gif" alt="" />
-            </div>
-          </div>
-          <div className="card" style={{ transform: `translateY(${offset}%)` }}>
-            <div>
-              <HoverVideo videoSrc="/img/video4.mp4" imageSrc="/images/image4.jpg" />
-            </div>
-            <div className="card-img">
-              <img src="/img/04.gif" alt="" />
             </div>
           </div>
         </div>
