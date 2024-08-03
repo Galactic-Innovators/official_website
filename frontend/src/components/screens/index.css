@@ -22,13 +22,17 @@ button {
 }
 
 .login_main-container {
+  display: grid;
   position: relative;
-  width: 1440px;
-  height: 1024px;
+  width: 100%;
+  max-width: 1440px;
+  height: 100vh;
   margin: 0 auto;
   background: #f5f4f7;
   overflow: hidden;
 }
+
+/* 其他内容的样式 */
 .or-divider {
   display: flex;
   align-items: center;
@@ -37,7 +41,7 @@ button {
   gap: 8px;
   position: relative;
   width: 300px;
-  margin: 466px 0 0 570px;
+  margin: 466px 0 0 430px;
   opacity: 0.5;
   z-index: 16;
 }
@@ -56,11 +60,12 @@ button {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  flex-shrink: 0;
+  flex-shrink: 1;
   flex-basis: auto;
   position: relative;
+
   width: 20px;
-  height: 17px;
+  height: 25px;
   color: #000000;
   font-family: Inter, var(--default-font-family);
   font-size: 14px;
@@ -99,7 +104,7 @@ button {
   align-self: stretch;
   flex-wrap: nowrap;
   flex-shrink: 0;
-  gap: 4px;
+  gap: px;
   position: relative;
   min-width: 0;
   z-index: 24;
@@ -164,7 +169,7 @@ button {
 }
 .input-3,
 .input-6 {
-  position: absolute;
+  position: relative;
   width: 300px;
   height: 44px;
   top: -1px;
@@ -178,7 +183,7 @@ button {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  position: absolute;
+  position: relative;
   height: 14px;
   top: calc(50% - 8px);
   right: 15px;
@@ -197,7 +202,7 @@ button {
   align-items: flex-start;
   flex-wrap: nowrap;
   gap: 4px;
-  position: absolute;
+  position: relative;
   width: 76px;
   height: 6px;
   top: 18px;
@@ -303,7 +308,7 @@ button {
   z-index: 36;
 }
 .bg-circle {
-  position: absolute;
+  position: relative;
   width: 733px;
   height: 733px;
   top: -350px;
@@ -316,7 +321,7 @@ button {
   border-radius: 50%;
 }
 .noise-texture {
-  position: absolute;
+  position: relative;
   width: 1440px;
   height: 1200px;
   top: 53px;
@@ -505,8 +510,6 @@ button {
   white-space: nowrap;
   z-index: 13;
 }
-
-
   .sign-up-forms {
     display: flex;
     flex-direction: column;
@@ -674,3 +677,5 @@ button {
     z-index: 13;
   }
   
+
+
