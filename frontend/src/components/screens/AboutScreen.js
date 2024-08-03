@@ -1,43 +1,6 @@
-import React, { useState, useRef } from "react";
-import { Container } from "react-bootstrap";
-import Mindmap from "../Mindmap";
-import Preloader from "../Preloader/Preloader";
+import React, { useState } from "react";
 import { useInView } from "react-intersection-observer";
-import CountDown from "../Countdown/Countdown.js";
 import "./AboutScreen.css"; // Create this CSS file for animations
-
-const HoverVideo = ({ videoSrc, imageSrc }) => {
-  const videoRef = useRef(null);
-  const imageRef = useRef(null);
-
-  const playVideo = () => {
-    if (videoRef.current && imageRef.current) {
-      videoRef.current.style.display = 'block';
-      imageRef.current.style.display = 'none';
-      videoRef.current.play();
-    }
-  };
-
-  const pauseVideo = () => {
-    if (videoRef.current && imageRef.current) {
-      videoRef.current.style.display = 'none';
-      imageRef.current.style.display = 'block';
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0;
-    }
-  };
-
-  return (
-    <div
-      className="video-container"
-      onMouseOver={playVideo}
-      onMouseOut={pauseVideo}
-    >
-      <video ref={videoRef} src={videoSrc} muted />
-      <img ref={imageRef} src={imageSrc} alt="Hover to play" />
-    </div>
-  );
-};
 
 function AboutScreen() {
   const { ref: titleRef, inView: titleInView } = useInView({
@@ -57,10 +20,10 @@ function AboutScreen() {
   const slideTo = (slideNumber) => {
     drawerboxToggle(slideNumber);
     drawerbtnToggle(slideNumber);
-  
+
     const slideOffset = (slideNumber - 1) * -100;
     const slideBarOffset = (slideNumber - 1) * 100;
-  
+
     setChosenSlideNumber(slideNumber);
     setOffset(slideOffset);
     setBarOffset(slideBarOffset);
@@ -116,19 +79,7 @@ function AboutScreen() {
           <div id="bar" style={{ transform: `translateY(${barOffset}%)` }}></div>
         </div>
         <div id="card-section">
-          <div className="card" style={{ transform: `translateY(${offset}%)` }}>
-            <div>
-              <HoverVideo videoSrc="/img/video1.mp4" imageSrc="/images/airpods.jpg" />
-            </div>
-            <div className="card-img">
-              <img src="/img/17.gif" alt="" />
-            </div>
-          </div>
-          <div className="card" style={{ transform: `translateY(${offset}%)` }}>
-            <div className="card-img">
-              <img src="/img/08.gif" alt="" />
-            </div>
-          </div>
+         
         </div>
       </div>
     </div>
