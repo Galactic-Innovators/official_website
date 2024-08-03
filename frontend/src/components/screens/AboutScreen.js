@@ -117,47 +117,32 @@ function AboutScreen() {
         </div>
         <div id="card-section">
           <div className="card" style={{ transform: `translateY(${offset}%)` }}>
-            <div className="card-small-title">Miyazaki Hayao</div>
             <div>
               <HoverVideo videoSrc="/img/video1.mp4" imageSrc="/images/airpods.jpg" />
             </div>
             <div className="card-img">
               <img src="/img/17.gif" alt="" />
             </div>
-            <div className="card-content">
-              Quote: "Even in the dark night, the stars will not disappear."
-              Reflection: In the journey of life, we may encounter storms and difficulties, but as long as we have faith and hope in our hearts, we can find light even in the darkness.
-              <div className="card-title">The Wind Rises</div>
-            </div>
           </div>
           <div className="card" style={{ transform: `translateY(${offset}%)` }}>
-            <div className="card-small-title">Miyazaki Hayao</div>
-            <div className="card-title">Children of the Wind</div>
-            <div className="card-content">
-              Quote: "The wind is calling, to fly freely."
-              Reflection: The wind symbolizes freedom and inspiration. We should bravely follow the voice of our hearts, break through all limitations, and pursue our dreams.
+            <div>
+              <HoverVideo videoSrc="/img/video2.mp4" imageSrc="/images/image2.jpg" />
             </div>
             <div className="card-img">
               <img src="/img/08.gif" alt="" />
             </div>
           </div>
           <div className="card" style={{ transform: `translateY(${offset}%)` }}>
-            <div className="card-small-title">Miyazaki Hayao</div>
-            <div className="card-title">Castle in the Sky</div>
-            <div className="card-content">
-              Quote: "At the end of the sky, there is another world."
-              Reflection: Sometimes we may feel lost and confused, but as long as we maintain faith and hope, we will surely find our own piece of sky and achieve our dreams.
+            <div>
+              <HoverVideo videoSrc="/img/video3.mp4" imageSrc="/images/image3.jpg" />
             </div>
             <div className="card-img">
               <img src="/img/03.gif" alt="" />
             </div>
           </div>
           <div className="card" style={{ transform: `translateY(${offset}%)` }}>
-            <div className="card-small-title">Miyazaki Hayao</div>
-            <div className="card-title">Spirited Away</div>
-            <div className="card-content">
-              Quote: "Don't stop, don't be afraid, just keep going, and you will find the answer."
-              Reflection: In the journey of life, we will encounter various difficulties and challenges, but as long as we persevere, fear no hardship, and believe in our own strength, we will find the answers and achieve our dreams.
+            <div>
+              <HoverVideo videoSrc="/img/video4.mp4" imageSrc="/images/image4.jpg" />
             </div>
             <div className="card-img">
               <img src="/img/04.gif" alt="" />
