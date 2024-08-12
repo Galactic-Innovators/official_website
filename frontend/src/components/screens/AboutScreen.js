@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useInView } from "react-intersection-observer";
 import "./AboutScreen.css"; // Create this CSS file for animations
+import { Container } from 'react-bootstrap';
+import Gallery from './Gallery';
 
 function AboutScreen() {
   const { ref: titleRef, inView: titleInView } = useInView({
