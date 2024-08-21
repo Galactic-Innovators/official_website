@@ -27,6 +27,7 @@ import NotFoundScreen from "./components/screens/NotFoundScreen";
 import PrivacyPolicyScreen from "./components/screens/PrivacyPolicyScreen";
 import TermsofServiceScreen from "./components/screens/TermsofServiceScreen";
 import RefundPolicyScreen from "./components/screens/RefundPolicyScreen";
+import MaintenanceScreen from "./components/screens/MaintenanceScreen";
 // axios.interceptors.response.use(
 //   (response) => response,
 //   (error) => {
@@ -53,7 +54,11 @@ function App() {
         <main className="py-3">
         <Container className="custom-container">
             <Switch>
-              <Route path="/" component={AboutScreen} exact />
+              <Route path="/" component={MaintenanceScreen} exact />
+              <Route path="/aboutus" component={MaintenanceScreen} exact />
+
+              {/* <Route path="/" component={AboutScreen} exact /> */}
+              {/* <Route path="/aboutus" component={AboutScreen} exact /> */}
               <Route path="/home" component={HomeScreen} exact />
               <Route path="/login" component={LoginScreen} exact />
               <Route path="/register" component={RegisterScreen} exact />
@@ -61,7 +66,7 @@ function App() {
               <Route path="/cart/:id?" component={CartScreen} exact />
               <Route path="/wishlist/:id?" component={WishlistScreen} exact />
               <Route path="/all_products" component={AllProductScreen} exact />
-              <Route path="/aboutus" component={AboutScreen} exact />
+              
               <Route path="/refund-policy" component={RefundPolicyScreen} exact />
               {/* <Route
             path="/aboutus"
