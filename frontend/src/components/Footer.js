@@ -72,7 +72,7 @@ function Footer() {
           </Col>
           <Col md="auto">
             <h5 style={{ color: 'grey' }} className="h5">Social Media</h5>
-            <a href="https://www.instagram.com/galatic_innovators?igsh=aHo0ZGZ2MHJiZG5p">
+            <a href="https://www.instagram.com/galactic_innovators?igsh=NzZua2thNm85Y3Q0">
               <FontAwesomeIcon icon={faInstagram} size="lg" className="footer-icon" />
             </a>
             <div className="wechat-icon-wrapper" style={{ display: 'inline-block', position: 'relative' }}>
