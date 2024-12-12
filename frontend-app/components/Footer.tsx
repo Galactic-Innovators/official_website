@@ -5,6 +5,7 @@ import { SiXiaohongshu } from 'react-icons/si'
 import { useLanguage } from '@/contexts/LanguageContext'
 import Image from 'next/image'
 import wechat_qr from '@/public/images/wechat_qr_code.jpg'
+import Link from 'next/link'
 
 const content = {
   en: {
@@ -58,8 +59,16 @@ export default function Footer() {
             <p>&copy; 2024 Galactic Innovators Group {text.allRightsReserved}</p>
           </div>
           <div className="w-full md:w-1/3 text-right">
-            <a href="#" className="block mb-2 hover:text-gray-400">{text.termsOfService}</a>
-            <a href="#" className="block hover:text-gray-400">{text.privacyPolicy}</a>
+            <Link 
+              href="/terms-of-service"
+              className="block mb-2 hover:text-gray-400">
+              {text.termsOfService}
+            </Link>
+            <Link 
+              href="/privacy-policy"
+              className="block mb-2 hover:text-gray-400">
+              {text.privacyPolicy}
+            </Link>
           </div>
         </div>
       </div>

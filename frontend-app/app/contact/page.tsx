@@ -6,7 +6,7 @@ import Footer from '@/components/Footer'
 const content = {
   en: {
     title: 'Contact Us',
-    description: 'If you need any 3D design & printing services, website design & building services',
+    description: 'If you need any 3D design & printing services, please contact us using the email below:',
     email: 'info@gigofficial.com',
     emailButton: 'Send us an email',
     formTitle: 'Please write us a message:',
@@ -17,7 +17,7 @@ const content = {
   },
   zh: {
     title: '联系我们',
-    description: '如果您需要任何3D设计和打印服务、网站设计和构建服务，请使用以下电子邮件联系我们：',
+    description: '如果您需要任何3D设计和打印服务，请使用以下电子邮件联系我们：',
     email: 'info@gigofficial.com',
     emailButton: '给我们发送电子邮件',
     formTitle: '请给我们留言：',

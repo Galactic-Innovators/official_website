@@ -8,19 +8,17 @@ import { useLanguage } from '@/contexts/LanguageContext'
 const content = {
   en: {
     title: 'Galactic Innovators Group',
-    subtitle: '"Inspiration often flashes by, but is rarely realized"',
-    description1: 'Thus, Galactic Innovators Group was born (born in time)',
-    description2: 'Galactic Innovators Group (GIG for short) is mainly engaged in realizing personalized 3D printing products for users. At the same time, we can also realize customized accessories, decorations, etc., and can choose materials such as PLA and wood.',
-    description3: 'We are a bunch of enthusiasts with the goal of helping creators/innovators to achieve their dreams. We wish to create new possibilities and chances for better changes while enhancing the quality of living by making innovative products open to the public.',
-    description4: 'Everything in this world is created by someone or something, and there is no reason why something cannot be made. That is why we accept all and every idea/dream so there is a chance to refine it, make it better, or turn it into reality. We want to make this world a better place by creating innovative products/ideas.',
+    subtitle: 'Every idea begins with a spark—a moment of inspiration.',
+    description1: 'We bring your imagination to life through 3D printing and thoughtful design.',
+    description2: 'With precision and care, we craft products that inspire, innovate, and transform.',
+    description3: 'Together, let’s turn your ideas into reality and shape a better tomorrow.',
   },
   zh: {
     title: '星穹创造',
-    subtitle: '"灵感有时总是一闪而过，却鲜少把它实现"',
-    description1: '由此，星穹创造就此诞生（应时而生）',
-    description2: '星穹创造（英文，简称：GIG）是以实现用户个性化3D打印产品为主营业务。同时，我们也可以实现定制配件，配饰等，并且可选择pla，木制等材料。',
-    description3: '我们是一群热衷于帮助创造者/创新者实现梦想的人。我们希望通过将创新产品开放给公众，创造新的可能性和机会，以促进更好的变革，同时提高生活质量。',
-    description4: '这个世界上的一切都是由某人或某事创造的，没有理由不能制造某些东西。这就是为什么我们接受所有的想法/梦想，这样就有机会完善它，让它变得更好，或者把梦想变成现实。我们希望通过创造创新产品/创意来让这个世界变得更美好。',
+    subtitle: '每一个想法都始于灵感的火花——那一瞬间的闪光。',
+    description1: '我们通过3D打印和精心设计将您的想象变为现实。',
+    description2: '以精确与细腻打造出能够激励、创新并改变的产品。',
+    description3: '让我们一起将您的想法变为现实，共同塑造更美好的未来。',
   },
 }
 
@@ -31,19 +29,23 @@ export default function CompanyIntro() {
     triggerOnce: true,
     threshold: 0.1,
   })
-
+  const videoRef = useRef<HTMLVideoElement>(null)
   useEffect(() => {
     if (inView) {
       controls.start('visible')
     }
   }, [controls, inView])
-
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.5; // Slow down the video
+    }
+  }, [])
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.2, // Slower stagger for a calm effect
       },
     },
   }
@@ -54,7 +56,7 @@ export default function CompanyIntro() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
+        duration: 1, // Slower animation for elegance
       },
     },
   }
@@ -62,33 +64,56 @@ export default function CompanyIntro() {
   const text = content[language]
 
   return (
-    <section ref={ref} className="py-20 bg-gray-100">
+    <section ref={ref} className="relative py-20 overflow-hidden">
+      <video
+        ref={videoRef}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover"
+      >
+        <source src="/videos/background.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div className="absolute top-0 left-0 w-full h-full bg-[#07072b] bg-opacity-75"></div>
       <motion.div
-        className="container mx-auto px-4"
+        className="container mx-auto px-4 text-center flex flex-col items-center"
         variants={containerVariants}
         initial="hidden"
         animate={controls}
       >
-        <motion.h1 variants={itemVariants} className="text-4xl font-bold mb-6 text-center">
+        <motion.h1
+          variants={itemVariants}
+          className="text-5xl font-extrabold mb-8 text-gray-200 font-serif"
+        >
           {text.title}
         </motion.h1>
-        <motion.p variants={itemVariants} className="text-xl mb-6 text-center">
+        <motion.p
+          variants={itemVariants}
+          className="text-2xl italic mb-8 text-gray-400 font-sans"
+        >
           {text.subtitle}
         </motion.p>
-        <motion.p variants={itemVariants} className="text-lg mb-6">
+        <motion.p
+          variants={itemVariants}
+          className="text-lg mb-6 leading-relaxed text-gray-300 font-mono"
+        >
           {text.description1}
         </motion.p>
-        <motion.p variants={itemVariants} className="text-lg mb-6">
+        <motion.p
+          variants={itemVariants}
+          className="text-lg mb-6 leading-relaxed text-gray-300 font-mono"
+        >
           {text.description2}
         </motion.p>
-        <motion.p variants={itemVariants} className="text-lg mb-6">
+        <motion.p
+          variants={itemVariants}
+          className="text-lg mb-6 leading-relaxed text-gray-300 font-mono"
+        >
           {text.description3}
-        </motion.p>
-        <motion.p variants={itemVariants} className="text-lg mb-6">
-          {text.description4}
         </motion.p>
       </motion.div>
     </section>
   )
 }
-
