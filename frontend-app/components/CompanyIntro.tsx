@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '@/contexts/LanguageContext'
 
@@ -10,7 +10,7 @@ const content = {
     subtitle: 'Every idea begins with a spark—a moment of inspiration.',
     description1: 'We bring your imagination to life through 3D printing and thoughtful design.',
     description2: 'With precision and care, we craft products that inspire, innovate, and transform.',
-    description3: 'Together, let’s turn your ideas into reality and shape a better tomorrow.',
+    description3: 'Together, let\'s turn your ideas into reality and shape a better tomorrow.',
   },
   zh: {
     title: '星穹创造',
@@ -24,46 +24,40 @@ const content = {
 export default function CompanyIntro() {
   const { language } = useLanguage()
   const [showVideo, setShowVideo] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   const text = content[language]
 
   return (
-    <section
-      className={`relative h-[60vh] w-full overflow-hidden ${
-        !showVideo ? 'bg-black' : ''
-      }`}
-    >
-      {/* Show video only after sentences are fully displayed */}
+    <section className="relative h-screen w-full overflow-hidden bg-black">
       {showVideo && (
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden bg-black">
-        {!showVideo && (
-          <div className="absolute top-0 left-0 w-full h-full bg-black"></div> // Placeholder
-        )}
-        <iframe
-          className={`absolute top-[-20%] left-0 w-full h-[140%] object-cover ${
-            showVideo ? 'opacity-100' : 'opacity-0'
-          } transition-opacity duration-500`}
-          src="https://www.youtube.com/embed/UMWSKmQte3w?autoplay=1&mute=1&loop=1&playlist=UMWSKmQte3w&controls=0&modestbranding=1&iv_load_policy=3&fs=0"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="autoplay; loop; encrypted-media"
-          onLoad={() => setShowVideo(true)} // Show video after it's loaded
-        ></iframe>
-      </div>
+        <div className="absolute inset-0 overflow-hidden">
+          <iframe
+            className="absolute top-1/2 left-1/2 w-[177.77777778vh] min-w-full min-h-full -translate-x-1/2 -translate-y-1/2"
+            src="https://www.youtube.com/embed/UMWSKmQte3w?autoplay=1&mute=1&loop=1&playlist=UMWSKmQte3w&controls=0&modestbranding=1&iv_load_policy=3&fs=0"
+            title="YouTube video player"
+            allow="autoplay; loop; encrypted-media"
+            onLoad={() => setShowVideo(true)}
+          ></iframe>
+          <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        </div>
       )}
 
-      {/* Overlay */}
-      {showVideo && (
-        <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40"></div>
-      )}
-
-      {/* Content */}
-      <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4 z-10">
+      <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4 z-20">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-5xl font-extrabold mb-8 font-serif"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-4 md:mb-8 font-serif"
         >
           {text.title}
         </motion.h1>
@@ -71,7 +65,7 @@ export default function CompanyIntro() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5 }}
-          className="text-2xl italic mb-8 font-sans"
+          className="text-xl sm:text-2xl md:text-3xl italic mb-4 md:mb-8 font-sans"
         >
           {text.subtitle}
         </motion.p>
@@ -80,14 +74,18 @@ export default function CompanyIntro() {
           animate={{ opacity: 1 }}
           transition={{
             duration: 2,
-            onComplete: () => setShowVideo(true), // Show video after this animation completes
+            onComplete: () => setShowVideo(true),
           }}
+          className="space-y-2 md:space-y-4 max-w-2xl mx-auto"
         >
-          <p className="text-lg mb-6 leading-relaxed">{text.description1}</p>
-          <p className="text-lg mb-6 leading-relaxed">{text.description2}</p>
-          <p className="text-lg mb-6 leading-relaxed">{text.description3}</p>
+          {[text.description1, text.description2, text.description3].map((desc, index) => (
+            <p key={index} className="text-sm sm:text-base md:text-lg leading-relaxed">
+              {desc}
+            </p>
+          ))}
         </motion.div>
       </div>
     </section>
   )
 }
+
