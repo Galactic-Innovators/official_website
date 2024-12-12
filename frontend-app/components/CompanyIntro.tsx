@@ -26,11 +26,11 @@ export default function CompanyIntro() {
   const text = content[language]
 
   return (
-    <section className="relative h-[80vh] w-full overflow-hidden">
+    <section className="relative h-[60vh] w-full overflow-hidden">
       {/* Cropped YouTube Video */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
         <iframe
-          className="absolute top-0 left-0 w-full h-[150%] object-cover scale-[1.1]" // Adjusted for cropping and zooming
+          className="absolute top-[-20%] left-0 w-full h-[140%] object-cover"
           src="https://www.youtube.com/embed/UMWSKmQte3w?autoplay=1&mute=1&loop=1&playlist=UMWSKmQte3w&controls=0&modestbranding=1&iv_load_policy=3&fs=0"
           title="YouTube video player"
           frameBorder="0"
