@@ -1,8 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-import { motion, useAnimation } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
+import { motion } from 'framer-motion'
 import { useLanguage } from '@/contexts/LanguageContext'
 
 const content = {
@@ -24,96 +22,53 @@ const content = {
 
 export default function CompanyIntro() {
   const { language } = useLanguage()
-  const controls = useAnimation()
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  })
-  const videoRef = useRef<HTMLVideoElement>(null)
-  useEffect(() => {
-    if (inView) {
-      controls.start('visible')
-    }
-  }, [controls, inView])
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 0.5; // Slow down the video
-    }
-  }, [])
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2, // Slower stagger for a calm effect
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 1, // Slower animation for elegance
-      },
-    },
-  }
 
   const text = content[language]
 
   return (
-    <section ref={ref} className="relative py-20 overflow-hidden">
-      <video
-        ref={videoRef}
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover"
-      >
-        <source src="/videos/background.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <div className="absolute top-0 left-0 w-full h-full bg-[#07072b] bg-opacity-75"></div>
-      <motion.div
-        className="container mx-auto px-4 text-center flex flex-col items-center"
-        variants={containerVariants}
-        initial="hidden"
-        animate={controls}
-      >
+    <section className="relative h-[80vh] w-full overflow-hidden">
+      {/* Cropped YouTube Video */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+        <iframe
+          className="absolute top-0 left-0 w-full h-[150%] object-cover scale-[1.1]" // Adjusted for cropping and zooming
+          src="https://www.youtube.com/embed/UMWSKmQte3w?autoplay=1&mute=1&loop=1&playlist=UMWSKmQte3w&controls=0&modestbranding=1&iv_load_policy=3&fs=0"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="autoplay; loop; encrypted-media"
+        ></iframe>
+      </div>
+
+      {/* Overlay */}
+      <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40"></div>
+
+      {/* Content */}
+      <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4 z-10">
         <motion.h1
-          variants={itemVariants}
-          className="text-5xl font-extrabold mb-8 text-gray-200 font-serif"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="text-5xl font-extrabold mb-8 font-serif"
         >
           {text.title}
         </motion.h1>
         <motion.p
-          variants={itemVariants}
-          className="text-2xl italic mb-8 text-gray-400 font-sans"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5 }}
+          className="text-2xl italic mb-8 font-sans"
         >
           {text.subtitle}
         </motion.p>
-        <motion.p
-          variants={itemVariants}
-          className="text-lg mb-6 leading-relaxed text-gray-300 font-mono"
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2 }}
         >
-          {text.description1}
-        </motion.p>
-        <motion.p
-          variants={itemVariants}
-          className="text-lg mb-6 leading-relaxed text-gray-300 font-mono"
-        >
-          {text.description2}
-        </motion.p>
-        <motion.p
-          variants={itemVariants}
-          className="text-lg mb-6 leading-relaxed text-gray-300 font-mono"
-        >
-          {text.description3}
-        </motion.p>
-      </motion.div>
+          <p className="text-lg mb-6 leading-relaxed">{text.description1}</p>
+          <p className="text-lg mb-6 leading-relaxed">{text.description2}</p>
+          <p className="text-lg mb-6 leading-relaxed">{text.description3}</p>
+        </motion.div>
+      </div>
     </section>
   )
 }
