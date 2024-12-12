@@ -87,5 +87,6 @@ export default function CompanyIntro() {
       </div>
     </section>
   )
+  
 }
 
