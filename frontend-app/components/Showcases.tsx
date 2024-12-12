@@ -4,24 +4,27 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useLanguage } from '@/contexts/LanguageContext'
-
+import refractor_image from '@/public/images/60mm_refractor.jpg'
+import display_stand_image from '@/public/images/display_stand.png'
+import scanner_image from '@/public/images/scanner.jpg'
+import wukong_image from '@/public/images/wukong.png'
 const content = {
   en: {
     title: 'Showcases',
     showcases: [
-      { title: "Jeremy CTR's Front License Plate Adaptor", image: '/placeholder.svg?height=400&width=600' },
-      { title: "Eric's Telescope", image: '/placeholder.svg?height=400&width=600' },
-      { title: "Imran's CTR side fin/Cancards", image: '/placeholder.svg?height=400&width=600' },
-      { title: "Jeremy's 6-Speed transmission model", image: '/placeholder.svg?height=400&width=600' },
+      { title: "Black Myth: Wukong, the Golden Cudgel", image:wukong_image },
+      { title: "60mm Refractor", image: refractor_image },
+      { title: "Display stand", image: display_stand_image},
+      { title: "3D Scanner", image: scanner_image },
     ],
   },
   zh: {
     title: '产品展示',
     showcases: [
-      { title: "Jeremy CTR的前车牌适配器", image: '/placeholder.svg?height=400&width=600' },
-      { title: "Eric的望远镜", image: '/placeholder.svg?height=400&width=600' },
-      { title: "Imran的CTR侧鳍/Cancards", image: '/placeholder.svg?height=400&width=600' },
-      { title: "Jeremy的6速变速器模型", image: '/placeholder.svg?height=400&width=600' },
+      { title: "黑神话悟空： 如意金箍棒", image: wukong_image},
+      { title: "60mm 折射镜", image: refractor_image },
+      { title: "展示架", image: refractor_image },
+      { title: "3D 扫描仪", image: scanner_image},
     ],
   },
 }

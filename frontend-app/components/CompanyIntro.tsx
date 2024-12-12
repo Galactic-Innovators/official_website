@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '@/contexts/LanguageContext'
 
@@ -22,24 +23,39 @@ const content = {
 
 export default function CompanyIntro() {
   const { language } = useLanguage()
+  const [showVideo, setShowVideo] = useState(false)
 
   const text = content[language]
 
   return (
-    <section className="relative h-[60vh] w-full overflow-hidden">
-      {/* Cropped YouTube Video */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+    <section
+      className={`relative h-[60vh] w-full overflow-hidden ${
+        !showVideo ? 'bg-black' : ''
+      }`}
+    >
+      {/* Show video only after sentences are fully displayed */}
+      {showVideo && (
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden bg-black">
+        {!showVideo && (
+          <div className="absolute top-0 left-0 w-full h-full bg-black"></div> // Placeholder
+        )}
         <iframe
-          className="absolute top-[-20%] left-0 w-full h-[140%] object-cover"
+          className={`absolute top-[-20%] left-0 w-full h-[140%] object-cover ${
+            showVideo ? 'opacity-100' : 'opacity-0'
+          } transition-opacity duration-500`}
           src="https://www.youtube.com/embed/UMWSKmQte3w?autoplay=1&mute=1&loop=1&playlist=UMWSKmQte3w&controls=0&modestbranding=1&iv_load_policy=3&fs=0"
           title="YouTube video player"
           frameBorder="0"
           allow="autoplay; loop; encrypted-media"
+          onLoad={() => setShowVideo(true)} // Show video after it's loaded
         ></iframe>
       </div>
+      )}
 
       {/* Overlay */}
-      <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40"></div>
+      {showVideo && (
+        <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40"></div>
+      )}
 
       {/* Content */}
       <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4 z-10">
@@ -62,7 +78,10 @@ export default function CompanyIntro() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 2 }}
+          transition={{
+            duration: 2,
+            onComplete: () => setShowVideo(true), // Show video after this animation completes
+          }}
         >
           <p className="text-lg mb-6 leading-relaxed">{text.description1}</p>
           <p className="text-lg mb-6 leading-relaxed">{text.description2}</p>
