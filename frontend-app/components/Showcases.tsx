@@ -23,7 +23,7 @@ const content = {
     showcases: [
       { title: "黑神话悟空： 如意金箍棒", image: wukong_image},
       { title: "60mm 折射镜", image: refractor_image },
-      { title: "展示架", image: refractor_image },
+      { title: "展示架", image: display_stand_image },
       { title: "3D 扫描仪", image: scanner_image},
     ],
   },
