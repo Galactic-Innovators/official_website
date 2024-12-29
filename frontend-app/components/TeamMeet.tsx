@@ -19,8 +19,8 @@ const content = {
     title: 'Meet Our Team',
     teamMembers: [
       { name: 'Jeremy Cheung', role: 'Founder, 3D Designer & 3D Printing Specialist', image: Jeremy, linkedin: 'https://www.linkedin.com/in/jeremyc1231/' },
-      { name: 'Kevin Chen', role: 'Co-Founder, Full-stack Developer', image: Kevin, linkedin: 'https://www.linkedin.com/in/kevinchenzk/' },
-      { name: 'Anny Liu', role: 'Co-Founder, Marketing Specialist', image: Anny },
+      { name: 'Kevin Chen', role: 'Full-stack Developer', image: Kevin, linkedin: 'https://www.linkedin.com/in/kevinchenzk/' },
+      { name: 'Anny Liu', role: 'Marketing Specialist', image: Anny },
       { name: 'Eric Li', role: '3D Designer & Full-stack Developer', image: Eric, linkedin: 'https://www.linkedin.com/in/ericxuchengli/' },
       { name: 'Cycas', role: 'Full-stack Developer', image: Cycas },
       { name: "Imran Malik", role: "3D Designer", image: Imran },
@@ -34,8 +34,8 @@ const content = {
     title: '认识我们的团队',
     teamMembers: [
       { name: 'Jeremy Cheung', role: '创始人、3D 设计师和 3D 打印专家', image: Jeremy, linkedin: 'https://www.linkedin.com/in/jeremyc1231/' },
-      { name: 'Kevin Chen', role: '联合创始人、全栈开发人员', image: Kevin, linkedin: 'https://www.linkedin.com/in/kevinchenzk/' },
-      { name: 'Anny Liu', role: '联合创始人、营销专家', image: Anny },
+      { name: 'Kevin Chen', role: '全栈开发人员', image: Kevin, linkedin: 'https://www.linkedin.com/in/kevinchenzk/' },
+      { name: 'Anny Liu', role: '营销专家', image: Anny },
       { name: 'Eric Li', role: '3D 设计师和全栈开发人员', image: Eric, linkedin: 'https://www.linkedin.com/in/ericxuchengli/' },
       { name: 'Cycas', role: '全栈开发人员', image: Cycas },
       { name: "Imran Malik", role: "3D 设计师", image: Imran },
